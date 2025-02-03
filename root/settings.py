@@ -118,12 +118,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Statik fayllarni qaysi joylardan izlashni ko'rsatadi
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
-# Fayllar yig'iladigan papka (collectstatic buyrug'i ishlatiladi)
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

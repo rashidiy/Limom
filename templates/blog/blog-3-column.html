@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html class="no-js" lang="zxx">
     
@@ -9,37 +10,37 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href={% static '"images/favicon.png"' %}>
         <!-- Material Design Iconic Font-V2.2.0 -->
-        <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="{% static 'css/material-design-iconic-font.min.css' %}">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
         <!-- Font Awesome Stars-->
-        <link rel="stylesheet" href="css/fontawesome-stars.css">
+        <link rel="stylesheet" href="{% static 'css/fontawesome-stars.css' %}">
         <!-- Meanmenu CSS -->
-        <link rel="stylesheet" href="css/meanmenu.css">
+        <link rel="stylesheet" href="{% static 'css/meanmenu.css' %}">
         <!-- owl carousel CSS -->
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
         <!-- Slick Carousel CSS -->
-        <link rel="stylesheet" href="css/slick.css">
+        <link rel="stylesheet" href="{% static 'css/slick.css' %}">
         <!-- Animate CSS -->
-        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
         <!-- Jquery-ui CSS -->
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
         <!-- Venobox CSS -->
-        <link rel="stylesheet" href="css/venobox.css">
+        <link rel="stylesheet" href="{% static 'css/venobox.css' %}">
         <!-- Nice Select CSS -->
-        <link rel="stylesheet" href="css/nice-select.css">
+        <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
         <!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
         <!-- Bootstrap V4.1.3 Fremwork CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
         <!-- Helper CSS -->
-        <link rel="stylesheet" href="css/helper.css">
+        <link rel="stylesheet" href="{% static 'css/helper.css' %}">
         <!-- Main Style CSS -->
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
         <!-- Modernizr js -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
@@ -98,8 +99,8 @@
                                             <div class="ht-language-trigger"><span>English</span></div>
                                             <div class="language ht-language">
                                                 <ul class="ht-setting-list">
-                                                    <li class="active"><a href="#"><img src="images/menu/flag-icon/1.jpg" alt="">English</a></li>
-                                                    <li><a href="#"><img src="images/menu/flag-icon/2.jpg" alt="">Français</a></li>
+                                                    <li class="active"><a href="#"><img src="{% static 'images/menu/flag-icon/1.jpg' %}" alt="">English</a></li>
+                                                    <li><a href="#"><img src="{% static 'images/menu/flag-icon/2.jpg' %}" alt="">Français</a></li>
                                                 </ul>
                                             </div>
                                         </li>
@@ -120,7 +121,7 @@
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
                                     <a href="index.html">
-                                        <img src="images/menu/logo/1.jpg" alt="">
+                                        <img src="{% static 'images/menu/logo/1.jpg' %}" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -229,7 +230,7 @@
                                                 <ul class="minicart-product-list">
                                                     <li>
                                                         <a href="single-product.html" class="minicart-product-image">
-                                                            <img src="images/product/small-size/5.jpg" alt="cart products">
+                                                            <img src="{% static 'images/product/small-size/5.jpg' %}" alt="cart products">
                                                         </a>
                                                         <div class="minicart-product-details">
                                                             <h6><a href="single-product.html">Aenean eu tristique</a></h6>
@@ -241,7 +242,7 @@
                                                     </li>
                                                     <li>
                                                         <a href="single-product.html" class="minicart-product-image">
-                                                            <img src="images/product/small-size/6.jpg" alt="cart products">
+                                                            <img src="{% static 'images/product/small-size/6.jpg' %}" alt="cart products">
                                                         </a>
                                                         <div class="minicart-product-details">
                                                             <h6><a href="single-product.html">Aenean eu tristique</a></h6>
@@ -328,54 +329,43 @@
                                                 <ul class="hb-dropdown">
                                                     <li class="sub-dropdown-holder"><a href="blog-left-sidebar.html">Blog Grid View</a>
                                                         <ul class="hb-dropdown hb-sub-dropdown">
-                                                            <li><a href="blog-2-column.html">Blog 2 Column</a></li>
-                                                            <li><a href="blog-3-column.html">Blog 3 Column</a></li>
-                                                            <li><a href="blog-left-sidebar.html">Grid Left Sidebar</a></li>
-                                                            <li><a href="blog-right-sidebar.html">Grid Right Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:blog2' %}">Blog 2 Column</a></li>
+                                                            <li><a href="{% url 'shop:blog4' %}">Grid Left Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:blog5' %}">Grid Right Sidebar</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="sub-dropdown-holder"><a href="blog-list-left-sidebar.html">Blog List View</a>
                                                         <ul class="hb-dropdown hb-sub-dropdown">
                                                             <li><a href="blog-list.html">Blog List</a></li>
-                                                            <li><a href="blog-list-left-sidebar.html">List Left Sidebar</a></li>
-                                                            <li><a href="blog-list-right-sidebar.html">List Right Sidebar</a></li>
+                                                              <li><a href="{% url 'shop:bloglist2' %}">List Left Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:bloglist3' %}">List Right Sidebar</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="sub-dropdown-holder"><a href="blog-details-left-sidebar.html">Blog Details</a>
                                                         <ul class="hb-dropdown hb-sub-dropdown">
-                                                            <li><a href="blog-details-left-sidebar.html">Left Sidebar</a></li>
-                                                            <li><a href="blog-details-right-sidebar.html">Right Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:blogdetailslist2' %}">Left Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:blogdetailslist' %}">Right Sidebar</a></li>
                                                         </ul>
                                                     </li>
-                                                    <li class="sub-dropdown-holder"><a href="blog-gallery-format.html">Blog Format</a>
-                                                        <ul class="hb-dropdown hb-sub-dropdown">
-                                                            <li><a href="blog-audio-format.html">Blog Audio Format</a></li>
-                                                            <li><a href="blog-video-format.html">Blog Video Format</a></li>
-                                                            <li><a href="blog-gallery-format.html">Blog Gallery Format</a></li>
-                                                        </ul>
-                                                    </li>
+
                                                 </ul>
                                             </li>
                                             <li class="catmenu-dropdown megamenu-static-holder"><a href="index.html">Pages</a>
                                                 <ul class="megamenu hb-megamenu">
                                                     <li><a href="blog-left-sidebar.html">Blog Layouts</a>
                                                         <ul>
-                                                            <li><a href="blog-2-column.html">Blog 2 Column</a></li>
-                                                            <li class="active"><a href="blog-3-column.html">Blog 3 Column</a></li>
-                                                            <li><a href="blog-left-sidebar.html">Grid Left Sidebar</a></li>
-                                                            <li><a href="blog-right-sidebar.html">Grid Right Sidebar</a></li>
-                                                            <li><a href="blog-list.html">Blog List</a></li>
-                                                            <li><a href="blog-list-left-sidebar.html">List Left Sidebar</a></li>
-                                                            <li><a href="blog-list-right-sidebar.html">List Right Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:blog2' %}">Blog 2 Column</a></li>
+                                                            <li><a href="{% url 'shop:blog4' %}">Grid Left Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:blog5' %}">Grid Right Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:bloglist' %}">Blog List</a></li>
+                                                            <li><a href="{% url 'shop:bloglist2' %}">List Left Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:bloglist3' %}">List Right Sidebar</a></li>
                                                         </ul>
                                                     </li>
                                                     <li><a href="blog-details-left-sidebar.html">Blog Details Pages</a>
                                                         <ul>
-                                                            <li><a href="blog-details-left-sidebar.html">Left Sidebar</a></li>
-                                                            <li><a href="blog-details-right-sidebar.html">Right Sidebar</a></li>
-                                                            <li><a href="blog-audio-format.html">Blog Audio Format</a></li>
-                                                            <li><a href="blog-video-format.html">Blog Video Format</a></li>
-                                                            <li><a href="blog-gallery-format.html">Blog Gallery Format</a></li>
+                                                            <li><a href="{% url 'shop:blogdetailslist2' %}">Left Sidebar</a></li>
+                                                            <li><a href="{% url 'shop:blogdetailslist' %}">Right Sidebar</a></li>
                                                         </ul>
                                                     </li>
                                                     <li><a href="index.html">Other Pages</a>
@@ -444,7 +434,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="li-blog-single-item pb-25">
                                         <div class="li-blog-banner">
-                                            <a href="blog-details-left-sidebar.html"><img class="img-full" src="images/blog-banner/2.jpg" alt=""></a>
+                                            <a href="blog-details-left-sidebar.html"><img class="img-full" src="{% static 'images/blog-banner/2.jpg' %}" alt=""></a>
                                         </div>
                                         <div class="li-blog-content">
                                             <div class="li-blog-details">
@@ -464,13 +454,13 @@
                                     <div class="li-blog-single-item pb-25">
                                         <div class="li-blog-gallery-slider slick-dot-style">
                                             <div class="li-blog-banner">
-                                                <a href="blog-details-left-sidebar.html"><img class="img-full" src="images/blog-banner/1.jpg" alt=""></a>
+                                                <a href="blog-details-left-sidebar.html"><img class="img-full" src="{% static 'images/blog-banner/1.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="li-blog-banner">
-                                                <a href="blog-details-left-sidebar.html"><img class="img-full" src="images/blog-banner/2.jpg" alt=""></a>
+                                                <a href="blog-details-left-sidebar.html"><img class="img-full" src="{% static 'images/blog-banner/2.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="li-blog-banner">
-                                                <a href="blog-details-left-sidebar.html"><img class="img-full" src="images/blog-banner/3.jpg" alt=""></a>
+                                                <a href="blog-details-left-sidebar.html"><img class="img-full" src="{% static 'images/blog-banner/3.jpg' %}" alt=""></a>
                                             </div>
                                         </div>
                                         <div class="li-blog-content">
@@ -528,7 +518,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="li-blog-single-item pb-25">
                                         <div class="li-blog-banner">
-                                            <a href="blog-details-left-sidebar.html"><img class="img-full" src="images/blog-banner/5.jpg" alt=""></a>
+                                            <a href="blog-details-left-sidebar.html"><img class="img-full" src="{% static 'images/blog-banner/5.jpg' %}" alt=""></a>
                                         </div>
                                         <div class="li-blog-content">
                                             <div class="li-blog-details">
@@ -547,7 +537,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="li-blog-single-item pb-25">
                                         <div class="li-blog-banner">
-                                            <a href="blog-details-left-sidebar.html"><img class="img-full" src="images/blog-banner/6.jpg" alt=""></a>
+                                            <a href="blog-details-left-sidebar.html"><img class="img-full" src="{% static 'images/blog-banner/6.jpg' %}" alt=""></a>
                                         </div>
                                         <div class="li-blog-content">
                                             <div class="li-blog-details">
@@ -599,7 +589,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                                     <div class="li-shipping-inner-box">
                                         <div class="shipping-icon">
-                                            <img src="images/shipping-icon/1.png" alt="Shipping Icon">
+                                            <img src="{% static 'images/shipping-icon/1.png' %}" alt="Shipping Icon">
                                         </div>
                                         <div class="shipping-text">
                                             <h2>Free Delivery</h2>
@@ -612,7 +602,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                                     <div class="li-shipping-inner-box">
                                         <div class="shipping-icon">
-                                            <img src="images/shipping-icon/2.png" alt="Shipping Icon">
+                                            <img src="{% static 'images/shipping-icon/2.png' %}" alt="Shipping Icon">
                                         </div>
                                         <div class="shipping-text">
                                             <h2>Safe Payment</h2>
@@ -625,7 +615,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                                     <div class="li-shipping-inner-box">
                                         <div class="shipping-icon">
-                                            <img src="images/shipping-icon/3.png" alt="Shipping Icon">
+                                            <img src="{% static 'images/shipping-icon/3.png' %}" alt="Shipping Icon">
                                         </div>
                                         <div class="shipping-text">
                                             <h2>Shop with Confidence</h2>
@@ -638,7 +628,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                                     <div class="li-shipping-inner-box">
                                         <div class="shipping-icon">
-                                            <img src="images/shipping-icon/4.png" alt="Shipping Icon">
+                                            <img src="{% static 'images/shipping-icon/4.png' %}" alt="Shipping Icon">
                                         </div>
                                         <div class="shipping-text">
                                             <h2>24/7 Help Center</h2>
@@ -661,7 +651,7 @@
                                 <!-- Begin Footer Logo Area -->
                                 <div class="col-lg-4 col-md-6">
                                     <div class="footer-logo">
-                                        <img src="images/menu/logo/1.jpg" alt="Footer Logo">
+                                        <img src="{% static 'images/menu/logo/1.jpg' %}" alt="Footer Logo">
                                         <p class="info">
                                             We are a team of designers and developers that create high quality HTML Template & Woocommerce, Shopify Theme.
                                         </p>
@@ -798,7 +788,7 @@
                                 <!-- Begin Footer Payment Area -->
                                 <div class="copyright text-center">
                                     <a href="#">
-                                        <img src="images/payment/1.png" alt="">
+                                        <img src="{% static 'images/payment/1.png' %}" alt="">
                                     </a>
                                 </div>
                                 <!-- Footer Payment Area End Here -->
