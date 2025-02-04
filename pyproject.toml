@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "e-commerce"
+name = "limom"
 version = "0.1.0"
 description = ""
 authors = ["rashidiy <bubbless7456@gmail.com>"]
