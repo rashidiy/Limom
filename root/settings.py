@@ -13,7 +13,8 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
-
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _text
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +33,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+#    'jazzmin', # todo: poetry add django-jazzmin
+#    'modeltranslation', # todo: poetry add django-modeltranslation
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,9 +47,14 @@ INSTALLED_APPS = [
     # 3rd party apps
 ]
 
+# JAZZMIN_SETTINGS = {
+#     "language_chooser": True,
+# }
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -105,13 +113,21 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz-uz'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
+
+LANGUAGES = [
+    ("uz", _("Uzbek")),
+    ("en", _("English")),
+    ("ru", _("Russian")),
+]
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
+LOCALE_PATHS = [BASE_DIR / 'locale']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
