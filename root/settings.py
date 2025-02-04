@@ -50,10 +50,19 @@ INSTALLED_APPS = [
     # 3rd party apps
 ]
 
-# JAZZMIN_SETTINGS = {
-#     "language_chooser": True,
-# }
-
+JAZZMIN_SETTINGS = {
+    "icons": {
+        "products.Product": "fas fa-box",
+        "products.ProductImage": "fas fa-image",
+        "products.ProductDimension": "fas fa-gear",
+        "products.ProductDiscount": "fas fa-percent",
+        "products.Category": "fas fa-layer-group",
+        "products.ProductReview": "fas fa-comment-dots",
+        "auth.Group": "fas fa-users",
+        "auth.User": "fas fa-user",
+    },
+    "language_chooser": True,
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -17,10 +17,25 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ("category", "seller")
     search_fields = ("title", "short_description")
     ordering = ("-price",)
+    fieldsets = (
+        ('Asosiy Malumotlar',{
+            'fields': ("title", "price", "category", "quantity", "seller",  "short_description", "long_description")}),
+        ('Uzbek', {'fields': ("title_uz", "short_description_uz", "long_description_uz")}),
+        ('English', {'fields': ("title_en", "short_description_en", "long_description_en")}),
+        ('Russian', {'fields': ("title_ru", "short_description_ru", "long_description_ru")}),
+
+    )
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    fieldsets = (
+        ('Asosiy Malumotlar', {
+            'fields': ('name', 'parent')}),
+        ('Uzbek', {'fields': ("name_uz", )}),
+        ('English', {'fields': ("name_en", )}),
+        ('Russian', {'fields': ("name_ru", )}),
+
+    )
 
 class ProductImageAdmin(admin.ModelAdmin):
     pass
