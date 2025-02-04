@@ -1,5 +1,5 @@
 from django.urls import path
-from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView, \
+from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
                         LoginRegisterPageTemplateView, CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
                         SingleProductTabStyleTopTemplateView,
                         SingleProductGroupTemplateView, SingleProductAffinityTemplateView,
@@ -9,8 +9,13 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         ShopListRightSidebarPageTemplateView,
                         SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
                         SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
-                        SingleProductTabStyleRightTemplateView,ShoppingCardTemplateView,CompareTemplateView
+                        SingleProductTabStyleRightTemplateView,ShoppingCardTemplateView,CompareTemplateView,
                         )
+from shop.views.about_us import AboutUsTemplateView
+from shop.views.accessories import AccessoriesTemplateView
+from shop.views.contact import ContactTemplateView
+from shop.views.smartwatch import SmartwatchTemplateView
+
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
     path('shop/',ShopPageTemplateView.as_view(), name='shop'),
@@ -37,5 +42,8 @@ urlpatterns = [
     path('wishlist/', WishListView.as_view(), name='wishlist'),
     path('login-register/',LoginRegisterPageTemplateView.as_view(), name='login_register'),
     path('checkout/',CheckOutPageTemplateView.as_view(), name='checkout'),
-
+    path('about_us/', AboutUsTemplateView.as_view(), name='about_us'),
+    path('contact/', ContactTemplateView.as_view(), name='contact'),
+    path('smartwatch/', SmartwatchTemplateView.as_view(), name='smartwatch'),
+    path('accessories/', AccessoriesTemplateView.as_view(), name='accessories'),
 ]
