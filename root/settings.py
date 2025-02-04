@@ -34,13 +34,16 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
 #    'jazzmin', # todo: poetry add django-jazzmin
-#    'modeltranslation', # todo: poetry add django-modeltranslation
+    'modeltranslation', # todo: poetry add django-modeltranslation
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #packege
+    'ckeditor',
 
     'shop',
     'products',
