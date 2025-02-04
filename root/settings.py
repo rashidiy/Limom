@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-#    'jazzmin', # todo: poetry add django-jazzmin
+    'jazzmin', # todo: poetry add django-jazzmin
     'modeltranslation', # todo: poetry add django-modeltranslation
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,10 +50,19 @@ INSTALLED_APPS = [
     # 3rd party apps
 ]
 
-# JAZZMIN_SETTINGS = {
-#     "language_chooser": True,
-# }
-
+JAZZMIN_SETTINGS = {
+    "icons": {
+        "products.Product": "fas fa-box",
+        "products.ProductImage": "fas fa-image",
+        "products.ProductDimension": "fas fa-gear",
+        "products.ProductDiscount": "fas fa-percent",
+        "products.Category": "fas fa-layer-group",
+        "products.ProductReview": "fas fa-comment-dots",
+        "auth.Group": "fas fa-users",
+        "auth.User": "fas fa-user",
+    },
+    "language_chooser": True,
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -149,6 +158,13 @@ STATICFILES_DIRS = [
     'static'
 ]
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+    },
+}
 DJANGORESIZED_DEFAULT_KEEP_META = True
 DJANGORESIZED_DEFAULT_FORCE_FORMAT = 'PNG'
 DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True

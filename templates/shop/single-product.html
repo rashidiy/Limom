@@ -73,12 +73,17 @@
                                         <li>
                                             <div class="ht-setting-trigger"><span>Setting</span></div>
                                             <div class="setting ht-setting">
-                                                <ul class="ht-setting-list">
-                                                    <li><a href="login-register.html">My Account</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="login-register.html">Sign In</a></li>
-                                                </ul>
-                                            </div>
+    <ul class="ht-setting-list">
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'shop:myprofile' %}">My Account</a></li> <!-- Foydalanuvchi akkaunt sahifasi -->
+            <li><a href="{% url 'shop:checkout' %}">Checkout</a></li> <!-- Checkout sahifasi -->
+            <li><a href="{% url 'shop:logout' %}">Logout</a></li> <!-- Chiqish sahifasi -->
+        {% else %}
+            <li><a href="{% url 'shop:login' %}">Sign In</a></li> <!-- Tizimga kirish sahifasi -->
+        {% endif %}
+    </ul>
+</div>
+
                                         </li>
                                         <!-- Setting Area End Here -->
                                         <!-- Begin Currency Area -->
@@ -379,15 +384,20 @@
                                                             <li><a href="blog-gallery-format.html">Blog Gallery Format</a></li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="index.html">Other Pages</a>
-                                                        <ul>
-                                                            <li><a href="login-register.html">My Account</a></li>
-                                                            <li><a href="checkout.html">Checkout</a></li>
-                                                            <li><a href="compare.html">Compare</a></li>
-                                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                                        </ul>
-                                                    </li>
+                                                    <li><a href="{% url 'shop:home' %}">Other Pages</a>
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'shop:myprofile' %}">My Account</a></li>
+            <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
+            <li><a href="{% url 'shop:compare' %}">Compare</a></li>
+            <li><a href="{% url 'shop:wishlist' %}">Wishlist</a></li>
+            <li><a href="{% url 'shop:logout' %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'shop:login' %}">Sign In</a></li>
+        {% endif %}
+    </ul>
+</li>
+
                                                     <li><a href="index.html">Other Pages 2</a>
                                                         <ul>
                                                             <li><a href="contact.html">Contact</a></li>
