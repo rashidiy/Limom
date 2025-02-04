@@ -1999,7 +1999,7 @@ textarea:focus {
 	visibility: visible;
 	top: 0;
 }
-.hb-menu nav ul > li > ul.hb-dropdown > li.sub-dropdown-holder::after {
+.hb-menu nav ul > li > ul.hb-dropdown > li.ropdown-holder::after {
 	content: "\f107";
 	font-family: fontawesome;
 	position: absolute;

@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-#    'jazzmin', # todo: poetry add django-jazzmin
+    'jazzmin', # todo: poetry add django-jazzmin
     'modeltranslation', # todo: poetry add django-modeltranslation
     'django.contrib.admin',
     'django.contrib.auth',
@@ -149,6 +149,13 @@ STATICFILES_DIRS = [
     'static'
 ]
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+    },
+}
 DJANGORESIZED_DEFAULT_KEEP_META = True
 DJANGORESIZED_DEFAULT_FORCE_FORMAT = 'PNG'
 DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
