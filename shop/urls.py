@@ -1,4 +1,6 @@
 from django.urls import path
+from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView, \
+                        LoginRegisterPageTemplateView, CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
 from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView1, WishListView,
                          CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
                         SingleProductTabStyleTopTemplateView,
@@ -9,9 +11,9 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         ShopListRightSidebarPageTemplateView,
                         SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
                         SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
-                        SingleProductTabStyleRightTemplateView,ShoppingCardTemplateView,CompareTemplateView
-                        )
-from .views import RegisterView, LoginView, LogoutView
+                        SingleProductTabStyleRightTemplateView,ShoppingCardTemplateView,CompareTemplateView,
+                        RegisterView, LoginView, LogoutView)
+
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
     path('shop/',ShopPageTemplateView.as_view(), name='shop'),
@@ -27,7 +29,7 @@ urlpatterns = [
     path('shop/single-product-gallery-right/', SingleProductGalleryRightTemplateView.as_view(), name='single-product-gallery-right'),
     path('shop/single-product-carousel/', SingleProductCarouselTemplateView.as_view(), name='single-product-carousel'),
     path('single/product_sale/',SingleProductSaleTemplateView.as_view(), name='single_product_sale'),
-    path('shop/single-product/',SingleProductSaleTemplateView.as_view(), name='single-product'),
+    path('shop/single-product/',SingleProductTemplateView.as_view(), name='single-product'),
     path('shop/single-product-left/',SingleProductTabStyleLeftTemplateView.as_view(), name='single-product_left'),
     path('shop/single-product-top/',SingleProductTabStyleTopTemplateView.as_view(), name='single-product_top'),
     path('shop/single-product-right/',SingleProductTabStyleRightTemplateView.as_view(), name='single-product_right'),
@@ -35,7 +37,6 @@ urlpatterns = [
     path('shop/single-product-normal/', SingleProductNormalTemplateView.as_view(), name='single_product_normal'),
     path('shop/single-product-affiliation/',SingleProductAffinityTemplateView.as_view(), name='single_product_affiliation'),
     path('shop/single-product/detail/',ShopPageTemplateView.as_view(), name='shop_single_product_detail'),
-    path('shop/single-product1/', SingleProductTemplateView1.as_view(), name='shop_single_product_1'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
     path('register/', RegisterView.as_view(), name='register'),
     path('login/', LoginView.as_view(), name='login'),

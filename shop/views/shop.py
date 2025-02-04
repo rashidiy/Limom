@@ -7,7 +7,7 @@ class ShopPageTemplateView(TemplateView):
 class SingleProductGroupTemplateView(TemplateView):
     template_name = 'shop/single-product-group.html'
 
-class SingleProductTemplateView1(TemplateView):
+class SingleProductTemplateView(TemplateView):
     template_name = 'shop/single-product.html'
 
 class SingleProductSaleTemplateView(TemplateView):
