@@ -1,6 +1,6 @@
 from django.urls import path
-from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView1, WishListView, \
-                        LoginRegisterPageTemplateView, CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
+from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView1, WishListView,
+                         CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
                         SingleProductTabStyleTopTemplateView,
                         SingleProductGroupTemplateView, SingleProductAffinityTemplateView,
                         SingleProductNormalTemplateView,
@@ -11,6 +11,7 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
                         SingleProductTabStyleRightTemplateView,ShoppingCardTemplateView,CompareTemplateView
                         )
+from .views import RegisterView, LoginView, LogoutView
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
     path('shop/',ShopPageTemplateView.as_view(), name='shop'),
@@ -36,7 +37,9 @@ urlpatterns = [
     path('shop/single-product/detail/',ShopPageTemplateView.as_view(), name='shop_single_product_detail'),
     path('shop/single-product1/', SingleProductTemplateView1.as_view(), name='shop_single_product_1'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
-    path('login-register/',LoginRegisterPageTemplateView.as_view(), name='login_register'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/',CheckOutPageTemplateView.as_view(), name='checkout'),
 
 ]

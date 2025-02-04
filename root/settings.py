@@ -54,6 +54,12 @@ INSTALLED_APPS = [
 #     "language_chooser": True,
 # }
 
+AUTHENTICATION_BACKENDS = [
+    'shop.authentication_backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
