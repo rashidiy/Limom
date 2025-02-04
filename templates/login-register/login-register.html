@@ -71,17 +71,19 @@
                                     <ul class="ht-menu">
                                         <!-- Begin Setting Area -->
                                         <li>
-                                            <div class="ht-setting-trigger"><span>Setting</span></div>
-                                            <div class="setting ht-setting">
-                                                <ul class="ht-setting-list">
-                                                    <li><a href="login-register.html">My Account</a></li>
-                                                    <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
-                                                    <li><a href="login-register.html">Sign In</a></li>
-                                                </ul>
-                                            </div>
+                                           <div class="ht-setting-trigger"><span>Setting</span></div>
+<div class="setting ht-setting">
+    <ul class="ht-setting-list">
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'shop:myprofile' %}">My Account</a></li>
+            <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
+        {% else %}
+            <li><a href="{% url 'shop:login' %}">Sign In</a></li>
+        {% endif %}
+    </ul>
+</div>
+
                                         </li>
-                                        <!-- Setting Area End Here -->
-                                        <!-- Begin Currency Area -->
                                         <li>
                                             <span class="currency-selector-wrapper">Currency :</span>
                                             <div class="ht-currency-trigger"><span>USD $</span></div>
@@ -92,8 +94,6 @@
                                                 </ul>
                                             </div>
                                         </li>
-                                        <!-- Currency Area End Here -->
-                                        <!-- Begin Language Area -->
                                         <li>
                                             <span class="language-selector-wrapper">Language :</span>
                                             <div class="ht-language-trigger"><span>English</span></div>
@@ -104,16 +104,13 @@
                                                 </ul>
                                             </div>
                                         </li>
-                                        <!-- Language Area End Here -->
                                     </ul>
                                 </div>
                             </div>
-                            <!-- Header Top Right Area End Here -->
                         </div>
                     </div>
                 </div>
-                <!-- Header Top Area End Here -->
-                <!-- Begin Header Middle Area -->
+
                 <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
                     <div class="container">
                         <div class="row">
@@ -377,13 +374,19 @@
                                                         </ul>
                                                     </li>
                                                     <li><a href="{% url 'shop:home' %}">Other Pages</a>
-                                                        <ul>
-                                                            <li class="active"><a href="login-register.html">My Account</a></li>
-                                                            <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
-                                                            <li><a href="{% url 'shop:compare' %}">Compare</a></li>
-                                                            <li><a href="{% url 'shop:wishlist' %}">Wishlist</a></li>
-                                                            <li><a href="{% url 'shop:shoppingCard' %}">Shopping Cart</a></li>
-                                                        </ul>
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'shop:myprofile' %}">My Account</a></li> <!-- Tizimga kirgan foydalanuvchi uchun -->
+            <li><a href="{% url 'shop:checkout' %}">Checkout</a></li> <!-- Checkout havolasi -->
+            <li><a href="{% url 'shop:compare' %}">Compare</a></li> <!-- Compare havolasi -->
+            <li><a href="{% url 'shop:wishlist' %}">Wishlist</a></li> <!-- Wishlist havolasi -->
+            <li><a href="{% url 'shop:shoppingCard' %}">Shopping Cart</a></li> <!-- Shopping Cart havolasi -->
+        {% else %}
+            <li><a href="{% url 'shop:login' %}">Sign In</a></li>
+        {% endif %}
+    </ul>
+</li>
+
                                                     </li>
                                                     <li><a href="{% url 'shop:home' %}">Other Pages 2</a>
                                                         <ul>

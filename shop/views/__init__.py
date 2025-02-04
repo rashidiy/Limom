@@ -1,4 +1,10 @@
-from .homepage import HomePageTemplateView
+from .homepage import *
+from .checkout import *
+from .compare import *
+from .shop import *
+from .wishlist import *
+from .login_register import *
+
 from .shop import (ShopPageTemplateView, SingleProductTabStyleLeftTemplateView, SingleProductGroupTemplateView,
                    SingleProductNormalTemplateView, SingleProductTemplateView, SingleProductSaleTemplateView,
                    SingleProductAffinityTemplateView, Shop3PageTemplateView, Shop4PageTemplateView,
@@ -8,6 +14,5 @@ from .shop import (ShopPageTemplateView, SingleProductTabStyleLeftTemplateView, 
                     SingleProductTabStyleTopTemplateView,SingleProductTabStyleRightTemplateView,ShoppingCardTemplateView
                     )
 from .wishlist import WishListView
-from .login_register import LoginRegisterPageTemplateView
 from .checkout import CheckOutPageTemplateView
 from .compare import CompareTemplateView

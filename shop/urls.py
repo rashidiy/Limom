@@ -1,8 +1,6 @@
 from django.urls import path
-from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView, \
-                        LoginRegisterPageTemplateView, CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
-from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView1, WishListView,
-                         CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
+from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
+                        CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
                         SingleProductTabStyleTopTemplateView,
                         SingleProductGroupTemplateView, SingleProductAffinityTemplateView,
                         SingleProductNormalTemplateView,
@@ -12,7 +10,7 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
                         SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
                         SingleProductTabStyleRightTemplateView,ShoppingCardTemplateView,CompareTemplateView,
-                        RegisterView, LoginView, LogoutView)
+                        RegisterView, LoginView, LogoutView,edit_profile)
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
@@ -42,5 +40,6 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/',CheckOutPageTemplateView.as_view(), name='checkout'),
+    path('myprofile/', edit_profile, name='myprofile'),
 
 ]

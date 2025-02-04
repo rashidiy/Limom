@@ -73,16 +73,20 @@
                                 <!-- Begin Setting Area -->
                                 <li>
                                     <div class="ht-setting-trigger"><span>Setting</span></div>
-                                    <div class="setting ht-setting">
-                                        <ul class="ht-setting-list">
-                                            <li><a href="{% url 'shop:login' %}">My Account</a></li>
-                                            <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
-                                            <li><a href="{% url 'shop:login' %}">Sign In</a></li>
-                                        </ul>
-                                    </div>
+<div class="setting ht-setting">
+    <ul class="ht-setting-list">
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'shop:myprofile' %}">My Account</a></li>
+            <li><a href="{% url 'shop:checkout' %}">Checkout</a></li> <!-- Checkout havolasi -->
+            <!-- Agar kerak bo'lsa boshqa havolalarni ham qo'shish mumkin -->
+        {% else %}
+            <li><a href="{% url 'shop:login' %}">Sign In</a></li> <!-- Tizimga kirmagan foydalanuvchi uchun -->
+        {% endif %}
+    </ul>
+</div>
+
+
                                 </li>
-                                <!-- Setting Area End Here -->
-                                <!-- Begin Currency Area -->
                                 <li>
                                     <span class="currency-selector-wrapper">Currency :</span>
                                     <div class="ht-currency-trigger"><span>USD $</span></div>
@@ -398,14 +402,19 @@
                                                 </ul>
                                             </li>
                                             <li><a href="{% url 'shop:home' %}">Other Pages</a>
-                                                <ul>
-                                                    <li><a href="{% url 'shop:login' %}">My Account</a></li>
-                                                    <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
-                                                    <li><a href="{% url 'shop:compare' %}">Compare</a></li>
-                                                    <li><a href="{% url 'shop:wishlist' %}">Wishlist</a></li>
-                                                    <li><a href="{% url 'shop:shoppingCard' %}">Shopping Cart</a></li>
-                                                </ul>
-                                            </li>
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'shop:myprofile' %}">My Account</a></li>
+            <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
+            <li><a href="{% url 'shop:compare' %}">Compare</a></li>
+            <li><a href="{% url 'shop:wishlist' %}">Wishlist</a></li>
+            <li><a href="{% url 'shop:shoppingCard' %}">Shopping Cart</a></li>
+        {% else %}
+            <li><a href="{% url 'shop:login' %}">Sign In</a></li>
+        {% endif %}
+    </ul>
+</li>
+
                                             <li><a href="{% url 'shop:home' %}">Other Pages 2</a>
                                                 <ul>
                                                     <li><a href="contact.html">Contact</a></li>
@@ -423,13 +432,11 @@
                                 </ul>
                             </nav>
                         </div>
-                        <!-- Header Bottom Menu Area End Here -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Header Bottom Area End Here -->
-        <!-- Begin Mobile Menu Area -->
+
         <div class="mobile-menu-area d-lg-none d-xl-none col-12">
             <div class="container">
                 <div class="row">
@@ -438,10 +445,7 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu Area End Here -->
     </header>
-    <!-- Header Area End Here -->
-    <!-- Begin Slider With Banner Area -->
     <div class="slider-with-banner">
         <div class="container">
             <div class="row">
@@ -449,7 +453,6 @@
                 <div class="col-lg-8 col-md-8">
                     <div class="slider-area">
                         <div class="slider-active owl-carousel">
-                            <!-- Begin Single Slide Area -->
                             <div class="single-slide align-center-left  animation-style-01 bg-1">
                                 <div class="slider-progress"></div>
                                 <div class="slider-content">
@@ -461,8 +464,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Single Slide Area End Here -->
-                            <!-- Begin Single Slide Area -->
                             <div class="single-slide align-center-left animation-style-02 bg-2">
                                 <div class="slider-progress"></div>
                                 <div class="slider-content">
@@ -474,8 +475,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Single Slide Area End Here -->
-                            <!-- Begin Single Slide Area -->
                             <div class="single-slide align-center-left animation-style-01 bg-3">
                                 <div class="slider-progress"></div>
                                 <div class="slider-content">
