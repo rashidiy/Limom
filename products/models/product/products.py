@@ -1,7 +1,7 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from ckeditor.fields import RichTextField
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class Product(models.Model):
@@ -12,7 +12,7 @@ class Product(models.Model):
     seller = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='products')
 
     short_description = models.CharField(_('Short description'), max_length=2048)
-    long_description = RichTextField(_('Long description'), max_length=2048)  # todo: @thenodirjon CKeditorni qo'shish
+    long_description = CKEditor5Field(_('Long description'), max_length=2048)  # todo: @thenodirjon CKeditorni qo'shish
 
     class Meta:
         verbose_name = _('Product')
@@ -21,7 +21,3 @@ class Product(models.Model):
     @property
     def rating(self):
         return self.reviews.aggregate(average_rating=models.Avg('rate'))['average_rating']
-
-class BlogPost(models.Model):
-    title = models.CharField(max_length=200)
-    content =   RichTextField()  # CKEditor bilan ishlash uchun

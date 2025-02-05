@@ -10,22 +10,17 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         ShopListRightSidebarPageTemplateView,
                         SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
                         SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
-                        SingleProductTabStyleRightTemplateView,ShoppingCardTemplateView,CompareTemplateView,
                         SingleProductTabStyleRightTemplateView, ShoppingCardTemplateView, CompareTemplateView,
                         RegisterView, LoginView, LogoutView, edit_profile,
                         BlogPageTemplateView, Blog3PageView, Blog4PageView,
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
                         BlogVideoView, BlogAudiView, BlogGalaryView,
+                        AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
+                        FaqView, ErrorView
                         )
-from shop.views.about_us import AboutUsTemplateView
-from shop.views.accessories import AccessoriesTemplateView
-from shop.views.contact import ContactTemplateView
-from shop.views.smartwatch import SmartwatchTemplateView
 
-from shop.views.page_log_reg import ChekView, CompareView, WishlistView, ShopCartView, ContactView, \
-from shop.views.page_log_reg import ContactView, \
-    AboutView, FaqView, ErrorView
+app_name = 'shop'
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
@@ -42,8 +37,6 @@ urlpatterns = [
     path('blog11/', BlogVideoView.as_view(), name='blog11'),
     path('blog12/', BlogGalaryView.as_view(), name='blog12'),
     path('page1', LoginView.as_view(), name='page1'),
-    path('page6', ContactView.as_view(), name='page6'),
-    path('page7', AboutView.as_view(), name='page7'),
     path('page8', FaqView.as_view(), name='page8'),
     path('page9', ErrorView.as_view(), name='page9'),
     path('shop/', ShopPageTemplateView.as_view(), name='shop'),
@@ -71,7 +64,7 @@ urlpatterns = [
          name='single_product_affiliation'),
     path('shop/single-product/detail/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
-    path('checkout/',CheckOutPageTemplateView.as_view(), name='checkout'),
+    path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('about_us/', AboutUsTemplateView.as_view(), name='about_us'),
     path('contact/', ContactTemplateView.as_view(), name='contact'),
     path('smartwatch/', SmartwatchTemplateView.as_view(), name='smartwatch'),
