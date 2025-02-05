@@ -66,3 +66,8 @@ def edit_profile(request):
     else:
         form = UserChangeForm(instance=user)
     return render(request, 'profile/edit_profile.html', {'form': form})
+
+
+
+def otp(request):
+    return render(request, 'login-register/otp.html')

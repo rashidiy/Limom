@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content1 %}
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="{% url 'shop:home' %}">Home</a></li>
+                <li class="active">Login Register</li>
+                <li class="active">OTP</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="page-section mb-60">
+    <div class="page-section mb-60">
+        <div class="container">
+            <!-- OTP Verification Form -->
+            <div>
+                <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                    <div class="login-form">
+                        <h4 class="login-title">Enter OTP</h4>
+                        <div class="row">
+                            <div class="col-12 mb-20">
+                                <label for="otp_code">Enter OTP Code</label>
+                                <input class="mb-0" type="text" id="otp_code" name="otp_code" placeholder="Enter OTP">
+                            </div>
+                            <div style="width: 100%; display: flex; align-items: center; gap: 10px;" class="col-12">
+                                <button type="button" id="back-button" class="register-button mt-0">Back</button>
+                                <button type="submit" style="cursor: pointer;" class="register-button mt-0">Verify
+                                    OTP</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('back-button').addEventListener('click', function() {
+        window.location.href = "{% url 'shop:login' %}";
+    });
+</script>
+{% endblock content1 %}
