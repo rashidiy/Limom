@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-04 14:09+0500\n"
+"POT-Creation-Date: 2025-02-05 16:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,111 +18,114 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\products\models\product\categories.py:5
-#: .\products\models\product\reviews.py:7
+#: products/models/product/categories.py:6 products/models/product/reviews.py:7
 msgid "Name"
 msgstr "Ism"
 
-#: .\products\models\product\categories.py:8
+#: products/models/product/categories.py:10
 msgid "Category"
 msgstr "Kategoriya "
 
-#: .\products\models\product\categories.py:9
+#: products/models/product/categories.py:11
 msgid "Categories"
 msgstr "Kategoriyalar"
 
-#: .\products\models\product\discounts.py:6
+#: products/models/product/discounts.py:6
 msgid "Banner"
 msgstr "Banner"
 
-#: .\products\models\product\discounts.py:8
+#: products/models/product/discounts.py:8
 msgid "Product Discount"
 msgstr "Mahsulot chegirmasi "
 
-#: .\products\models\product\discounts.py:9
+#: products/models/product/discounts.py:9
 msgid "Product Discounts"
 msgstr "Mahsulot chegirmalari"
 
-#: .\products\models\product\features.py:6
+#: products/models/product/features.py:6
 msgid "Width"
 msgstr "Kengligi"
 
-#: .\products\models\product\features.py:7
+#: products/models/product/features.py:7
 msgid "Height"
 msgstr "Balandligi"
 
-#: .\products\models\product\features.py:10
+#: products/models/product/features.py:10
 msgid "Product Dimension"
 msgstr "Mahsulot o'lchami "
 
-#: .\products\models\product\features.py:11
+#: products/models/product/features.py:11
 msgid "Product Dimensions"
 msgstr "Mahsulot o'lchamlari"
 
-#: .\products\models\product\images.py:10
+#: products/models/product/images.py:10
 msgid "Product Image"
 msgstr "Mahsulot rasmi "
 
-#: .\products\models\product\images.py:11
+#: products/models/product/images.py:11
 msgid "Product Images"
 msgstr "Mahsulot rasmlari"
 
-#: .\products\models\product\products.py:7
+#: products/models/product/products.py:8
 msgid "Title"
 msgstr "Sarlavha"
 
-#: .\products\models\product\products.py:8
+#: products/models/product/products.py:9
 msgid "Price"
 msgstr "Narxi"
 
-#: .\products\models\product\products.py:9
+#: products/models/product/products.py:10
 msgid "Quantity"
 msgstr "Soni"
 
-#: .\products\models\product\products.py:13
+#: products/models/product/products.py:14
 msgid "Short description"
 msgstr "Qisqacha tavsif"
 
-#: .\products\models\product\products.py:14
+#: products/models/product/products.py:15
 msgid "Long description"
 msgstr "Batafsil tavsif"
 
-#: .\products\models\product\products.py:17
+#: products/models/product/products.py:24
 msgid "Product"
 msgstr "Mahsulot "
 
-#: .\products\models\product\products.py:18
+#: products/models/product/products.py:25
 msgid "Products"
 msgstr "Mahsulotlar"
 
-#: .\products\models\product\reviews.py:6
+#: products/models/product/reviews.py:6
 msgid "Description"
 msgstr "Tavsif"
 
-#: .\products\models\product\reviews.py:8
+#: products/models/product/reviews.py:8
 msgid "Email"
 msgstr "Elektron pochta"
 
-#: .\products\models\product\reviews.py:9
+#: products/models/product/reviews.py:9
 msgid "Rate"
 msgstr "Baho"
 
-#: .\products\models\product\reviews.py:14
+#: products/models/product/reviews.py:14
 msgid "Review"
 msgstr "Fikr "
 
-#: .\products\models\product\reviews.py:15
+#: products/models/product/reviews.py:15
 msgid "Reviews"
 msgstr "Fikrlar"
 
-#: .\root\settings.py:125
+#: root/settings.py:144
 msgid "Uzbek"
 msgstr "O'zbekcha"
 
-#: .\root\settings.py:126
+#: root/settings.py:145
 msgid "English"
 msgstr "Inglizcha"
 
-#: .\root\settings.py:127
+#: root/settings.py:146
 msgid "Russian"
 msgstr "Ruscha"
+
+#: templates/base.html:298
+msgid "Home"
+msgstr "Uy"
