@@ -5,6 +5,7 @@ from django.views import View
 from shop.forms import RegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from shop.forms import UserChangeForm
 
 
 class RegisterView(View):
@@ -41,9 +42,8 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         logout(request)
+        request.session.flush()
         return redirect('shop:home')
-
-from shop.forms import UserChangeForm
 
 @login_required(login_url='shop:login')
 def edit_profile(request):

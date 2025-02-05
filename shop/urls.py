@@ -17,8 +17,10 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
                         BlogVideoView, BlogAudiView, BlogGalaryView,
                         )
-from shop.views.page_log_reg import ChekView, CompareView, WishlistView, ShopCartView, ContactView, \
+from shop.views.page_log_reg import ContactView,\
     AboutView, FaqView, ErrorView
+
+app_name = 'shop'
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
@@ -35,10 +37,6 @@ urlpatterns = [
     path('blog11/', BlogVideoView.as_view(), name='blog11'),
     path('blog12/', BlogGalaryView.as_view(), name='blog12'),
     path('page1', LoginView.as_view(), name='page1'),
-    path('page2', ChekView.as_view(), name='page2'),
-    path('page3', CompareView.as_view(), name='page3'),
-    path('page4', WishlistView.as_view(), name='page4'),
-    path('page5', ShopCartView.as_view(), name='page5'),
     path('page6', ContactView.as_view(), name='page6'),
     path('page7', AboutView.as_view(), name='page7'),
     path('page8', FaqView.as_view(), name='page8'),

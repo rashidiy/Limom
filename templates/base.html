@@ -71,23 +71,20 @@
                         <div class="header-top-right">
                             <ul class="ht-menu">
                                 <!-- Begin Setting Area -->
-                                <li>
-                                    <div class="ht-setting-trigger"><span>Setting</span></div>
-                                    <div class="setting ht-setting">
-                                        <ul class="ht-setting-list">
-                                            {% if user.is_authenticated %}
-                                                <li><a href="{% url 'shop:myprofile' %}">My Account</a></li>
-                                                <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
-                                                <!-- Checkout havolasi -->
-                                                <!-- Agar kerak bo'lsa boshqa havolalarni ham qo'shish mumkin -->
-                                            {% else %}
-                                                <li><a href="{% url 'shop:login' %}">Sign In</a></li>
-                                                <!-- Tizimga kirmagan foydalanuvchi uchun -->
-                                            {% endif %}
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
+                            <li>
+                                 <div class="ht-setting-trigger"><span>Setting</span></div>
+                                     <div class="setting ht-setting">
+                                       <ul class="ht-setting-list">
+                               {% if user.is_authenticated %}
+                                    <li><a href="{% url 'shop:myprofile' %}">My Account</a></li>
+                                  <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
+                                                     {% else %}
+                                                      <li><a href="{% url 'shop:login' %}">Sign In</a></li>
+                                                   {% endif %}
+                                                    </ul>
+                                        </div>
+                                    </li>
+
                                     <span class="currency-selector-wrapper">Currency :</span>
                                     <div class="ht-currency-trigger"><span>USD $</span></div>
                                     <div class="currency ht-currency">
@@ -420,15 +417,14 @@
                                             </li>
                                             <li><a href="{% url 'shop:home' %}">Other Pages</a>
     <ul>
-        {% if user.is_authenticated %}
+
             <li><a href="{% url 'shop:myprofile' %}">My Account</a></li>
             <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
             <li><a href="{% url 'shop:compare' %}">Compare</a></li>
             <li><a href="{% url 'shop:wishlist' %}">Wishlist</a></li>
             <li><a href="{% url 'shop:shoppingCard' %}">Shopping Cart</a></li>
-        {% else %}
+
             <li><a href="{% url 'shop:login' %}">Sign In</a></li>
-        {% endif %}
     </ul>
 </li>
 
