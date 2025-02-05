@@ -296,66 +296,9 @@
                             <nav>
                                 <ul>
                                     <li class="dropdown-holder"><a href="{% url 'shop:home' %}">Home</a>
-                                        <ul class="hb-dropdown">
-                                            <li class="active"><a href="{% url 'shop:home' %}">Back to homepage</a></li>
-                                        </ul>
-                                    </li>
+
                                     <li class="megamenu-holder"><a href="{% url 'shop:shop' %}">Shop</a>
-                                        <ul class="megamenu hb-megamenu">
-                                            <li><a href="{% url 'shop:shop' %}">Shop Page Layout</a>
-                                                <ul>
-                                                    <li><a href="{% url 'shop:shop3' %}">Shop 3 Column</a></li>
-                                                    <li><a href="{% url 'shop:shop4' %}">Shop 4 Column</a></li>
-                                                    <li><a href="{% url 'shop:shop' %}">Shop Left Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:shopRightSidebar' %}">Shop Right
-                                                        Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:shopList' %}">Shop List</a></li>
-                                                    <li><a href="{% url 'shop:shopListLeftSidebar' %}">Shop List Left
-                                                        Sidebar</a>
-                                                    </li>
-                                                    <li><a href="{% url 'shop:shopListRightSidebar' %}">Shop List Right
-                                                        Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="{% url 'shop:single-product-gallery-left' %}">Single Product
-                                                Style</a>
-                                                <ul>
-                                                    <li><a href="{% url 'shop:single-product-carousel' %}">Single
-                                                        Product
-                                                        Carousel</a></li>
-                                                    <li><a href="{% url 'shop:single-product-gallery-left' %}">Single
-                                                        Product
-                                                        Gallery Left</a></li>
-                                                    <li><a href="{% url 'shop:single-product-gallery-right' %}">Single
-                                                        Product
-                                                        Gallery Right</a></li>
-                                                    <li><a href="{% url 'shop:single-product_top' %}">Single Product Tab
-                                                        Style Top</a></li>
-                                                    <li><a href="{% url 'shop:single-product' %}">Single Product Tab
-                                                        Style Left</a></li>
-                                                    <li><a href="{% url 'shop:single-product_right' %}">Single Product
-                                                        Tab
-                                                        Style Right</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="{% url 'shop:shop_single_product_detail' %}">Single Products</a>
-                                                <ul>
-                                                    <li><a href="{% url 'shop:shop_single_product_detail' %}">Single
-                                                        Product</a></li>
-                                                    <li><a href="{% url 'shop:single_product_sale' %}">Single Product
-                                                        Sale</a></li>
-                                                    <li><a href="{% url 'shop:single_product_group' %}">Single Product
-                                                        Group</a>
-                                                    </li>
-                                                    <li><a href="{% url 'shop:single_product_normal' %}">Single Product
-                                                        Normal</a>
-                                                    </li>
-                                                    <li><a href="{% url 'shop:single_product_affiliation' %}">Single
-                                                        Product
-                                                        Affiliate</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+
                                     </li>
                                     <li class="dropdown-holder"><a href="{% url 'shop:blog4' %}">Blog</a>
                                         <ul class="hb-dropdown">
@@ -395,55 +338,9 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="megamenu-static-holder"><a href="{% url 'shop:home' %}">Pages</a>
-                                        <ul class="megamenu hb-megamenu">
-                                            <li><a href="{% url 'shop:blog8' %}">Blog Layouts</a>
-                                                <ul>
-                                                    <li><a href="{% url 'shop:blog2' %}">Blog 2 Column</a></li>
-                                                    <li><a href="{% url 'shop:blog3' %}">Blog 3 Column</a></li>
-                                                    <li><a href="{% url 'shop:blog4' %}">Grid Left Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:blog5' %}">Grid Right Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:blog1' %}">Blog List</a></li>
-                                                    <li><a href="{% url 'shop:blog6' %}">List Left Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:blog7' %}">List Right Sidebar</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="{% url 'shop:blog8' %}">Blog Details Pages</a>
-                                                <ul>
-                                                    <li><a href="{% url 'shop:blog8' %}">Left Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:blog9' %}">Right Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:blog10' %}">Blog Audio Format</a></li>
-                                                    <li><a href="{% url 'shop:blog11' %}">Blog Video Format</a></li>
-                                                    <li><a href="{% url 'shop:blog12' %}">Blog Gallery Format</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="{% url 'shop:home' %}">Other Pages</a>
-    <ul>
-        {% if user.is_authenticated %}
-            <li><a href="{% url 'shop:myprofile' %}">My Account</a></li>
-            <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
-            <li><a href="{% url 'shop:compare' %}">Compare</a></li>
-            <li><a href="{% url 'shop:wishlist' %}">Wishlist</a></li>
-            <li><a href="{% url 'shop:shoppingCard' %}">Shopping Cart</a></li>
-        {% else %}
-            <li><a href="{% url 'shop:login' %}">Sign In</a></li>
-        {% endif %}
-    </ul>
-</li>
 
-                                            <li><a href="{% url 'shop:home' %}">Other Pages 2</a>
-                                                <ul>
-                                                    <li><a href="{% url 'shop:page6' %}">Contact</a></li>
-                                                    <li><a href="{% url 'shop:page7' %}">About Us</a></li>
-                                                    <li><a href="{% url 'shop:page8' %}">FAQ</a></li>
-                                                    <li><a href="{% url 'shop:page9' %}">404 Error</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about-us.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="{% url 'shop:about_us' %}">About Us</a></li>
+                                    <li><a href="{% url 'shop:contact' %}">Contact</a></li>
                                     <li><a href="{% url 'shop:shop' %}">Smartwatch</a></li>
                                     <li><a href="{% url 'shop:shop' %}">Accessories</a></li>
                                 </ul>

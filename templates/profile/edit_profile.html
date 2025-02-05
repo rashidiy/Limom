@@ -1,268 +1,551 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+{#<!DOCTYPE html>#}
+{#<html lang="uz">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Shahsiy Akaunt</title>#}
+{#    <style>#}
+{#        :root {#}
+{#            --primary-color: #dcbf49;#}
+{#            --secondary-color: #f5f7fa;#}
+{#            --text-color: #333;#}
+{#            --border-color: #e1e4e8;#}
+{#            --success-color: #28a745;#}
+{#            --error-color: #dc3545;#}
+{#            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;#}
+{#        }#}
+{##}
+{#        * {#}
+{#            margin: 0;#}
+{#            padding: 0;#}
+{#            box-sizing: border-box;#}
+{#        }#}
+{##}
+{#        body {#}
+{#            font-family: var(--font-family), serif;#}
+{#            background-color: var(--secondary-color);#}
+{#            color: var(--text-color);#}
+{#            line-height: 1.6;#}
+{#        }#}
+{##}
+{#        .container {#}
+{#            max-width: 800px;#}
+{#            margin: 0 auto;#}
+{#            padding: 2rem;#}
+{#        }#}
+{##}
+{#        header {#}
+{#            display: flex;#}
+{#            justify-content: space-between;#}
+{#            align-items: center;#}
+{#            margin-bottom: 2rem;#}
+{#        }#}
+{##}
+{#        .header-title {#}
+{#            font-size: 2rem;#}
+{#            color: var(--primary-color);#}
+{#        }#}
+{##}
+{#        nav {#}
+{#            display: flex;#}
+{#            gap: 1rem;#}
+{#        }#}
+{##}
+{#        .btn {#}
+{#            padding: 0.5rem 1rem;#}
+{#            border: none;#}
+{#            border-radius: 4px;#}
+{#            cursor: pointer;#}
+{#            transition: background-color 0.3s ease;#}
+{#            font-size: 1rem;#}
+{#            display: inline-flex;#}
+{#            align-items: center;#}
+{#            gap: 0.5rem;#}
+{#        }#}
+{##}
+{#        .btn-back {#}
+{#            background-color: var(--secondary-color);#}
+{#            color: var(--primary-color);#}
+{#            border: 1px solid var(--primary-color);#}
+{#        }#}
+{##}
+{#        .btn-back:hover {#}
+{#            background-color: var(--primary-color);#}
+{#            color: white;#}
+{#        }#}
+{##}
+{#        .btn-logout {#}
+{#            background-color: var(--error-color);#}
+{#            color: white;#}
+{#            text-decoration: none;#}
+{#        }#}
+{##}
+{#        .btn-logout:hover {#}
+{#            background-color: #c82333;#}
+{#        }#}
+{##}
+{#        .account-form {#}
+{#            background-color: white;#}
+{#            padding: 2rem;#}
+{#            border-radius: 8px;#}
+{#            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);#}
+{#        }#}
+{##}
+{#        .form-group {#}
+{#            margin-bottom: 1.5rem;#}
+{#        }#}
+{##}
+{#        label {#}
+{#            display: block;#}
+{#            margin-bottom: 0.5rem;#}
+{#            font-weight: bold;#}
+{#        }#}
+{##}
+{#        input {#}
+{#            width: 100%;#}
+{#            padding: 0.75rem;#}
+{#            border: 1px solid var(--border-color);#}
+{#            border-radius: 4px;#}
+{#            font-size: 1rem;#}
+{#            transition: border-color 0.3s ease;#}
+{#        }#}
+{##}
+{#        input:focus {#}
+{#            outline: none;#}
+{#            border-color: var(--primary-color);#}
+{#        }#}
+{##}
+{#        .btn-submit {#}
+{#            background-color: var(--primary-color);#}
+{#            color: white;#}
+{#            font-weight: bold;#}
+{#        }#}
+{##}
+{#        .btn-submit:hover {#}
+{#            background-color: #357ae8;#}
+{#        }#}
+{##}
+{#        @media (max-width: 768px) {#}
+{#            .container {#}
+{#                padding: 1rem;#}
+{#            }#}
+{##}
+{#            header {#}
+{#                flex-direction: column;#}
+{#                align-items: flex-start;#}
+{#                gap: 1rem;#}
+{#            }#}
+{##}
+{#            nav {#}
+{#                width: 100%;#}
+{#                justify-content: space-between;#}
+{#            }#}
+{#        }#}
+{#        @media (max-width: 480px) {#}
+{#    .container {#}
+{#        padding: 0.5rem;#}
+{#    }#}
+{##}
+{#    .header-title {#}
+{#        font-size: 1.5rem;#}
+{#    }#}
+{##}
+{#    nav {#}
+{#        flex-direction: column;#}
+{#        align-items: flex-start;#}
+{#        gap: 0.5rem;#}
+{#    }#}
+{##}
+{#    .btn {#}
+{#        width: 100%;#}
+{#        text-align: center;#}
+{#        font-size: 0.9rem;#}
+{#        padding: 0.75rem;#}
+{#    }#}
+{##}
+{#    .account-form {#}
+{#        padding: 1.5rem;#}
+{#    }#}
+{##}
+{#    label {#}
+{#        font-size: 0.9rem;#}
+{#    }#}
+{##}
+{#    input {#}
+{#        font-size: 0.9rem;#}
+{#        padding: 0.6rem;#}
+{#    }#}
+{##}
+{#    .btn-submit {#}
+{#        font-size: 1rem;#}
+{#        padding: 0.75rem;#}
+{#    }#}
 
+{##}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#    <div class="container">#}
+{#        <header>#}
+{#            <h1 class="header-title"><img src="/static/images/menu/logo/1.jpg" alt=""></h1>#}
+{#            <nav>#}
+{#                <button class="btn btn-back" onclick="location.href='{% url 'shop:home' %}';">#}
+{#                    <i class="fa-solid fa-chevron-left"></i> go back#}
+{#                </button>#}
+{#                {% if user.is_authenticated %}#}
+{#                <a href="{% url 'shop:logout' %}" class="btn btn-logout" onclick="return confirmLogout()">#}
+{#                    Log out <i class="fa-solid fa-right-from-bracket"></i>#}
+{#                </a>#}
+{#                {% endif %}#}
+{#            </nav>#}
+{#        </header>#}
+{#        <main>#}
+{#            <form method="POST" class="account-form" id="account-form">#}
+{#                {% csrf_token %}#}
+{#                <div class="form-group">#}
+{#                    <label for="first_name">Ism</label>#}
+{#                    <input type="text" name="first_name" id="first_name" placeholder="Ismingizni kiriting" value="{{ form.first_name.value }}">#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    <label for="last_name">Familiya</label>#}
+{#                    <input type="text" name="last_name" id="last_name" placeholder="Familiyangizni kiriting" value="{{ form.last_name.value }}">#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    <label for="username">Foydalanuvchi nomi</label>#}
+{#                    <input type="text" name="username" id="username" placeholder="Foydalanuvchi nomini kiriting" value="{{ form.username.value }}">#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    <label for="email">Email</label>#}
+{#                    <input type="email" name="email" id="email" placeholder="Email manzilingizni kiriting" value="{{ form.email.value }}">#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    <button type="submit" name="signup" id="signup" class="btn btn-submit">#}
+{#                        Saqlash#}
+{#                    </button>#}
+{#                </div>#}
+{#            </form>#}
+{#        </main>#}
+{#    </div>#}
+{#    <script>#}
+{#        function confirmLogout() {#}
+{#            return confirm("Haqiqatan ham chiqmoqchimisiz?");#}
+{#        }#}
+{#    </script>#}
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>#}
+{#</body>#}
+{#</html>#}
+
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Profil Qism</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="icon" href="/static/1145.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
     <style>
-        :root[data-theme="dark"] {
-            --body: #1a202c;
-            --text: #ffffff;
-           
-
-        }
-
-        :root[data-theme="light"] {
-            --body: #edf2f7;
-            --text: rgba(0, 0, 0, 0.92);
-            
-
-
-        }
-
-        .logout-button {
-            position: absolute;
-            top: 20px !important;
-            right: 20px !important;
-            background-color: #b91c1c;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 0.875rem;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            z-index: 1000;
-        }
-
-        .logout-button:hover {
-            background-color: #9f1239;
-            transform: scale(1.1);
-        }
-
-        .logout-button:active {
-            background-color: #881337;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f5f5f5;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
+        .profile-title {
+            font-size: 24px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 30px;
+        }
 
-        h2 {
+        .profile-layout {
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar {
+            width: 300px;
+        }
+
+        .user-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .user-id {
+            display: inline-block;
+            background: #f0f7ff;
+            color: #0066ff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: block;
+            padding: 12px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
             text-align: center;
+        }
+
+        .btn-primary {
+            background: #0066ff;
+            color: white;
+            width: 100%;
+        }
+
+        .nav-item {
+            background: #f0f0f0;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .nav-item:hover {
+            background: #e5e5e5;
+        }
+
+        .logout {
+            color: #ff3b30;
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .main-content {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .form-title {
+            color: #0066ff;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .required::after {
+            content: '*';
+            color: #ff3b30;
+            margin-left: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #0066ff;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phone-input {
+            position: relative;
+        }
+
+        .phone-input .form-input {
+            padding-right: 40px;
+        }
+
+        .phone-input::after {
+            content: '🔒';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .change-phone {
+            color: #0066ff;
+            text-decoration: none;
+            font-size: 14px;
+            float: right;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 1px solid #e0e0e0;
             color: #333;
         }
 
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .btn-danger {
+            background: white;
+            border: 1px solid #e0e0e0;
+            color: #ff3b30;
         }
 
-        form input,
-        form button {
-            padding: 12px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        form input:focus,
-        form button:focus {
-            outline: none;
-            border-color: #0056b3;
-        }
-
-
-
-.search-button3 {
-            padding: 8px 16px;
-            background-color: #C9AC8C;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            cursor: pointer;
-            position: absolute;
-            top: 24px !important;
-            left: 20px !important;
-            transition: all 0.3s ease;
-            color: white;
-            z-index: 10;
-            font-family: "Roboto", Arial, sans-serif;
-        }
- .search-button3:hover {
-            background-color: #b88a6b;
-            transform: scale(1.1);
-        }
-         .search-button3:active {
-            background-color: #b88a6b;
-        }
- .search-button3 {
-            animation: gameInterface3 1s ease-out;
-        }
-@keyframes gameInterface3 {
-            0% {
-                opacity: 0;
-                transform: translateY(100px);
+        @media (max-width: 768px) {
+            .profile-layout {
+                flex-direction: column;
             }
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+            .sidebar {
+                width: 100%;
             }
-        }
-        body{
-            background-color: var(--body);
-        }
-        h1{
-            color: var(--text);
-            position: absolute;
-            left: 530px;
-            top: 40px;
-            font-family: inherit;
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
+<body>
+    <div class="container">
+        <h1 class="profile-title">Профиль</h1>
 
-<body >
-    <h1 class="header-title1"> Shahsiy Akauntingizni o'zgartiring</h1>
+        <div class="profile-layout">
+            <div class="sidebar">
+                <div class="user-card">
+                    <h2>Asadbek Valijonov</h2>
+                    <p>+998 90 555 01 84</p>
+                    <div class="user-id">Мой ID: 00001</div>
+                    <button class="btn btn-primary">Мои данные</button>
+                </div>
 
-<button class="search-button3" onclick="location.href='{% url 'shop:home' %}';">
-    <i class="fa-solid fa-less-than"></i>   Orqaga qaytish
-</button>
+                <nav class="user-card">
+                    <button class="nav-item">Мои заказы</button>
+                    <button class="nav-item">Избранное</button>
+                    <button class="nav-item">Мои возвраты</button>
+                    <button class="nav-item">Мои адреса</button>
+                    <button class="nav-item">Обращения</button>
+                </nav>
+            </div>
+
+            <main class="main-content">
+                <h2 class="form-title">Мои данные</h2>
+
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label required">Имя</label>
+                            <input type="text" class="form-input" placeholder="Введите имя">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required">Фамилия</label>
+                            <input type="text" class="form-input" placeholder="Введите фамилию">
+                        </div>
+
+                    </div>
 
 
 
-    {% if user.is_authenticated %}
-    <a href="{% url 'shop:logout' %}" class="logout-button" onclick="return confirmLogout()">Akauntdan Chiqish <i
-            class="fa-solid fa-right-from-bracket"></i></a>
-    {% endif %}
-    <form method="POST" class="register-form" id="register-form">
-        {% csrf_token %}
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label required">
+                                username
+s                            </label>
+                            <div class="phone-input">
+                                <input type="text" class="form-input" value="+998 99 999 99 99" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Электронная почта</label>
+                            <input type="email" class="form-input" placeholder="Введите email">
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-            <input type="text" name="first_name" id="first_name" placeholder="Ism" value="{{ form.first_name.value }}">
+                    <div class="form-actions">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary">Отменить</button>
+                            <button type="submit" class="btn btn-primary">Сохранить</button>
+                        </div>
+                         <button type="button" class="btn btn-danger" onclick="confirmLogout()" >Удалить профиль</button>
+                    </div>
+                </form>
+            </main>
         </div>
-        {% if form.errors.first_name %}
-        <div class="invalid-feedback">
-            {{ form.errors.first_name }}
-        </div>
-        {% endif %}
+    </div>
 
-        <div class="form-group">
-            <label for="last_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-            <input type="text" name="last_name" id="last_name" placeholder="Familiya"
-                value="{{ form.last_name.value }}">
-        </div>
-        {% if form.errors.last_name %}
-        <div class="invalid-feedback">
-            {{ form.errors.last_name }}
-        </div>
-        {% endif %}
-
-        <div class="form-group">
-            <label for="username"><i class="zmdi zmdi-account"></i></label>
-            <input type="text" name="username" id="username" placeholder="Foydalanuvchi nomi"
-                value="{{ form.username.value }}">
-        </div>
-        {% if form.errors.username %}
-        <div class="invalid-feedback">
-            {{ form.errors.username }}
-        </div>
-        {% endif %}
-
-        <div class="form-group">
-            <label for="email"><i class="zmdi zmdi-email"></i></label>
-            <input type="email" name="email" id="email" placeholder="Email" value="{{ form.email.value }}">
-        </div>
-        {% if form.errors.email %}
-        <div class="invalid-feedback">
-            {{ form.errors.email }}
-        </div>
-        {% endif %}
-
-        <div class="form-group form-button">
-            <button type="submit" name="signup" id="signup" class="form-submit">
-                Saqlash
-            </button>
-        </div>
-    </form>
+    <script>
+        function confirmLogout() {
+            let lagaut =  confirm("Haqiqatan ham chiqmoqchimisiz?");
+            if (lagaut){
+            window.location.href = "{% url 'shop:home' %}"
+            }
+        }
+    </script>
 </body>
-<script>
-    function confirmLogout() {
-        return confirm("Rostan ham chiqmoqchimisiz?");
-    }
-    function router(url) {
-        window.location.href = url;
-    }
-</script>
-<script>
-    const headerTitle = document.querySelector('.header-title');
-    let x = 500;
-    let y = 50;
+</html>
 
-    function changeColor() {
-        const randomTextColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-        headerTitle.style.color = randomTextColor;
-    }
-
-
-
-    setInterval(changeColor, 1000);
-
-    const body = document.body;
-    const mon = document.getElementById("mon");
-    const sunIcon = document.getElementById("sun");
-
-    const customTheme = (theme) => {
-        const elRoot = document.documentElement;
-        elRoot.setAttribute("data-theme", theme);
-        localStorage.setItem('dark-mode', JSON.stringify(theme));
-
-        if (theme === "dark") {
-            mon.style.display = "none";
-            sunIcon.style.display = "block";
-            body.classList.add('dark-mode');
-        } else {
-            mon.style.display = "block";
-            sunIcon.style.display = "none";
-            body.classList.remove("dark-mode");
-        }
-    };
-
-    const toggleFunction = (darkMode) => {
-        if (darkMode === "dark") {
-            customTheme("dark");
-        } else {
-            customTheme("light");
-        }
-    };
-
-
-
-    const themFUnctions = () => {
-        const darkMode = JSON.parse(localStorage.getItem('dark-mode'));
-        if (!darkMode) {
-            toggleFunction("light");
-        } else {
-            toggleFunction(darkMode);
-        }
-
-
-    }
-
-    themFUnctions()
-
-</script>
