@@ -14,6 +14,12 @@ class Product(models.Model):
     short_description = models.CharField(_('Short description'), max_length=2048)
     long_description = CKEditor5Field(_('Long description'), max_length=2048)  # todo: @thenodirjon CKeditorni qo'shish
 
+    def get_first_image(self):
+        first_image = self.images.first()  # Birinchi rasmni olamiz
+        if first_image:
+            return first_image.image.url
+        return None
+
     class Meta:
         verbose_name = _('Product')
         verbose_name_plural = _('Products')
