@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -295,7 +295,7 @@
                         <div class="hb-menu">
                             <nav>
                                 <ul>
-                                    <li class="dropdown-holder"><a href="{% url 'shop:home' %}">Home</a>
+                                    <li class="dropdown-holder"><a href="{% url 'shop:home' %}">{% trans 'Home' %}</a>
 
                                     <li class="megamenu-holder"><a href="{% url 'shop:shop' %}">Shop</a>
 
