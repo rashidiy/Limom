@@ -33,6 +33,12 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
+AUTHENTICATION_BACKENDS = [
+    'shop.authentication_backends.EmailBackend',  # Agar mavjud bo'lsa
+    'django.contrib.auth.backends.ModelBackend', # Standart Django backend
+]
+
+
 INSTALLED_APPS = [
     'jazzmin',  # todo: poetry add django-jazzmin
     'modeltranslation',  # todo: poetry add django-modeltranslation

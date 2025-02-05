@@ -42,6 +42,7 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         logout(request)
+        request.session.flush()
         return redirect('shop:home')
 
 @login_required(login_url='shop:login')
