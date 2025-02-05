@@ -1764,12 +1764,12 @@ textarea:focus {
 	font-weight: 500;
 	padding: 8px 0;
 }
-.hb-menu nav > ul > li:hover > a, 
+.hb-menu nav > ul > li:hover > a,
 .hb-menu nav > ul > li:hover > a::after {
 		color: #ffffff;
 }
 .hb-menu nav > ul > li > a::after {
-	content: "\f107";
+
 	position: absolute;
 	top: 8px;
 	right: 15px;
