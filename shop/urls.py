@@ -1,7 +1,7 @@
 from django.urls import path
 
 from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
-                        LoginRegisterPageTemplateView, CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
+                        CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
                         SingleProductTabStyleTopTemplateView,
                         SingleProductGroupTemplateView, SingleProductAffinityTemplateView,
                         SingleProductNormalTemplateView,
@@ -74,7 +74,6 @@ urlpatterns = [
          name='single_product_affiliation'),
     path('shop/single-product/detail/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
-    path('login-register/',LoginRegisterPageTemplateView.as_view(), name='login_register'),
     path('checkout/',CheckOutPageTemplateView.as_view(), name='checkout'),
     path('about_us/', AboutUsTemplateView.as_view(), name='about_us'),
     path('contact/', ContactTemplateView.as_view(), name='contact'),
