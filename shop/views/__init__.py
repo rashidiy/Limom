@@ -13,11 +13,7 @@ from .blog_list import (BlogPageTemplateView ,
                         BlogGalaryView)
 
 
-from .page_log_reg import (LoginView ,
-                           ChekView ,
-                           CompareView ,
-                           WishlistView ,
-                           ShopCartView,
+from .page_log_reg import (
                            ContactView,
                            AboutView,
                            FaqView,
