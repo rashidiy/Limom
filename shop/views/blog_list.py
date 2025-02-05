@@ -1,5 +1,3 @@
-from msilib.schema import ListView
-
 from django.views.generic import TemplateView
 
 
