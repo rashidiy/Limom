@@ -69,5 +69,5 @@ def edit_profile(request):
 
 
 
-def otp(request):
+def OTPView(request):
     return render(request, 'login-register/otp.html')

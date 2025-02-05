@@ -15,6 +15,7 @@ from .blog_list import (BlogPageTemplateView,
 from .checkout import *
 from .checkout import CheckOutPageTemplateView
 from .compare import *
+
 from .compare import CompareTemplateView
 from .contact import ContactTemplateView
 from .homepage import *

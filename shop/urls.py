@@ -24,7 +24,7 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
                         BlogVideoView, BlogAudiView, BlogGalaryView,
                         AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
-                        FaqView, ErrorView,otp
+                        FaqView, ErrorView,OTPView
                         )
 
 app_name = 'shop'
@@ -82,6 +82,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
-    path('otp/', otp, name='otp'),
+    path('otp/', OTPView, name='otp'),
 
 ]
