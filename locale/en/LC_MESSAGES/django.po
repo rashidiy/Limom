@@ -126,3 +126,14 @@ msgstr "English"
 #: .\root\settings.py:127
 msgid "Russian"
 msgstr "Russian"
+#: .\root\settings.py:125
+msgid "Uzbek"
+msgstr "Узбекский"
+
+#: .\root\settings.py:126
+msgid "English"
+msgstr "Английский"
+
+#: .\root\settings.py:127
+msgid "Russian"
+msgstr "Русский"

@@ -1,5 +1,12 @@
 from django.urls import path
 
+
+from shop.views.error import custom_404_view
+
+handler404 = custom_404_view
+
+
+
 from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
                         CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
                         SingleProductTabStyleTopTemplateView,
@@ -16,11 +23,12 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
                         BlogVideoView, BlogAudiView, BlogGalaryView,
+                        AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
+                        FaqView, ErrorView
                         )
-from shop.views.page_log_reg import ContactView,\
-    AboutView, FaqView, ErrorView
 
 app_name = 'shop'
+
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
@@ -37,8 +45,6 @@ urlpatterns = [
     path('blog11/', BlogVideoView.as_view(), name='blog11'),
     path('blog12/', BlogGalaryView.as_view(), name='blog12'),
     path('page1', LoginView.as_view(), name='page1'),
-    path('page6', ContactView.as_view(), name='page6'),
-    path('page7', AboutView.as_view(), name='page7'),
     path('page8', FaqView.as_view(), name='page8'),
     path('page9', ErrorView.as_view(), name='page9'),
     path('shop/', ShopPageTemplateView.as_view(), name='shop'),
@@ -66,9 +72,15 @@ urlpatterns = [
          name='single_product_affiliation'),
     path('shop/single-product/detail/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
+    path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
+    path('about_us/', AboutUsTemplateView.as_view(), name='about_us'),
+    path('contact/', ContactTemplateView.as_view(), name='contact'),
+    path('smartwatch/', SmartwatchTemplateView.as_view(), name='smartwatch'),
+    path('accessories/', AccessoriesTemplateView.as_view(), name='accessories'),
     path('register/', RegisterView.as_view(), name='register'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
+
 ]
