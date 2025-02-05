@@ -7,6 +7,10 @@ django-js-asset==3.0.1
 django-modeltranslation==0.19.12
 django-resized==1.0.3
 django-tinymce==4.1.0
+Faker==35.2.0
 pillow==11.1.0
+python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
+six==1.17.0
 sqlparse==0.5.3
+typing_extensions==4.12.2
