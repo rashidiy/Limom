@@ -20,10 +20,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = i18n_patterns(
-    path('admin/', admin.site.urls),
+urlpatterns = [
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
+] + i18n_patterns(
     path('', include(('shop.urls', 'shop'), namespace='shop')),
-)+i18n_patterns(
+    path('admin/', admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
-
 )
+
+path("ckeditor5/", include('django_ckeditor_5.urls')),
