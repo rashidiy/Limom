@@ -1,5 +1,12 @@
 from django.urls import path
 
+
+from shop.views.error import custom_404_view
+
+handler404 = custom_404_view
+
+
+
 from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
                         CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
                         SingleProductTabStyleTopTemplateView,
@@ -19,6 +26,7 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         )
 from shop.views.page_log_reg import ChekView, CompareView, WishlistView, ShopCartView, ContactView, \
     AboutView, FaqView, ErrorView
+
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
@@ -73,4 +81,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
+
 ]
