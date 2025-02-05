@@ -1,8 +1,58 @@
-from django.views.generic import TemplateView
+from django.core.paginator import Paginator
+from django.db.models import Avg
+from django.views.generic import TemplateView, ListView
+from products.models import Product, Category
 
 
-class ShopPageTemplateView(TemplateView):
+class ShopPageTemplateView(ListView):
+    model = Product
+    context_object_name = 'products'
+    paginate_by = 12
     template_name = 'shop/shop-left-sidebar.html'
+
+    # filter
+    def get_queryset(self):
+        products = Product.objects.all()
+        category_id = self.request.GET.get('category')
+        sort_option = self.request.GET.get('sort', 'relevance')
+        print(f"Sort option: {sort_option}")
+        if category_id:
+            products = products.filter(category_id=category_id)
+            # Saralash (sort by)
+        elif sort_option == 'name_asc':
+            products = products.order_by('title')
+        elif sort_option == 'name_desc':
+            products = products.order_by('-title')
+        elif sort_option == 'price_low_high':
+            products = products.order_by('price')
+        elif sort_option == 'price_high_low':
+            products = products.order_by('-price')
+        elif sort_option == 'rating_lowest':
+            products = products.annotate(avg_rating=Avg('reviews__rate')).order_by('avg_rating')
+        elif sort_option == 'rating_highest':
+            products = products.annotate(avg_rating=Avg('reviews__rate')).order_by('-avg_rating')
+
+        return products
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        products = self.get_queryset()
+        paginator = Paginator(products, 12)  # 12 ta mahsulot per page
+        page = self.request.GET.get('page')
+        products_paginated = paginator.get_page(page)
+
+        context['products'] = products_paginated
+        context['categories'] = Category.objects.all()
+        context['sort_options'] = [
+            ('relevance', 'Relevance'),
+            ('name_asc', 'Name (A - Z)'),
+            ('name_desc', 'Name (Z - A)'),
+            ('price_low_high', 'Price (Low > High)'),
+            ('price_high_low', 'Price (High > Low)'),
+            ('rating_lowest', 'Rating (Lowest)'),
+            ('rating_highest', 'Rating (Highest)'),
+        ]
+        return context
 
 class SingleProductGroupTemplateView(TemplateView):
     template_name = 'shop/single-product-group.html'
