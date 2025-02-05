@@ -23,7 +23,9 @@ class Product(models.Model):
     class Meta:
         verbose_name = _('Product')
         verbose_name_plural = _('Products')
+        ordering = ('id',)
 
     @property
     def rating(self):
         return self.reviews.aggregate(average_rating=models.Avg('rate'))['average_rating']
+

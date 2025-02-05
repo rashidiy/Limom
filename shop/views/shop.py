@@ -15,7 +15,6 @@ class ShopPageTemplateView(ListView):
         products = Product.objects.all()
         category_id = self.request.GET.get('category')
         sort_option = self.request.GET.get('sort', 'relevance')
-        print(f"Sort option: {sort_option}")
         if category_id:
             products = products.filter(category_id=category_id)
             # Saralash (sort by)
