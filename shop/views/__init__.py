@@ -39,3 +39,4 @@ from .shop import (ShopPageTemplateView, SingleProductTabStyleLeftTemplateView, 
                    )
 from .smartwatch import SmartwatchTemplateView
 from .wishlist import WishListView
+from .search import search_products
