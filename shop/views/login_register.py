@@ -65,7 +65,7 @@ class LoginView(View):
                 return redirect('shop:home')
         messages.error(request, "Invalid email or password!")
         return render(request, 'login-register/login-register.html', {'form': form})
-@login_required(login_url='shop:login')
+
 class LogoutView(View):
     def get(self, request):
         logout(request)
