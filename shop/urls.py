@@ -1,5 +1,5 @@
 from django.urls import path
-
+from shop.views import search_products
 
 from shop.views.error import custom_404_view
 
@@ -82,5 +82,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
+    path('search/', search_products, name='search'),
 
 ]
