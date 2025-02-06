@@ -1,19 +1,16 @@
+import random
 from django.core.mail import send_mail
-from random import randint
-from shop.models import VerificationCode
+from django.conf import settings
 
 def generate_verification_code():
-    return str(randint(100000, 999999))  # 6 raqamli OTP kodi
+    return str(random.randint(100000, 999999))
 
-def send_verification_email(email, code):
-    subject = "Tizimga Kirish uchun Kod"
-    message = f"Sizning Tasdiqlash Kodingiz: {code}"
-    from_email = 'akramibodullayev0011@gmail.com'  # O'zingizning email manzilingizni qo'yishingiz kerak
-    send_mail(subject, message, from_email, [email])
+def send_verification_email(email):
+    code = generate_verification_code()
+    subject = "Email Verification Code"
+    message = f"Your verification code is: {code}"
+    from_email = settings.EMAIL_HOST_USER
+
+    send_mail(subject, message, from_email, [email], fail_silently=False)
+
     return code
-
-def save_verification_code(email, code):
-    verification_code, created = VerificationCode.objects.update_or_create(
-        email=email, defaults={'code': code}
-    )
-    return verification_code
