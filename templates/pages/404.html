@@ -14,6 +14,44 @@
             padding: 50px;
         }
         h1 {
+            font-size: 50px;
+            color: #dc3545;
+        }
+        p {
+            font-size: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>404</h1>
+    <p>{% trans "Sorry, the page you are looking for was not found." %}</p>
+    <p><a href="/templates/home/index.html">{% trans "Go back to Home Page" %}</a></p>
+</body>
+</html>
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Page Not Found" %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 50px;
+        }
+        h1 {
             font-size: 150px;
             color: #dc3545;
         }

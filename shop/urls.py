@@ -17,7 +17,7 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         BlogPageTemplateView, Blog3PageView, Blog4PageView,
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
-                        BlogVideoView, BlogAudiView, BlogGalaryView
+                        BlogVideoView, BlogAudiView, BlogGalaryView,
                         )
 from shop.views.page_log_reg import ContactView,\
     AboutView, FaqView, ErrorView
