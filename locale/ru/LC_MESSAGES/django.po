@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-04 14:09+0500\n"
+"POT-Creation-Date: 2025-02-06 18:01+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,16 +20,16 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\products\models\product\categories.py:5
+#: .\products\models\product\categories.py:6
 #: .\products\models\product\reviews.py:7
 msgid "Name"
 msgstr "Имя"
 
-#: .\products\models\product\categories.py:8
+#: .\products\models\product\categories.py:10
 msgid "Category"
 msgstr "Категория"
 
-#: .\products\models\product\categories.py:9
+#: .\products\models\product\categories.py:11
 msgid "Categories"
 msgstr "Категории"
 
@@ -69,31 +69,31 @@ msgstr "Изображение продукта"
 msgid "Product Images"
 msgstr "Изображения продукта"
 
-#: .\products\models\product\products.py:7
+#: .\products\models\product\products.py:8
 msgid "Title"
 msgstr "Заголовок"
 
-#: .\products\models\product\products.py:8
+#: .\products\models\product\products.py:9
 msgid "Price"
 msgstr "Цена"
 
-#: .\products\models\product\products.py:9
+#: .\products\models\product\products.py:10
 msgid "Quantity"
 msgstr "Количество"
 
-#: .\products\models\product\products.py:13
+#: .\products\models\product\products.py:14
 msgid "Short description"
 msgstr "Краткое описание"
 
-#: .\products\models\product\products.py:14
+#: .\products\models\product\products.py:15
 msgid "Long description"
 msgstr "Длинное описание"
 
-#: .\products\models\product\products.py:17
+#: .\products\models\product\products.py:18
 msgid "Product"
 msgstr "Продукт"
 
-#: .\products\models\product\products.py:18
+#: .\products\models\product\products.py:19
 msgid "Products"
 msgstr "Продукция"
 
@@ -117,14 +117,26 @@ msgstr "Обзор"
 msgid "Reviews"
 msgstr "Обзоры"
 
-#: .\root\settings.py:125
+#: .\root\settings.py:145
 msgid "Uzbek"
 msgstr "Узбекский"
 
-#: .\root\settings.py:126
+#: .\root\settings.py:146
 msgid "English"
 msgstr "Английский"
 
-#: .\root\settings.py:127
+#: .\root\settings.py:147
 msgid "Russian"
 msgstr "Русский"
+
+#: .\templates\pages\404.html:7
+msgid "Page Not Found"
+msgstr "Страница не найдена"
+
+#: .\templates\pages\404.html:35
+msgid "Sorry, the page you are looking for was not found."
+msgstr "Извините, страница, которую вы ищете, не найдена"
+
+#: .\templates\pages\404.html:36
+msgid "Go back to Home Page"
+msgstr "Вернуться на главную страницу "

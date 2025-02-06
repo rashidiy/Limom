@@ -1,5 +1,7 @@
 from django.urls import path
 
+from shop.views.error import custom_404_view, custom_500_view
+
 from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
                         CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
                         SingleProductTabStyleTopTemplateView,
@@ -15,7 +17,7 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         BlogPageTemplateView, Blog3PageView, Blog4PageView,
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
-                        BlogVideoView, BlogAudiView, BlogGalaryView,
+                        BlogVideoView, BlogAudiView, BlogGalaryView
                         )
 from shop.views.page_log_reg import ContactView,\
     AboutView, FaqView, ErrorView
@@ -72,3 +74,7 @@ urlpatterns = [
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
 ]
+
+# 404 xatolik uchun sozlash
+handler404 = custom_404_view
+handler500 = custom_500_view

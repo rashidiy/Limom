@@ -37,3 +37,5 @@ from .shop import (ShopPageTemplateView, SingleProductTabStyleLeftTemplateView, 
 from .wishlist import WishListView
 from .checkout import CheckOutPageTemplateView
 from .compare import CompareTemplateView
+
+from .error import custom_404_view
