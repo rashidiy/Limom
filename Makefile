@@ -4,3 +4,9 @@ mig:
 
 admin:
 	python3 manage.py createsuperuser --email ''
+
+po:
+	python3 manage.py makemessages --all
+
+mo:
+	python3 manage.py compilemessages

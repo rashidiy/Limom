@@ -18,13 +18,13 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
                         SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
                         SingleProductTabStyleRightTemplateView, ShoppingCardTemplateView, CompareTemplateView,
-                        RegisterView, LoginView, LogoutView, edit_profile,
+                        LogoutView, edit_profile,
                         BlogPageTemplateView, Blog3PageView, Blog4PageView,
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
                         BlogVideoView, BlogAudiView, BlogGalaryView,
                         AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
-                        FaqView, ErrorView
+                        FaqView, ErrorView, OPTView, LoginView,signup_view,forgot_password_view
                         )
 
 app_name = 'shop'
@@ -77,11 +77,13 @@ urlpatterns = [
     path('contact/', ContactTemplateView.as_view(), name='contact'),
     path('smartwatch/', SmartwatchTemplateView.as_view(), name='smartwatch'),
     path('accessories/', AccessoriesTemplateView.as_view(), name='accessories'),
-    path('register/', RegisterView.as_view(), name='register'),
+    path('register/', signup_view, name='register'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
     path('search/', search_products, name='search'),
+    path('forgot-password/', forgot_password_view, name='forgot_password'),
+    path('otp/', OPTView, name='otp'),
 
 ]
