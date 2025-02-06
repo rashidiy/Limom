@@ -23,8 +23,13 @@
                         <h4 class="login-title">Enter OTP</h4>
                         <div class="row">
                             <div class="col-12 mb-20">
-                                <label for="otp_code">Enter OTP Code</label>
-                                <input class="mb-0" type="text" id="otp_code" name="otp_code" placeholder="Enter OTP">
+                                {% if error %}
+                                <p>{{ error }}</p>
+                                {% endif %}
+                                <form method="POST">
+                                    {% csrf_token %}
+                                <label for="verification_code">Enter OTP Code</label>
+                                <input class="mb-0" type="text"  name="verification_code" required placeholder="Enter OTP">
                             </div>
                             <div style="width: 100%; display: flex; align-items: center; gap: 10px;" class="col-12">
                                 <button type="button" id="back-button" class="register-button mt-0">Back</button>

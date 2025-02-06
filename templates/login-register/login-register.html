@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
-                                    <a href="#"> Forgotten password?</a>
+                                    <a href="{% url 'shop:forgot_password' %}"> Forgotten password?</a>
                                 </div>
                                 <div class="col-md-12">
                                     <button class="register-button mt-0"  style="cursor: pointer;" type="submit">Login</button>
@@ -124,8 +124,7 @@
                         </div>
                     {% endif %}
                                 <div class="col-12">
-                                    <button type="submit" style="cursor: pointer;" onclick="handleSubmit()" class="register-button mt-0">OTP Submit</button>
-                                </div>
+                                    <button type="submit" name="signup" id="signup" style="cursor: pointer;" class="register-button mt-0">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -135,11 +134,11 @@
     </div>
 </div>
 
-<script>
-    function handleSubmit(e) {
-        e.preventDefault();
-        window.location. href ="{% url 'shop:otp' %}";
-    }
-</script>
+{#<script>#}
+{#    function handleSubmit(e) {#}
+{#        e.preventDefault();#}
+{#        window.location. href ="{% url 'shop:otp' %}";#}
+{#    }#}
+{#</script>#}
 
 {% endblock content1 %}
