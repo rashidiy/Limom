@@ -1623,7 +1623,6 @@ textarea:focus {
 	border-color: #fed700;
 }
 .minicart .minicart-product-list li .minicart-product-image span.quantity {
-	background: -webkit-gradient(linear, left top, left bottom, from(#626262), to(#2f2f2f));
 	background: -webkit-linear-gradient(#626262, #2f2f2f);
 	background: -o-linear-gradient(#626262, #2f2f2f);
 	background: linear-gradient(#626262, #2f2f2f);
