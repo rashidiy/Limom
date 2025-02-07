@@ -27,5 +27,5 @@ class Product(models.Model):
 
     @property
     def rating(self):
-        return self.reviews.aggregate(average_rating=models.Avg('rate'))['average_rating']
+        return self.reviews.aggregate(average_rating=models.Avg('rate'))['average_rating'] or 0
 
