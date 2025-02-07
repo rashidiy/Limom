@@ -4,7 +4,6 @@ from django.shortcuts import get_object_or_404
 from products.models import Product
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
-from products.models.wishlist.wishlists import UserWishlist
 
 class WishListView(LoginRequiredMixin, ListView):
     template_name = 'wishlist/wishlist.html'

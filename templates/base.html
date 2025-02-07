@@ -80,7 +80,8 @@
                                     <div class="setting ht-setting">
                                         <ul class="ht-setting-list">
                                             {% if user.is_authenticated %}
-                                                <li><a href="{% url 'shop:myprofile' %}">{% trans 'My Account' %}</a></li>
+                                                <li><a href="{% url 'shop:myprofile' %}">{% trans 'My Account' %}</a>
+                                                </li>
                                                 <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
                                                 <!-- Checkout havolasi -->
                                                 <!-- Agar kerak bo'lsa boshqa havolalarni ham qo'shish mumkin -->
@@ -146,7 +147,7 @@
                             <select name="q" class="nice-select select-search-category">
                                 <option value="">All</option>
                                 {% for category in categories %}
-                                <option value="{{ category.name }}">{{ category.name }}</option>
+                                    <option value="{{ category.name }}">{{ category.name }}</option>
                                 {% endfor %}
                             </select>
                             <input type="text" name="q" placeholder="Enter your search key ...">
@@ -159,11 +160,12 @@
                             <ul class="hm-menu">
                                 <!-- Begin Header Middle Wishlist Area -->
                                 <li class="hm-wishlist">
-    <a href="{% url 'shop:wishlist' %}">
-        <span class="cart-item-count wishlist-item-count" id="wishlist-count">{{ wishlist_count }}</span>
-        <i class="fa fa-heart" id="wishlist-icon"></i>
-        <!-- count wishlist -->
-    </a>
+                                    <a href="{% url 'shop:wishlist' %}">
+                                        <span class="cart-item-count wishlist-item-count"
+                                              id="wishlist-count">{{ wishlist_count }}</span>
+                                        <i class="fa fa-heart" id="wishlist-icon"></i>
+                                        <!-- count wishlist -->
+                                    </a>
                                 </li>
 
                                 <!-- Header Middle Wishlist Area End Here -->
@@ -179,12 +181,14 @@
                                     <div class="minicart">
                                         <ul class="minicart-product-list">
                                             <li>
-                                                <a href="{% url 'shop:single-product' %}" class="minicart-product-image">
+                                                <a href="{% url 'shop:single-product' %}"
+                                                   class="minicart-product-image">
                                                     <img src="{% static 'images/product/small-size/5.jpg' %}"
                                                          alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">
-                                                    <h6><a href="{% url 'shop:single-product' %}">Aenean eu tristique</a></h6>
+                                                    <h6><a href="{% url 'shop:single-product' %}">Aenean eu
+                                                        tristique</a></h6>
                                                     <span>£40 x 1</span>
                                                 </div>
                                                 <button class="close" title="Remove">
@@ -192,12 +196,14 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <a href="{% url 'shop:single-product' %}" class="minicart-product-image">
+                                                <a href="{% url 'shop:single-product' %}"
+                                                   class="minicart-product-image">
                                                     <img src="{% static 'images/product/small-size/6.jpg' %}"
                                                          alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">
-                                                    <h6><a href="{% url 'shop:single-product' %}">Aenean eu tristique</a></h6>
+                                                    <h6><a href="{% url 'shop:single-product' %}">Aenean eu
+                                                        tristique</a></h6>
                                                     <span>£40 x 1</span>
                                                 </div>
                                                 <button class="close" title="Remove">
@@ -243,7 +249,8 @@
                                     </li>
                                     <li class="dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog' %}</a>
                                         <ul class="hb-dropdown">
-                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog GridView' %}</a>
+                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog4' %}">Blog Grid
+                                                View</a>
                                                 <ul class="hb-dropdown hb-sub-dropdown">
                                                     <li><a href="{% url 'shop:blog2' %}">Blog 2 Column</a></li>
                                                     <li><a href="{% url 'shop:blog3' %}">Blog 3 Column</a></li>
@@ -279,8 +286,8 @@
                                         </ul>
                                     </li>
 
-                                    <li><a >About Us</a></li>
-                                    <li><a >Contact</a></li>
+                                    <li><a href="{% url 'shop:about_us' %}">About Us</a></li>
+                                    <li><a href="{% url 'shop:contact' %}">Contact</a></li>
                                     <li><a href="{% url 'shop:shop' %}">Smartwatch</a></li>
                                     <li><a href="{% url 'shop:shop' %}">Accessories</a></li>
                                 </ul>
@@ -429,8 +436,6 @@
     {% block single-product-tab-style-top %}
     {% endblock single-product-tab-style-top %}
 
-    {% block content10 %}
-    {% endblock content10 %}
     <div class="footer">
         <!-- Begin Footer Static Top Area -->
         <div class="footer-static-top">
@@ -766,10 +771,10 @@
                                     </div>
                                     <div class="product-additional-info pt-25">
                                         <li class="wishlist">
-                                         <a href="#" class="add-wishlist" data-product-id="{{ product.id }}">
-                                     <i class="fa fa-heart-o"></i> Add to wishlist
-                                          </a>
-                                            </li>
+                                            <a href="#" class="add-wishlist" data-product-id="{{ product.id }}">
+                                                <i class="fa fa-heart-o"></i>
+                                            </a>
+                                        </li>
                                         <div class="product-social-sharing pt-25">
                                             <ul>
                                                 <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a>
@@ -845,6 +850,7 @@
 
                 let productId = this.getAttribute("data-product-id");
                 let icon = this.querySelector("i");
+                this.style.backgroundColor = "#fed700";
 
                 fetch("{% url 'shop:add_wishlist' %}", {
                     method: "POST",
@@ -854,23 +860,23 @@
                     },
                     body: `product_id=${productId}`
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.wishlist_count !== undefined) {
-                        document.getElementById("wishlist-count").innerText = data.wishlist_count;
-                    }
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.wishlist_count !== undefined) {
+                            document.getElementById("wishlist-count").innerText = data.wishlist_count;
+                        }
 
-                    if (data.added) {
-                        icon.classList.remove("fa-heart-o");
-                        icon.classList.add("fa-heart");
-                        icon.style.color = "black"; // Yurak rangini qizil qilish
-                    } else {
-                        icon.classList.remove("fa-heart");
-                        icon.classList.add("fa-heart-o");
-                        icon.style.color = ""; // Rangni tiklash
-                    }
-                })
-                .catch(error => console.error("AJAX Error:", error));
+                        if (data.added) {
+                            icon.classList.remove("fa-heart-o");
+                            icon.classList.add("fa-heart");
+                            icon.style.color = "black"; // Yurak rangini qizil qilish
+                        } else {
+                            icon.classList.remove("fa-heart");
+                            icon.classList.add("fa-heart-o");
+                            icon.style.color = ""; // Rangni tiklash
+                        }
+                    })
+                    .catch(error => console.error("AJAX Error:", error));
             });
         });
     });
@@ -878,20 +884,19 @@
 
 <script>
     document.querySelectorAll(".remove-from-wishlist").forEach(button => {
-            button.addEventListener("click", function (event) {
-                event.preventDefault();
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
 
-                let productId = this.getAttribute("data-id");
-                let wishlistItem = this.closest("tr"); // O'sha mahsulotni o'chirish
-
-                fetch("{% url 'shop:remove_wishlist' %}", {
-                    method: "POST",
-                    headers: {
-                        "X-CSRFToken": "{{ csrf_token }}",
-                        "Content-Type": "application/x-www-form-urlencoded"
-                    },
-                    body: `product_id=${productId}`
-                })
+            let productId = this.getAttribute("data-id");
+            let wishlistItem = this.closest("tr"); // O'sha mahsulotni o'chirish
+            fetch("{% url 'shop:remove_wishlist' %}", {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}",
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: `product_id=${productId}`
+            })
                 .then(response => response.json())
                 .then(data => {
                     if (data.wishlist_count !== undefined) {
@@ -903,8 +908,8 @@
                     }
                 })
                 .catch(error => console.error("AJAX Error:", error));
-            });
         });
+    });
 </script>
 </body>
 

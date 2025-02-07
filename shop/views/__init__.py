@@ -46,3 +46,6 @@ from .checkout import CheckOutPageTemplateView
 from .compare import CompareTemplateView
 
 from .error import custom_404_view
+
+from .about_us import AboutUsTemplateView
+from .contact import ContactTemplateView
