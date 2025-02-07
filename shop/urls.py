@@ -2,6 +2,7 @@ from django.urls import path
 from shop.views import search_products
 
 from shop.views.error import custom_404_view
+from shop.views.product import product_detail
 
 handler404 = custom_404_view
 
@@ -79,10 +80,11 @@ urlpatterns = [
     path('accessories/', AccessoriesTemplateView.as_view(), name='accessories'),
     path('register/', signup_view, name='register'),
     path('login/', LoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', LogoutView, name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
     path('search/', search_products, name='search'),
+    path('product/<int:pk>/', product_detail, name='product_detail'),
     path('forgot-password/', forgot_password_view, name='forgot_password'),
     path('otp/', OPTView, name='otp'),
 

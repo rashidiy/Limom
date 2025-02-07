@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Search Results for "{{ query }}"</h2>
+
+    {% if products %}
+        <div class="row">
+            {% for product in products %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="content-wraper">
+                        <div class="product-details-left sp-tab-style-left-page">
+                            <div class="product-details-images">
+                                <div class="lg-image">
+                                    <a href="#">
+                                        <img src="{{ product.get_first_image }}" alt="{{ product.name }}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-info">
+                            <h2>{{ product.name }}</h2>
+                            <span class="product-details-ref">Reference: {{ product.reference }}</span>
+                            <div class="price-box">
+                                <span class="new-price">${{ product.price }}</span>
+                            </div>
+                            <div class="product-desc">
+                                <p>{{ product.description|truncatewords:20 }}</p>
+                            </div>
+                            <a href="{% url 'shop:product_detail' product.id %}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No products found matching your search.</p>
+    {% endif %}
+</div>
+{% endblock %}
