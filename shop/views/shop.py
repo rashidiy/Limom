@@ -100,7 +100,7 @@ class SingleProductSaleTemplateView(TemplateView):
 
 
 class SingleProductNormalTemplateView(DetailView):
-    template_name = 'shop/single-product.html'
+    template_name = 'shop/single-product-tab-style-top.html'
     model = Product
     context_object_name = 'product'
 

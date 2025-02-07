@@ -1,21 +1,18 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate, logout
+import random
 
-from django.views import View
-from shop.forms import RegistrationForm
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.decorators import login_required
-from shop.forms import UserChangeForm
-from django.contrib.auth.models import User
-from .utils import *
-from django.core.mail import send_mail
-from shop.models import VerificationCode
 from django.conf import settings
-import random
-from django.contrib.auth import get_user_model
-import random
-from django.contrib.auth.hashers import make_password
 from django.contrib import messages
+from django.contrib.auth import get_user_model
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.views import View
+
+from shop.forms import RegistrationForm
+from shop.forms import UserChangeForm
 
 User = get_user_model()
 
@@ -48,6 +45,7 @@ def signup_view(request):
 
     return render(request, 'login-register/login-register.html', {'form': form})
 
+
 class LoginView(View):
     def get(self, request):
         form = AuthenticationForm()
@@ -66,10 +64,12 @@ class LoginView(View):
         messages.error(request, "Invalid email or password!")
         return render(request, 'login-register/login-register.html', {'form': form})
 
+
 class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect('shop:home')
+
 
 @login_required(login_url='shop:login')
 def edit_profile(request):
@@ -82,6 +82,7 @@ def edit_profile(request):
     else:
         form = UserChangeForm(instance=user)
     return render(request, 'profile/edit_profile.html', {'form': form})
+
 
 def OPTView(request):
     if request.method == 'POST':
@@ -114,9 +115,6 @@ def OPTView(request):
             })
 
     return render(request, 'login-register/otp.html')
-
-
-
 
 
 def forgot_password_view(request):
