@@ -4,6 +4,7 @@ from shop.views.search import search_products
 from shop.views.error import custom_404_view ,custom_500_view
 from shop.views.product import product_detail
 
+handler404 = custom_404_view
 
 
 
