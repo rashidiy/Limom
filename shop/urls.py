@@ -73,7 +73,7 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
-    path('otp/',OPTView.as_view(),name='otp'),
+    path('otp/',OPTView,name='otp'),
     path('myprofile/', edit_profile, name='myprofile'),
 ]
 
