@@ -3,6 +3,7 @@ mig:
 	python3 manage.py migrate
 
 admin:
+	python3 manage.py createsuperuser --email '', --username 'admin'
 	python3 manage.py createsuperuser --email ''
 
 po:

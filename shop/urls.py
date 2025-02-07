@@ -27,6 +27,8 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
                         FaqView, ErrorView, OPTView, LoginView,signup_view,forgot_password_view
                         )
+from shop.views.page_log_reg import ContactView,\
+    AboutView, FaqView, ErrorView
 
 app_name = 'shop'
 
@@ -46,6 +48,8 @@ urlpatterns = [
     path('blog11/', BlogVideoView.as_view(), name='blog11'),
     path('blog12/', BlogGalaryView.as_view(), name='blog12'),
     path('page1', LoginView.as_view(), name='page1'),
+    path('page6', ContactView.as_view(), name='page6'),
+    path('page7', AboutView.as_view(), name='page7'),
     path('page8', FaqView.as_view(), name='page8'),
     path('page9', ErrorView.as_view(), name='page9'),
     path('shop/', ShopPageTemplateView.as_view(), name='shop'),
@@ -79,8 +83,9 @@ urlpatterns = [
     path('smartwatch/', SmartwatchTemplateView.as_view(), name='smartwatch'),
     path('accessories/', AccessoriesTemplateView.as_view(), name='accessories'),
     path('register/', signup_view, name='register'),
+    path('forgot-password/', forgot_password_view, name='forgot_password'),
     path('login/', LoginView.as_view(), name='login'),
-    path('logout/', LogoutView, name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
     path('search/', search_products, name='search'),
@@ -89,3 +94,7 @@ urlpatterns = [
     path('otp/', OPTView, name='otp'),
 
 ]
+
+# 404 xatolik uchun sozlash
+handler404 = custom_404_view
+handler500 = custom_500_view

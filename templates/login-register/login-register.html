@@ -69,7 +69,7 @@
                                         name="first_name" placeholder="First Name">
                                 </div>
                                 {% if form.errors.first_name.0 %}
-                            <div class="input-error">
+                            <div class="input-error" style=" font-size: 16px; color: red">
                                 {{ form.errors.first_name.0 }}
                             </div>
                         {% endif %}
@@ -79,7 +79,7 @@
                                         name="last_name" placeholder="Last Name">
                                 </div>
                             {% if form.errors.last_name.0 %}
-                            <div class="input-error" style="">
+                            <div class="input-error" style=" font-size: 16px; font-weight: 600; color: red">
                                 {{ form.errors.last_name.0 }}
                             </div>
                         {% endif %}
@@ -89,7 +89,7 @@
                                         name="username" placeholder="Username">
                                 </div>
                             {% if form.errors.username.0 %}
-                            <div class="input-error">
+                            <div class="input-error" style=" font-size: 16px; font-weight: 600; color: red">
                                 {{ form.errors.username.0 }}
                             </div>
                         {% endif %}
@@ -99,7 +99,7 @@
                                         placeholder="Email Address">
                                 </div>
                             {% if form.errors.email.0 %}
-                            <div class="input-error">
+                            <div class="input-error" style=" font-size: 16px; font-weight: 600; color: red">
                                 {{ form.errors.email.0 }}
                             </div>
                         {% endif %}
@@ -109,7 +109,7 @@
                                         name="password1" placeholder="Password">
                                 </div>
                             {% if form.errors.password1.0 %}
-                            <div class="input-error">
+                            <div class="input-error" style=" font-size: 16px; font-weight: 600; color: red">
                                 {{ form.errors.password1.0 }}
                             </div>
                         {% endif %}
@@ -119,7 +119,7 @@
                                         name="password2" placeholder="Confirm Password">
                                 </div>
                             {% if form.errors.password2.0 %}
-                        <div class="input-error">
+                        <div class="input-error" style=" font-size: 16px; font-weight: 600; color: red">
                             {{ form.errors.password2.0 }}
                         </div>
                     {% endif %}
