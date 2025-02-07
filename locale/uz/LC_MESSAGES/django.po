@@ -1,28 +1,33 @@
-# O'zbekcha tarjima
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 18:50+0500\n"
+"POT-Creation-Date: 2025-02-04 14:09+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Uzbek <LL@li.org>\n"
-"Language: uz\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\products\models\product\categories.py:6
+#: .\products\models\product\categories.py:5
 #: .\products\models\product\reviews.py:7
 msgid "Name"
-msgstr "Nomi"
+msgstr "Ism"
+
+#: .\products\models\product\categories.py:8
+msgid "Category"
+msgstr "Kategoriya "
 
 #: .\products\models\product\categories.py:9
-msgid "Category"
-msgstr "Kategoriya"
-
-#: .\products\models\product\categories.py:10
 msgid "Categories"
 msgstr "Kategoriyalar"
 
@@ -32,7 +37,7 @@ msgstr "Banner"
 
 #: .\products\models\product\discounts.py:8
 msgid "Product Discount"
-msgstr "Mahsulot chegirmasi"
+msgstr "Mahsulot chegirmasi "
 
 #: .\products\models\product\discounts.py:9
 msgid "Product Discounts"
@@ -40,53 +45,53 @@ msgstr "Mahsulot chegirmalari"
 
 #: .\products\models\product\features.py:6
 msgid "Width"
-msgstr "Kenglik"
+msgstr "Kengligi"
 
 #: .\products\models\product\features.py:7
 msgid "Height"
-msgstr "Balandlik"
+msgstr "Balandligi"
 
 #: .\products\models\product\features.py:10
 msgid "Product Dimension"
-msgstr "Mahsulot o‘lchami"
+msgstr "Mahsulot o'lchami "
 
 #: .\products\models\product\features.py:11
 msgid "Product Dimensions"
-msgstr "Mahsulot o‘lchamlari"
+msgstr "Mahsulot o'lchamlari"
 
 #: .\products\models\product\images.py:10
 msgid "Product Image"
-msgstr "Mahsulot rasmi"
+msgstr "Mahsulot rasmi "
 
 #: .\products\models\product\images.py:11
 msgid "Product Images"
 msgstr "Mahsulot rasmlari"
 
-#: .\products\models\product\products.py:8
+#: .\products\models\product\products.py:7
 msgid "Title"
 msgstr "Sarlavha"
 
-#: .\products\models\product\products.py:9
+#: .\products\models\product\products.py:8
 msgid "Price"
-msgstr "Narx"
+msgstr "Narxi"
 
-#: .\products\models\product\products.py:10
+#: .\products\models\product\products.py:9
 msgid "Quantity"
-msgstr "Miqdor"
+msgstr "Soni"
+
+#: .\products\models\product\products.py:13
+msgid "Short description"
+msgstr "Qisqacha tavsif"
 
 #: .\products\models\product\products.py:14
-msgid "Short description"
-msgstr "Qisqa tavsif"
-
-#: .\products\models\product\products.py:15
 msgid "Long description"
-msgstr "To‘liq tavsif"
+msgstr "Batafsil tavsif"
 
-#: .\products\models\product\products.py:24
+#: .\products\models\product\products.py:17
 msgid "Product"
-msgstr "Mahsulot"
+msgstr "Mahsulot "
 
-#: .\products\models\product\products.py:25
+#: .\products\models\product\products.py:18
 msgid "Products"
 msgstr "Mahsulotlar"
 
@@ -100,88 +105,36 @@ msgstr "Elektron pochta"
 
 #: .\products\models\product\reviews.py:9
 msgid "Rate"
-msgstr "Reyting"
+msgstr "Baho"
 
 #: .\products\models\product\reviews.py:14
 msgid "Review"
-msgstr "Sharh"
+msgstr "Fikr "
 
 #: .\products\models\product\reviews.py:15
 msgid "Reviews"
-msgstr "Sharhlar"
+msgstr "Fikrlar"
 
-#: .\root\settings.py:145
+#: .\root\settings.py:125
 msgid "Uzbek"
-msgstr "O‘zbekcha"
+msgstr "O'zbekcha"
 
-#: .\root\settings.py:146
+#: .\root\settings.py:126
 msgid "English"
 msgstr "Inglizcha"
 
-#: .\root\settings.py:147
+#: .\root\settings.py:127
 msgid "Russian"
 msgstr "Ruscha"
 
-#: .\templates\base.html:82
-msgid "My Account"
-msgstr "Mening profilim"
-
-#: .\templates\base.html:235
-msgid "Home"
-msgstr "Bosh sahifa"
-
-#: .\templates\base.html:240
-msgid "Blog"
-msgstr ""
-
-#: .\templates\base.html:242
-msgid "Blog GridView"
-msgstr ""
-
 #: .\templates\pages\404.html:7
 msgid "Page Not Found"
-msgstr "Sahifa topilmadi"
+msgstr "Sahifa Topilmadi"
 
 #: .\templates\pages\404.html:35
 msgid "Sorry, the page you are looking for was not found."
-msgstr "Kechirasiz, siz qidirayotgan sahifa topilmadi."
+msgstr "Kechirasiz, siz izlayotgan sahifa topilmadi."
 
 #: .\templates\pages\404.html:36
 msgid "Go back to Home Page"
 msgstr "Bosh sahifaga qaytish"
-
-#~ msgid "Setting"
-#~ msgstr "SOZLAMALAR"
-
-#~ msgid "SHOP"
-#~ msgstr "DO'KON"
-
-#~ msgid "BlOG"
-#~ msgstr "BLOG"
-
-#~ msgid "ABOUT US"
-#~ msgstr "BIZ HAQIMIZDA"
-
-#~ msgid "Contact"
-#~ msgstr "ALOQA"
-
-#~ msgid "SMARTWATCH"
-#~ msgstr "SMART SOAT"
-
-#~ msgid "ACCESSORIES"
-#~ msgstr "AKSSESUARLAR"
-
-#~ msgid "Language:"
-#~ msgstr "Til"
-
-#~ msgid "Telephone Enquiry:"
-#~ msgstr "Telefon so'rovi:"
-
-#~ msgid "Currency"
-#~ msgstr "vayuta"
-
-#~ msgid "All"
-#~ msgstr "Hammasi"
-
-#~ msgid "Enter your search key"
-#~ msgstr "Qidiruv kalitingizni kiriting"
