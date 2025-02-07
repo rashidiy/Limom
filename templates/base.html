@@ -134,7 +134,7 @@
                     <div class="col-lg-3">
                         <div class="logo pb-sm-30 pb-xs-30">
                             <a href="{% url 'shop:home' %}">
-                                <img src="{% static 'images/menu/logo/1.jpg' %}" alt="">
+                                <img src="{% static 'images/menu/logo/1.png' %}" alt="">
                             </a>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                     <!-- Begin Header Middle Right Area -->
                     <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                         <!-- Begin Header Middle Searchbox Area -->
-                        <form  method="GET" class="hm-searchbox">
+                        <form action="{% url 'shop:search' %}" method="GET" class="hm-searchbox">
                             <select name="q" class="nice-select select-search-category">
                                 <option value="">All</option>
                                 {% for category in categories %}
@@ -279,10 +279,10 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Smartwatch</a></li>
-                                    <li><a href="#">Accessories</a></li>
+                                    <li><a >About Us</a></li>
+                                    <li><a >Contact</a></li>
+                                    <li><a href="{% url 'shop:shop' %}">Smartwatch</a></li>
+                                    <li><a href="{% url 'shop:shop' %}">Accessories</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -429,6 +429,8 @@
     {% block single-product-tab-style-top %}
     {% endblock single-product-tab-style-top %}
 
+    {% block content10 %}
+    {% endblock content10 %}
     <div class="footer">
         <!-- Begin Footer Static Top Area -->
         <div class="footer-static-top">
