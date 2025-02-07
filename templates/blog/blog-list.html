@@ -37,8 +37,9 @@
                                                             <div class="li-blog-meta">
                                                                 <a class="author" href="#"><i class="fa fa-user"></i>Admin</a>
                                                                 <a class="comment" href="#"><i class="fa fa-comment-o"></i> {{ blog_gallery.comment.count }} comment</a>
-                                                                <a class="post-time" href="#"><i class="fa fa-calendar"></i> 25 nov 2018</a>
+                                                                <a class="post-time" href="#"><i class="fa fa-calendar"></i> {{ blog_gallery.create_at }}</a>
                                                             </div>
+                                                            <p>{{blog_gallery.content}}</p>
                                                             <p>{{ blog_gallery.blog_gallery_title }}</p>
                                                             <a class="post-time" href="#"><i class="fa fa-calendar"></i></a>
                                                             <a class="read-more" href="blog-details-left-sidebar.html">Read More...</a>
@@ -64,10 +65,10 @@
                                                             <h3 class="li-blog-heading pt-xs-25 pt-sm-25"><a href="{% url 'shop:blog_audio' blog_audio.id %}">{{ blog_audio.blog_audio_title }}</a></h3>
                                                             <div class="li-blog-meta">
                                                                 <a class="author" href="#"><i class="fa fa-user"></i>Admin</a>
-                                                                <a class="comment" href="#"><i class="fa fa-comment-o"></i> 3 comment</a>
-                                                                <a class="post-time" href="#"><i class="fa fa-calendar"></i> 25 nov 2018</a>
+                                                                <a class="comment" href="#"><i class="fa fa-comment-o"></i> {{ blog_audio.comment.count }} comment</a>
+                                                                <a class="post-time" href="#"><i class="fa fa-calendar"></i>{{ blog_audio.create_at }}</a>
                                                             </div>
-                                                            <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Cras pretium arcu ex.</p>
+                                                            <p>{{ blog_audio.content }}</p>
                                                             <a class="read-more" href="blog-details-left-sidebar.html">Read More...</a>
                                                         </div>
                                                     </div>
@@ -91,10 +92,10 @@
                                                             <h3 class="li-blog-heading pt-xs-25 pt-sm-25"><a href="{% url 'shop:blog_video' blog_video.id %}">{{ blog_video.blog_video_title }}</a></h3>
                                                             <div class="li-blog-meta">
                                                                 <a class="author" href="#"><i class="fa fa-user"></i>Admin</a>
-                                                                <a class="comment" href="#"><i class="fa fa-comment-o"></i> 3 comment</a>
-                                                                <a class="post-time" href="#"><i class="fa fa-calendar"></i> 25 nov 2018</a>
+                                                                <a class="comment" href="#"><i class="fa fa-comment-o"></i> {{ blog_video.comment.count }} comment</a>
+                                                                <a class="post-time" href="#"><i class="fa fa-calendar"></i> {{ blog_video.create_at }}</a>
                                                             </div>
-                                                            <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Cras pretium arcu ex.</p>
+                                                            <p>{{ blog_video.content }}</p>
                                                             <a class="read-more" href="blog-details-left-sidebar.html">Read More...</a>
                                                         </div>
                                                     </div>

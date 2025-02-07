@@ -108,19 +108,18 @@
                                             <div class="li-blog-details">
                                                 <h3 class="li-blog-heading pt-35"><a href="blog-details.html">{{ blog_audio_formats.blog_audio_title }}</a></h3>
                                                 <div class="li-blog-meta">
-                                                    <a class="author" href="#"><i class="fa fa-user"></i>Admin</a>
-                                                    <a class="comment" href="#"><i class="fa fa-comment-o"></i> 3 comment</a>
-                                                    <a class="post-time" href="#"><i class="fa fa-calendar"></i> 25 nov 2018</a>
+                                                    {% for comment in blog_audio_formats.comment.all %}
+                                                        <a class="author" href="#"><i class="fa fa-user"></i>{{ comment.user.get_full_name }}</a>
+                                                        <a class="comment" href="#"><i class="fa fa-comment-o"></i>comments ({{ blog_audio_formats.comment.count }})</a>
+                                                        <a class="post-time" href="#"><i class="fa fa-calendar"></i> {{ blog_audio_formats.create_at }}</a>
+                                                    {% endfor %}
                                                 </div>
-                                                <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Cras pretium arcu ex.</p>
-                                                <!-- Begin Blog Blockquote Area -->
+                                                <p>{{ blog_audio_formats.content }}</p>
                                                 <div class="li-blog-blockquote">
-                                                    <blockquote>
-                                                        <p>Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur. In venenatis elit ac ultrices convallis. Duis est nisi, tincidunt ac urna sed, cursus blandit lectus. In ullamcorper sit amet ligula ut eleifend. Proin dictum tempor ligula, ac feugiat metus. Sed finibus tortor eu scelerisque scelerisque.</p>
-                                                    </blockquote>
+
                                                 </div>
                                                 <!-- Blog Blockquote Area End Here -->
-                                                <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Cras pretium arcu ex. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum laborum in labore Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Cras pretium arcu ex. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum laborum in labore rerum Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Cras pretium arcu ex. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum laborum in labore rerum </p>
+                                                <p> </p>
                                                 <div class="li-tag-line">
                                                     <h4>tag:</h4>
                                                     <a href="#">Headphones</a>,
@@ -139,47 +138,23 @@
                                     </div>
                                     <!-- Begin Li's Blog Comment Section -->
                                     <div class="li-comment-section">
-                                        <h3>03 comment</h3>
+                                        <h3>comments ({{ blog_audio_formats.comment.count }})</h3>
                                         <ul>
-                                            <li>
-                                                <div class="author-avatar pt-15">
-                                                    <img src="{% static 'images/product-details/user.png' %}" alt="User">
-                                                </div>
-                                                <div class="comment-body pl-15">
-                                                        <span class="reply-btn pt-15 pt-xs-5"><a href="#">reply</a></span>
-                                                    <h5 class="comment-author pt-15">admin</h5>
-                                                    <div class="comment-post-date">
-                                                        20 nov, 2018 at 9:30pm
+                                            {% for comment in blog_audio_formats.comment.all %}
+                                                <li>
+                                                    <div class="author-avatar pt-15">
+                                                        <img src="{% static 'images/product-details/user.png' %}" alt="User">
                                                     </div>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maiores adipisci optio ex, laboriosam facilis non pariatur itaque illo sunt?</p>
-                                                </div>
-                                            </li>
-                                            <li class="comment-children">
-                                                <div class="author-avatar pt-15">
-                                                    <img src="{% static 'images/product-details/admin.png' %}" alt="Admin">
-                                                </div>
-                                                <div class="comment-body pl-15">
-                                                        <span class="reply-btn pt-15 pt-xs-5"><a href="#">reply</a></span>
-                                                    <h5 class="comment-author pt-15">admin</h5>
-                                                    <div class="comment-post-date">
-                                                        20 nov, 2018 at 9:30pm
+                                                    <div class="comment-body pl-15">
+                                                            <span class="reply-btn pt-15 pt-xs-5"><a href="#">reply</a></span>
+                                                        <h5 class="comment-author pt-15">{{ comment.user.get_full_name }}</h5>
+                                                        <div class="comment-post-date">
+                                                            20 nov, 2018 at 9:30pm
+                                                        </div>
+                                                        <p>{{ comment.text }}</p>
                                                     </div>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maiores adipisci optio ex, laboriosam facilis non pariatur itaque illo sunt?</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="author-avatar pt-15">
-                                                    <img src="{% static 'images/product-details/admin.png' %}" alt="Admin">
-                                                </div>
-                                                <div class="comment-body pl-15">
-                                                    <span class="reply-btn pt-15 pt-xs-5"><a href="#">reply</a></span>
-                                                    <h5 class="comment-author pt-15">admin</h5>
-                                                    <div class="comment-post-date">
-                                                        20 nov, 2018 at 9:30pm
-                                                    </div>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maiores adipisci optio ex, laboriosam facilis non pariatur itaque illo sunt?</p>
-                                                </div>
-                                            </li>
+                                                </li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                     <!-- Li's Blog Comment Section End Here -->
