@@ -1,9 +1,10 @@
-from django.db.models import Avg, Count, Q
+from django.db.models import Avg, Count
+from django.db.models import Q
 from django.shortcuts import render
 from django.views.generic import DetailView
 from django.views.generic import TemplateView, ListView
 
-from products.models import Category, Product, ProductDimension
+from products.models import Product, Category, ProductDimension
 
 
 class ShopPageTemplateView(ListView):
@@ -86,14 +87,6 @@ class ShopPageTemplateView(ListView):
         return super().render_to_response(context, **response_kwargs)
 
 
-class SingleProductGroupTemplateView(TemplateView):
-    template_name = 'shop/single-product-group.html'
-
-
-class SingleProductTemplateView(TemplateView):
-    template_name = 'shop/single-product.html'
-
-
 class SingleProductSaleTemplateView(TemplateView):
     template_name = 'shop/single-product-sale.html'
 
@@ -102,10 +95,6 @@ class SingleProductNormalDetailView(DetailView):
     template_name = 'shop/single-product-tab-style-top.html'
     model = Product
     context_object_name = 'product'
-
-
-class SingleProductAffinityTemplateView(TemplateView):
-    template_name = 'shop/single-product-affiliate.html'
 
 
 class Shop3PageTemplateView(TemplateView):
@@ -132,28 +121,8 @@ class ShopListRightSidebarPageTemplateView(TemplateView):
     template_name = 'shop/shop-right-sidebar.html'
 
 
-class SingleProductGalleryLeftTemplateView(TemplateView):
-    template_name = 'shop/single-product-gallery-left.html'
-
-
-class SingleProductCarouselTemplateView(TemplateView):
-    template_name = 'shop/single-product-carousel.html'
-
-
-class SingleProductGalleryRightTemplateView(TemplateView):
-    template_name = 'shop/single-product-gallery-right.html'
-
-
 class SingleProductTabStyleTopTemplateView(TemplateView):
     template_name = 'shop/single-product-tab-style-top.html'
-
-
-class SingleProductTabStyleLeftTemplateView(TemplateView):
-    template_name = 'shop/single-product-tab-style-left.html'
-
-
-class SingleProductTabStyleRightTemplateView(TemplateView):
-    template_name = 'shop/single-product-tab-style-right.html'
 
 
 class ShoppingCardTemplateView(TemplateView):
