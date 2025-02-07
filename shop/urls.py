@@ -1,7 +1,7 @@
 from django.urls import path
 from shop.views import SearchProductsView
-
-from shop.views.error import custom_404_view
+from shop.views.wishlist import WishListView,add_wishlist,remove_from_wishlist
+from shop.views.error import custom_404_view,custom_500_view
 from shop.views.product import product_detail
 
 handler404 = custom_404_view

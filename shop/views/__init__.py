@@ -1,5 +1,5 @@
-# from .about_us import AboutUsTemplateView
-# from .accessories import AccessoriesTemplateView
+from .about_us import AboutUsTemplateView
+from .accessories import AccessoriesTemplateView
 from .about_us import AboutUsTemplateView
 from .blog_list import (Blog3PageView, Blog4PageView, Blog5PageView,
                         Blog6PageView, Blog7PageView, Blog8PageView,
@@ -36,7 +36,7 @@ from .shop import (Shop3PageTemplateView, Shop4PageTemplateView,
                    SingleProductTabStyleRightTemplateView,
                    SingleProductTabStyleTopTemplateView,
                    SingleProductTemplateView)
-# from .smartwatch import SmartwatchTemplateView
+from .smartwatch import SmartwatchTemplateView
 from .wishlist import WishListView
 
 # from .search import search_products
