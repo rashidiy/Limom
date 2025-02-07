@@ -1,23 +1,17 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate, logout
+import random
+import threading
 
-from django.views import View
-from shop.forms import RegistrationForm
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.decorators import login_required
-from shop.forms import UserChangeForm
-from django.contrib.auth.models import User
-from .utils import *
-from django.core.mail import send_mail
-from shop.models import VerificationCode
 from django.conf import settings
-import random
-from django.contrib.auth import get_user_model
-import random
-from django.contrib.auth.hashers import make_password
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.shortcuts import redirect, render
+from django.views import View
 
-User = get_user_model()
+from shop.forms import RegistrationForm, UserChangeForm
 
 
 def signup_view(request):
@@ -27,26 +21,25 @@ def signup_view(request):
             user_data = form.cleaned_data
             password = user_data.pop('password1')
             user_data.pop('password2')
-
-            verification_code = random.randint(100000, 999999)
-
+            if settings.DEBUG:
+                verification_code = 123456
+            else:
+                verification_code = random.randint(100000, 999999)
+                thread = threading.Thread(target=send_mail, args=(
+                    'Email Verification',
+                    f'Sizning tasdiqlash kodingiz: {verification_code}',
+                    settings.EMAIL_HOST_USER,
+                    [user_data['email']]))
+                thread.start()
             request.session['pending_user'] = user_data
             request.session['pending_password'] = password
             request.session['verification_code'] = verification_code
-
-            send_mail(
-                'Email Verification',
-                f'Sizning tasdiqlash kodingiz: {verification_code}',
-                settings.EMAIL_HOST_USER,
-                [user_data['email']],
-                fail_silently=False,
-            )
-
             return redirect('shop:otp')
     else:
         form = RegistrationForm()
 
     return render(request, 'login-register/login-register.html', {'form': form})
+
 
 class LoginView(View):
     def get(self, request):
@@ -66,10 +59,12 @@ class LoginView(View):
         messages.error(request, "Invalid email or password!")
         return render(request, 'login-register/login-register.html', {'form': form})
 
+
 class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect('shop:home')
+
 
 @login_required(login_url='shop:login')
 def edit_profile(request):
@@ -82,6 +77,7 @@ def edit_profile(request):
     else:
         form = UserChangeForm(instance=user)
     return render(request, 'profile/edit_profile.html', {'form': form})
+
 
 def OPTView(request):
     if request.method == 'POST':
@@ -114,9 +110,6 @@ def OPTView(request):
             })
 
     return render(request, 'login-register/otp.html')
-
-
-
 
 
 def forgot_password_view(request):

@@ -1,8 +1,9 @@
-from django.contrib import admin
 from django import forms
+from django.contrib import admin
 from django_ckeditor_5.widgets import CKEditor5Widget
 
-from .models import Product, Category, ProductImage, ProductDimension, ProductReview, ProductDiscount
+from .models import (Category, Product, ProductDimension, ProductDiscount,
+                     ProductImage, ProductReview)
 
 
 class ProductAdminForm(forms.ModelForm):

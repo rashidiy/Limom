@@ -1,6 +1,7 @@
-from django.views.generic import ListView
 from django.db.models import Q
-from products.models import Product, Category
+from django.views.generic import ListView
+
+from products.models import Product
 
 
 class SearchProductsView(ListView):
