@@ -20,14 +20,12 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
                         BlogVideoView, BlogAudiView, BlogGalaryView,
-
-                        FaqView, ErrorView, OPTView, LoginView,signup_view,forgot_password_view
-                        )
-from shop.views.page_log_reg import ContactView,\
+                        OPTView, LoginView, signup_view, forgot_password_view, AboutUsTemplateView,
+                        ContactTemplateView)
+from shop.views.page_log_reg import ContactView, \
     AboutView, FaqView, ErrorView
 
 app_name = 'shop'
-
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
@@ -73,6 +71,9 @@ urlpatterns = [
          name='single_product_affiliation'),
     path('shop/single-product/detail/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
+    path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
+    path('about-us', AboutUsTemplateView.as_view(), name='about_us'),
+    path('about-us', ContactTemplateView.as_view(), name='contact'),
     path('wishlist/add/', add_wishlist, name='add_wishlist'),
     path('wishlist/remove/', remove_from_wishlist, name='remove_wishlist'),
     path('register/', signup_view, name='register'),
