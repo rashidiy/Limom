@@ -17,4 +17,4 @@ product:
 	python manage.py create_img
 	python manage.py create_review
 	python manage.py create_discount
-	python manage.py create_featur
+	python manage.py create_feature
