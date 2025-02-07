@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 18:10+0500\n"
+"POT-Creation-Date: 2025-02-07 20:20+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,168 +16,192 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: .\products\models\product\categories.py:6
 #: .\products\models\product\reviews.py:7
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 #: .\products\models\product\categories.py:9
 msgid "Category"
-msgstr "Category"
+msgstr ""
 
 #: .\products\models\product\categories.py:10
 msgid "Categories"
-msgstr "Categories"
+msgstr ""
 
 #: .\products\models\product\discounts.py:6
 msgid "Banner"
-msgstr "Banner"
+msgstr ""
 
 #: .\products\models\product\discounts.py:8
 msgid "Product Discount"
-msgstr "Product Discount"
+msgstr ""
 
 #: .\products\models\product\discounts.py:9
 msgid "Product Discounts"
-msgstr "Product Discounts"
+msgstr ""
 
 #: .\products\models\product\features.py:6
 msgid "Width"
-msgstr "Width"
+msgstr ""
 
 #: .\products\models\product\features.py:7
 msgid "Height"
-msgstr "Height"
+msgstr ""
 
-#: .\products\models\product\features.py:10
-msgid "Product Dimension"
-msgstr "Product Dimension"
+#: .\products\models\product\features.py:8
+msgid "Color"
+msgstr ""
+
+#: .\products\models\product\features.py:9
+msgid "Size"
+msgstr ""
 
 #: .\products\models\product\features.py:11
+msgid "Product Dimension"
+msgstr ""
+
+#: .\products\models\product\features.py:12
 msgid "Product Dimensions"
-msgstr "Product Dimensions"
+msgstr ""
 
 #: .\products\models\product\images.py:10
 msgid "Product Image"
-msgstr "Product Image"
+msgstr ""
 
 #: .\products\models\product\images.py:11
 msgid "Product Images"
-msgstr "Product Images"
+msgstr ""
 
 #: .\products\models\product\products.py:8
 msgid "Title"
-msgstr "Title"
+msgstr ""
 
 #: .\products\models\product\products.py:9
 msgid "Price"
-msgstr "Price"
+msgstr ""
 
 #: .\products\models\product\products.py:10
 msgid "Quantity"
-msgstr "Quantity"
+msgstr ""
 
 #: .\products\models\product\products.py:14
 msgid "Short description"
-msgstr "Short description"
+msgstr ""
 
 #: .\products\models\product\products.py:15
 msgid "Long description"
-msgstr "Long description"
+msgstr ""
 
 #: .\products\models\product\products.py:24
 msgid "Product"
-msgstr "Product"
+msgstr ""
 
 #: .\products\models\product\products.py:25
 msgid "Products"
-msgstr "Products"
+msgstr ""
 
 #: .\products\models\product\reviews.py:6
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #: .\products\models\product\reviews.py:8
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: .\products\models\product\reviews.py:9
 msgid "Rate"
-msgstr "Rate"
+msgstr ""
 
 #: .\products\models\product\reviews.py:14
 msgid "Review"
-msgstr "Review"
+msgstr ""
 
 #: .\products\models\product\reviews.py:15
 msgid "Reviews"
-msgstr "Reviews"
+msgstr ""
 
-#: .\root\settings.py:145
+#: .\root\settings.py:158
 msgid "Uzbek"
-msgstr "Uzbek"
+msgstr ""
 
-#: .\root\settings.py:146
+#: .\root\settings.py:159
 msgid "English"
-msgstr "English"
+msgstr ""
 
-#: .\root\settings.py:147
+#: .\root\settings.py:160
 msgid "Russian"
-msgstr "Russian"
+msgstr ""
 
 #: .\templates\base.html:68
 msgid "Telephone Enquiry:"
-msgstr "Telephone Enquiry:"
+msgstr ""
+
+#: .\templates\base.html:80
+msgid "Setting"
+msgstr ""
 
 #: .\templates\base.html:84
 msgid "My Account"
-msgstr "My Account"
+msgstr ""
 
-#: .\templates\base.html:153
+#: .\templates\base.html:96
+msgid "Currency :"
+msgstr ""
+
+#: .\templates\base.html:108
+msgid "Language :"
+msgstr ""
+
+#: .\templates\base.html:148
+msgid "All"
+msgstr ""
+
+#: .\templates\base.html:154
 msgid "Enter your search key ..."
-msgstr "Enter your search key ..."
+msgstr ""
 
-#: .\templates\base.html:237
+#: .\templates\base.html:246
 msgid "Home"
-msgstr "Home"
+msgstr ""
 
-#: .\templates\base.html:242
+#: .\templates\base.html:248
+msgid "Shop"
+msgstr ""
+
+#: .\templates\base.html:253
 msgid "Blog"
-msgstr "Blog"
+msgstr ""
 
-#: .\templates\base.html:244
+#: .\templates\base.html:255
 msgid "Blog GridView"
-msgstr "Blog GridView"
+msgstr ""
 
-#: .\templates\base.html:280
+#: .\templates\base.html:291
 msgid "About Us"
-msgstr "About Us"
+msgstr ""
 
-#: .\templates\base.html:281
+#: .\templates\base.html:292
 msgid "Contact"
-msgstr "Contact"
+msgstr ""
 
-#: .\templates\base.html:282
+#: .\templates\base.html:293
 msgid "Smartwatch"
-msgstr "Smartwatch"
+msgstr ""
 
-#: .\templates\base.html:283
+#: .\templates\base.html:294
 msgid "Accessories"
-msgstr "Accessories"
+msgstr ""
 
-#: .\templates\base.html:548
-msgid "ABOUT US"
-msgstr "ABOUT US"
-
-#: .\templates\pages\404.html:7
+#: .\templates\pages\500.html:7
 msgid "Page Not Found"
-msgstr "Page Not Found"
+msgstr ""
 
-#: .\templates\pages\404.html:35
+#: .\templates\pages\500.html:37
 msgid "Sorry, the page you are looking for was not found."
-msgstr "Sorry, the page you are looking for was not found."
+msgstr ""
 
-#: .\templates\pages\404.html:36
+#: .\templates\pages\500.html:38
 msgid "Go back to Home Page"
-msgstr "Go back to Home Page"
+msgstr ""

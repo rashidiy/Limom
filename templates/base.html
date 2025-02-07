@@ -65,7 +65,8 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="header-top-left">
                             <ul class="phone-wrap">
-                                <li><span>Telephone Enquiry:</span><a href="#">(+123) 123 321 345</a></li>
+                               <li><span>{% trans "Telephone Enquiry:" %}</span><a href="#">(+123) 123 321 345</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -76,7 +77,7 @@
                             <ul class="ht-menu">
                                 <!-- Begin Setting Area -->
                                 <li>
-                                    <div class="ht-setting-trigger"><span>Setting</span></div>
+                                    <div class="ht-setting-trigger"><span>{% trans "Setting" %}</span></div>
                                     <div class="setting ht-setting">
                                         <ul class="ht-setting-list">
                                             {% if user.is_authenticated %}
@@ -92,7 +93,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <span class="currency-selector-wrapper">Currency :</span>
+                                    <span class="currency-selector-wrapper">{% trans "Currency :" %}</span>
                                     <div class="ht-currency-trigger"><span>USD $</span></div>
                                     <div class="currency ht-currency">
                                         <ul class="ht-setting-list">
@@ -104,7 +105,7 @@
                                 <!-- Currency Area End Here -->
                                 <!-- Begin Language Area -->
                                 <li>
-                                    <span class="language-selector-wrapper">Language :</span>
+                                    <span class="language-selector-wrapper">{% trans "Language :" %}</span>
                                     <div class="ht-language-trigger"><span>English</span></div>
                                     <div class="language ht-language">
                                         <ul class="ht-setting-list">
@@ -144,7 +145,8 @@
                         <!-- Begin Header Middle Searchbox Area -->
                         <form action="{% url 'shop:search' %}" method="GET" class="hm-searchbox">
                             <select name="q" class="nice-select select-search-category">
-                                <option value="">All</option>
+                                <option value="">{% trans "All" %}</option>
+
                                 {% for category in categories %}
                                 <option value="{{ category.name }}">{{ category.name }}</option>
                                 {% endfor %}
@@ -243,7 +245,9 @@
                                 <ul>
                                     <li class="dropdown-holder"><a href="{% url 'shop:home' %}">{% trans 'Home' %}</a>
 
-                                    <li class="megamenu-holder"><a href="{% url 'shop:shop' %}">Shop</a>
+                                  <li class="megamenu-holder"><a href="{% url 'shop:shop' %}">{% trans "Shop" %}</a></li>
+
+
 
                                     </li>
                                     <li class="dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog' %}</a>
