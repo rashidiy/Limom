@@ -15,6 +15,7 @@ class ShopPageTemplateView(ListView):
     paginate_by = 12
     template_name = 'shop/shop-left-sidebar.html'
 
+    # filter
     def get_queryset(self):
         products = Product.objects.all()
         category_id = self.request.GET.get('category')

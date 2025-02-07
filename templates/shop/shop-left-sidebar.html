@@ -171,9 +171,9 @@
                                                 <input style="color: color({{ product_color.color }});" type="checkbox" name="color" value="{{ product_color.color }}"
                                                        {% if product_color.color in request.GET.color %}checked{% endif %}
                                                        class="filter-checkbox" data-filter-type="color">
-                                                {{ products_color.color}} 
+                                                {{ products_color.color}}
                                             </li>
-                                            
+
                                         {% endfor %}
                                     </ul>
                                 </form>
@@ -248,7 +248,7 @@
                     .catch(error => console.error('Xatolik yuz berdi:', error));
             }
 
-            
+
 
             // **Kategoriya, Size, Color, Dimension tanlanganda avvalgi tanlovlarni o‘chirish**
             function setupExclusiveSelection(filterType) {
