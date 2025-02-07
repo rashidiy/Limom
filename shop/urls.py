@@ -1,7 +1,7 @@
 from django.urls import path
 from shop.views import search_products
 
-from shop.views.error import custom_404_view
+from shop.views.error import custom_404_view, custom_500_view
 from shop.views.product import product_detail
 
 handler404 = custom_404_view
@@ -24,7 +24,7 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
                         BlogVideoView, BlogAudiView, BlogGalaryView,
-                        AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
+                        # AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
                         FaqView, ErrorView, OPTView, LoginView,signup_view,forgot_password_view
                         )
 from shop.views.page_log_reg import ContactView,\
@@ -78,10 +78,10 @@ urlpatterns = [
     path('shop/single-product/detail/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
-    path('about_us/', AboutUsTemplateView.as_view(), name='about_us'),
-    path('contact/', ContactTemplateView.as_view(), name='contact'),
-    path('smartwatch/', SmartwatchTemplateView.as_view(), name='smartwatch'),
-    path('accessories/', AccessoriesTemplateView.as_view(), name='accessories'),
+    # path('about_us/', AboutUsTemplateView.as_view(), name='about_us'),
+    # path('contact/', ContactTemplateView.as_view(), name='contact'),
+    # path('smartwatch/', SmartwatchTemplateView.as_view(), name='smartwatch'),
+    # path('accessories/', AccessoriesTemplateView.as_view(), name='accessories'),
     path('register/', signup_view, name='register'),
     path('forgot-password/', forgot_password_view, name='forgot_password'),
     path('login/', LoginView.as_view(), name='login'),
