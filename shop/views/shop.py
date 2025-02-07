@@ -1,7 +1,12 @@
-from django.core.paginator import Paginator
-from django.db.models import Avg
+from django.db.models import Avg, Count
+from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
-from products.models import Product, Category
+from products.models import Product, Category, ProductDimension
+
+
+from django.db.models import Q
+
+
 
 
 class ShopPageTemplateView(ListView):
@@ -14,33 +19,54 @@ class ShopPageTemplateView(ListView):
     def get_queryset(self):
         products = Product.objects.all()
         category_id = self.request.GET.get('category')
-        sort_option = self.request.GET.get('sort', 'relevance')
+        color = self.request.GET.get('color')
+        size = self.request.GET.get('size')
+        sort_option = self.request.GET.get('sort')
+        dimensions = self.request.GET.getlist('dimension')
+
+        filters = Q()
         if category_id:
-            products = products.filter(category_id=category_id)
-            # Saralash (sort by)
-        elif sort_option == 'name_asc':
-            products = products.order_by('title')
-        elif sort_option == 'name_desc':
-            products = products.order_by('-title')
-        elif sort_option == 'price_low_high':
-            products = products.order_by('price')
-        elif sort_option == 'price_high_low':
-            products = products.order_by('-price')
-        elif sort_option == 'rating_lowest':
-            products = products.annotate(avg_rating=Avg('reviews__rate')).order_by('avg_rating')
-        elif sort_option == 'rating_highest':
-            products = products.annotate(avg_rating=Avg('reviews__rate')).order_by('-avg_rating')
+            filters &= Q(category_id=category_id)
+        if color:
+            filters &= Q(dimensions__color=color)
+        if size:
+            filters &= Q(dimensions__size=size)
+
+        if dimensions:
+            dim_filters = Q()
+            for dim in dimensions:
+                try:
+                    width, height = map(lambda x: float(x.replace(',', '.')) if ',' in x or '.' in x else int(x),
+                                        dim.split('x'))
+                    dim_filters |= Q(dimensions__width=width, dimensions__height=height)
+                except ValueError:
+                    continue
+            filters &= dim_filters
+
+        products = products.filter(filters).distinct()
+
+        sort_options = {
+            'name_asc': 'title',
+            'name_desc': '-title',
+            'price_low_high': 'price',
+            'price_high_low': '-price',
+            'rating_lowest': 'avg_rating',
+            'rating_highest': '-avg_rating'
+        }
+
+        if sort_option in sort_options:
+            if 'rating' in sort_option:
+                products = products.annotate(avg_rating=Avg('reviews__rate')).order_by(sort_options[sort_option])
+            else:
+                products = products.order_by(sort_options[sort_option])
 
         return products
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        products = self.get_queryset()
-        paginator = Paginator(products, 12)  # 12 ta mahsulot per page
-        page = self.request.GET.get('page')
-        products_paginated = paginator.get_page(page)
-
-        context['products'] = products_paginated
+        context['products_dimension_size'] = ProductDimension.objects.values('size').annotate(total=Count('size')).distinct()
+        context['products_dimension_color'] = ProductDimension.objects.values('color').annotate(total=Count('color')).distinct()
+        context['products_dimension_width'] = ( ProductDimension.objects.values('width', 'height').annotate(total=Count('id')).distinct())
         context['categories'] = Category.objects.all()
         context['sort_options'] = [
             ('relevance', 'Relevance'),
@@ -49,9 +75,15 @@ class ShopPageTemplateView(ListView):
             ('price_low_high', 'Price (Low > High)'),
             ('price_high_low', 'Price (High > Low)'),
             ('rating_lowest', 'Rating (Lowest)'),
-            ('rating_highest', 'Rating (Highest)'),
+            ('rating_highest', 'Rating (Highest)')
         ]
         return context
+
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            context['is_ajax'] = True  # AJAX so‘rov ekanligini tekshirish uchun
+            return render(self.request, 'shop/includes/product_grid.html', context)
+        return super().render_to_response(context, **response_kwargs)
 
 class SingleProductGroupTemplateView(TemplateView):
     template_name = 'shop/single-product-group.html'

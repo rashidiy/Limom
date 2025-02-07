@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from django.contrib import messages
+
 from django.views import View
 from shop.forms import RegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -83,7 +83,6 @@ def edit_profile(request):
         form = UserChangeForm(instance=user)
     return render(request, 'profile/edit_profile.html', {'form': form})
 
-@login_required(login_url='shop:login')
 def OPTView(request):
     if request.method == 'POST':
         input_code = request.POST.get('verification_code')

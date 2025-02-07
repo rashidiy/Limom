@@ -1,5 +1,5 @@
-from .about_us import AboutUsTemplateView
-from .accessories import AccessoriesTemplateView
+# from .about_us import AboutUsTemplateView
+# from .accessories import AccessoriesTemplateView
 from .blog_list import (BlogPageTemplateView,
                         Blog3PageView,
                         Blog4PageView,
@@ -15,9 +15,9 @@ from .blog_list import (BlogPageTemplateView,
 from .checkout import *
 from .checkout import CheckOutPageTemplateView
 from .compare import *
-
+from .search import *
 from .compare import CompareTemplateView
-from .contact import ContactTemplateView
+# from .contact import ContactTemplateView
 from .homepage import *
 from .homepage import HomePageTemplateView
 from .login_register import *
@@ -38,6 +38,11 @@ from .shop import (ShopPageTemplateView, SingleProductTabStyleLeftTemplateView, 
                    SingleProductTabStyleTopTemplateView, SingleProductTabStyleRightTemplateView,
                    ShoppingCardTemplateView
                    )
-from .smartwatch import SmartwatchTemplateView
+# from .smartwatch import SmartwatchTemplateView
 from .wishlist import WishListView
-from .search import search_products
+# from .search import search_products
+
+from .checkout import CheckOutPageTemplateView
+from .compare import CompareTemplateView
+
+from .error import custom_404_view

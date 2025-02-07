@@ -181,3 +181,39 @@ msgstr "Извините, страница, которую вы ищете, не
 #: .\templates\pages\404.html:36
 msgid "Go back to Home Page"
 msgstr "Вернуться на главную страницу"
+
+#~ msgid "Setting"
+#~ msgstr "Настройки"
+
+#~ msgid "SHOP"
+#~ msgstr "Продукты"
+
+#~ msgid "BlOG"
+#~ msgstr "БЛОГ"
+
+#~ msgid "ABOUT US"
+#~ msgstr "О нас"
+
+#~ msgid "Contact"
+#~ msgstr "Контакты"
+
+#~ msgid "SMARTWATCH"
+#~ msgstr "СМАРТ-ЧАСЫ"
+
+#~ msgid "ACCESSORIES"
+#~ msgstr "АКСЕССУАРЫ"
+
+#~ msgid "Language:"
+#~ msgstr "ЯЗЫК"
+
+#~ msgid "Telephone Enquiry:"
+#~ msgstr "Телефонный запрос:"
+
+#~ msgid "Currency"
+#~ msgstr "Валюта"
+
+#~ msgid "All"
+#~ msgstr "Все"
+
+#~ msgid "Enter your search key"
+#~ msgstr "Введите ключ поиска"
