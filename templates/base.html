@@ -144,15 +144,19 @@
                     <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                         <!-- Begin Header Middle Searchbox Area -->
                         <form action="{% url 'shop:search' %}" method="GET" class="hm-searchbox">
-                            <select name="q" class="nice-select select-search-category">
-                                <option value="">All</option>
+                            <select name="category" class="nice-select select-search-category">
+                                <option value="all" {% if selected_category == "all" %}selected{% endif %}>All</option>
                                 {% for category in categories %}
-                                    <option value="{{ category.name }}">{{ category.name }}</option>
+                                    <option value="{{ category.name }}"
+                                            {% if selected_category == category.name %}selected{% endif %}>
+                                        {{ category.name }}
+                                    </option>
                                 {% endfor %}
                             </select>
                             <input type="text" name="q" placeholder="Enter your search key ...">
                             <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
                         </form>
+
                         <!-- Header Middle Searchbox Area End Here -->
                         <!-- Begin Header Middle Right Area -->
                         <div class="header-middle-right">
@@ -249,8 +253,7 @@
                                     </li>
                                     <li class="dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog' %}</a>
                                         <ul class="hb-dropdown">
-                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog4' %}">Blog Grid
-                                                View</a>
+                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog GridView' %}</a>
                                                 <ul class="hb-dropdown hb-sub-dropdown">
                                                     <li><a href="{% url 'shop:blog2' %}">Blog 2 Column</a></li>
                                                     <li><a href="{% url 'shop:blog3' %}">Blog 3 Column</a></li>
@@ -286,8 +289,8 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="{% url 'shop:about_us' %}">About Us</a></li>
-                                    <li><a href="{% url 'shop:contact' %}">Contact</a></li>
+                                    <li><a >About Us</a></li>
+                                    <li><a >Contact</a></li>
                                     <li><a href="{% url 'shop:shop' %}">Smartwatch</a></li>
                                     <li><a href="{% url 'shop:shop' %}">Accessories</a></li>
                                 </ul>
