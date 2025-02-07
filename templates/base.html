@@ -46,6 +46,7 @@
 
     <!-- Modernizr js -->
     <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -141,7 +142,7 @@
                     <!-- Begin Header Middle Right Area -->
                     <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                         <!-- Begin Header Middle Searchbox Area -->
-                        <form action="{% url 'shop:search' %}" method="GET" class="hm-searchbox">
+                        <form  method="GET" class="hm-searchbox">
                             <select name="q" class="nice-select select-search-category">
                                 <option value="">All</option>
                                 {% for category in categories %}
@@ -154,14 +155,17 @@
                         <!-- Header Middle Searchbox Area End Here -->
                         <!-- Begin Header Middle Right Area -->
                         <div class="header-middle-right">
+
                             <ul class="hm-menu">
                                 <!-- Begin Header Middle Wishlist Area -->
                                 <li class="hm-wishlist">
-                                    <a href="{% url 'shop:wishlist' %}">
-                                        <span class="cart-item-count wishlist-item-count">0</span>
-                                        <i class="fa fa-heart-o"></i>
-                                    </a>
+    <a href="{% url 'shop:wishlist' %}">
+        <span class="cart-item-count wishlist-item-count" id="wishlist-count">{{ wishlist_count }}</span>
+        <i class="fa fa-heart" id="wishlist-icon"></i>
+        <!-- count wishlist -->
+    </a>
                                 </li>
+
                                 <!-- Header Middle Wishlist Area End Here -->
                                 <!-- Begin Header Mini Cart Area -->
                                 <li class="hm-minicart">
@@ -275,10 +279,10 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="{% url 'shop:about_us' %}">About Us</a></li>
-                                    <li><a href="{% url 'shop:contact' %}">Contact</a></li>
-                                    <li><a href="{% url 'shop:shop' %}">Smartwatch</a></li>
-                                    <li><a href="{% url 'shop:shop' %}">Accessories</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#">Smartwatch</a></li>
+                                    <li><a href="#">Accessories</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -759,9 +763,11 @@
                                         </form>
                                     </div>
                                     <div class="product-additional-info pt-25">
-                                        <a class="wishlist-btn" href="{% url 'shop:wishlist' %}"><i
-                                                class="fa fa-heart-o"></i>Add to
-                                            wishlist</a>
+                                        <li class="wishlist">
+                                         <a href="#" class="add-wishlist" data-product-id="{{ product.id }}">
+                                     <i class="fa fa-heart-o"></i> Add to wishlist
+                                          </a>
+                                            </li>
                                         <div class="product-social-sharing pt-25">
                                             <ul>
                                                 <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a>
@@ -828,6 +834,76 @@
 <script src="{% static 'js/scrollUp.min.js' %}"></script>
 <!-- Main/Activator js -->
 <script src="{% static 'js/main.js' %}"></script>
+<!-- Wishlist add -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".add-wishlist").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                let productId = this.getAttribute("data-product-id");
+                let icon = this.querySelector("i");
+
+                fetch("{% url 'shop:add_wishlist' %}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}",
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: `product_id=${productId}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.wishlist_count !== undefined) {
+                        document.getElementById("wishlist-count").innerText = data.wishlist_count;
+                    }
+
+                    if (data.added) {
+                        icon.classList.remove("fa-heart-o");
+                        icon.classList.add("fa-heart");
+                        icon.style.color = "black"; // Yurak rangini qizil qilish
+                    } else {
+                        icon.classList.remove("fa-heart");
+                        icon.classList.add("fa-heart-o");
+                        icon.style.color = ""; // Rangni tiklash
+                    }
+                })
+                .catch(error => console.error("AJAX Error:", error));
+            });
+        });
+    });
+</script>
+
+<script>
+    document.querySelectorAll(".remove-from-wishlist").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                let productId = this.getAttribute("data-id");
+                let wishlistItem = this.closest("tr"); // O'sha mahsulotni o'chirish
+
+                fetch("{% url 'shop:remove_wishlist' %}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}",
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: `product_id=${productId}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.wishlist_count !== undefined) {
+                        document.getElementById("wishlist-count").innerText = data.wishlist_count;
+                    }
+
+                    if (wishlistItem) {
+                        wishlistItem.remove(); // Wishlist jadvalidan mahsulotni olib tashlash
+                    }
+                })
+                .catch(error => console.error("AJAX Error:", error));
+            });
+        });
+</script>
 </body>
 
 <!-- index30:23-->

@@ -1,5 +1,5 @@
 from django.urls import path
-
+from shop.views.wishlist import add_wishlist, remove_from_wishlist
 from shop.views.error import custom_404_view, custom_500_view
 
 from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
@@ -17,7 +17,7 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         BlogPageTemplateView, Blog3PageView, Blog4PageView,
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
-                        BlogVideoView, BlogAudiView, BlogGalaryView, signup_view,forgot_password_view,OPTView
+                        BlogVideoView, BlogAudiView, BlogGalaryView, signup_view,forgot_password_view,OPTView,
                         )
 from shop.views.page_log_reg import ContactView,\
     AboutView, FaqView, ErrorView
@@ -68,6 +68,8 @@ urlpatterns = [
          name='single_product_affiliation'),
     path('shop/single-product/detail/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
+    path('wishlist/add/', add_wishlist, name='add_wishlist'),
+    path('wishlist/remove/', remove_from_wishlist, name='remove_wishlist'),
     path('register/', signup_view, name='register'),
     path('forgot-password/', forgot_password_view, name='forgot_password'),
     path('login/', LoginView.as_view(), name='login'),
