@@ -13,13 +13,17 @@ class ProductAdminForm(forms.ModelForm):
         fields = "__all__"
 
 
-# ProductAdmin sinfini sozlash
+class ProductImagesTabular(admin.TabularInline):
+    model = ProductImage
+    extra = 1
+
 class ProductAdmin(admin.ModelAdmin):
     form = ProductAdminForm
     list_display = ("title", "price", "category", "quantity", "seller")
     list_filter = ("category", "seller")
     search_fields = ("title", "short_description")
     ordering = ("-price",)
+    inlines = (ProductImagesTabular,)
     fieldsets = (
         ('Asosiy Malumotlar', {
             'fields': ("title", "price", "category", "quantity", "seller", "short_description", "long_description")}),

@@ -15,7 +15,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext as _text
-
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,25 +28,36 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ['*']
+
+
+# DEBUG bo'lsa ham, xatolarni ko'rsatmaslik uchun:
+if DEBUG:
+    def show_toolbar(request):
+        return False  # Django Debug Toolbar’ni o‘chirib qo‘yish
+
+    DEBUG_TOOLBAR_CONFIG = {
+        "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+    }
 
 # Application definition
 
 AUTHENTICATION_BACKENDS = [
     'shop.authentication_backends.EmailBackend',  # Agar mavjud bo'lsa
-    'django.contrib.auth.backends.ModelBackend', # Standart Django backend
+    'django.contrib.auth.backends.ModelBackend',  # Standart Django backend
 ]
 
-
 INSTALLED_APPS = [
-    'jazzmin',  # todo: poetry add django-jazzmin
-    'modeltranslation',  # todo: poetry add django-modeltranslation
+    'jazzmin', # todo: poetry add django-jazzmin
+    'modeltranslation', # todo: poetry add django-modeltranslation
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 
     # packege
     'django_ckeditor_5',
@@ -70,7 +80,9 @@ JAZZMIN_SETTINGS = {
     },
     "language_chooser": True,
 }
+
 MIDDLEWARE = [
+    "shop.middleware.Custom404Middleware", # 404 sahifani chiqarish uchun
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -86,7 +98,7 @@ ROOT_URLCONF = 'root.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,6 +106,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+'shop.views.wishlist.wishlist_count',  # To'g'ri modul yo'li
+
             ],
         },
     },
@@ -160,10 +174,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [
-    'static'
-]
+# STATIC_ROOT = BAS     E_DIR / 'static'
+STATICFILES_DIRS = [ 'static']
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -260,3 +272,13 @@ CKEDITOR_5_CONFIGS = {
         }
     }
 }
+
+
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'akramibodullayev0011@gmail.com'
+EMAIL_HOST_PASSWORD = 'rrzo lzcm iqri hxbx'

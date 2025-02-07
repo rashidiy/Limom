@@ -126,3 +126,15 @@ msgstr "Inglizcha"
 #: .\root\settings.py:127
 msgid "Russian"
 msgstr "Ruscha"
+
+#: .\templates\pages\404.html:7
+msgid "Page Not Found"
+msgstr "Sahifa Topilmadi"
+
+#: .\templates\pages\404.html:35
+msgid "Sorry, the page you are looking for was not found."
+msgstr "Kechirasiz, siz izlayotgan sahifa topilmadi."
+
+#: .\templates\pages\404.html:36
+msgid "Go back to Home Page"
+msgstr "Bosh sahifaga qaytish"

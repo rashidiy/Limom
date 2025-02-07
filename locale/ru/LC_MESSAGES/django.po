@@ -128,3 +128,15 @@ msgstr "Английский"
 #: .\root\settings.py:127
 msgid "Russian"
 msgstr "Русский"
+
+#: .\templates\pages\404.html:7
+msgid "Page Not Found"
+msgstr "Страница не найдена"
+
+#: .\templates\pages\404.html:35
+msgid "Sorry, the page you are looking for was not found."
+msgstr "Извините, страница, которую вы ищете, не найдена"
+
+#: .\templates\pages\404.html:36
+msgid "Go back to Home Page"
+msgstr "Вернуться на главную страницу "
