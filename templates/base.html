@@ -2,6 +2,7 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 
+
 <!-- index28:48-->
 <head>
     <meta charset="utf-8">
@@ -64,7 +65,8 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="header-top-left">
                             <ul class="phone-wrap">
-                                <li><span>Telephone Enquiry:</span><a href="#">(+123) 123 321 345</a></li>
+                               <li><span>{% trans "Telephone Enquiry:" %}</span><a href="#">(+123) 123 321 345</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -148,8 +150,8 @@
                                 <option value="{{ category.name }}">{{ category.name }}</option>
                                 {% endfor %}
                             </select>
-                            <input type="text" name="q" placeholder="Enter your search key ...">
-                            <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
+                              <input type="text" name="q" placeholder="{% trans 'Enter your search key ...' %}">
+        <button class="li-btn" type="submit"><i class="f"></i></button>
                         </form>
                         <!-- Header Middle Searchbox Area End Here -->
                         <!-- Begin Header Middle Right Area -->
@@ -234,7 +236,7 @@
                                 <ul>
                                     <li class="dropdown-holder"><a href="{% url 'shop:home' %}">{% trans 'Home' %}</a>
 
-                                    <li class="megamenu-holder"><a href="{% url 'shop:shop' %}">Shop</a>
+                                        <li class="megamenu-holder"><a href="{% url 'shop:shop' %}">Shop</a>
 
                                     </li>
                                     <li class="dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog' %}</a>
@@ -275,10 +277,13 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="{% url 'shop:about_us' %}">About Us</a></li>
-                                    <li><a href="{% url 'shop:contact' %}">Contact</a></li>
-                                    <li><a href="{% url 'shop:shop' %}">Smartwatch</a></li>
-                                    <li><a href="{% url 'shop:shop' %}">Accessories</a></li>
+                                   <li><a href="{% url 'shop:about_us' %}">{% trans "About Us" %}</a></li>
+                                   <li><a href="{% url 'shop:contact' %}">{% trans "Contact" %}</a></li>
+                                   <li><a href="{% url 'shop:shop' %}">{% trans "Smartwatch" %}</a></li>
+                                   <li><a href="{% url 'shop:shop' %}">{% trans "Accessories" %}</a></li>
+
+
+
                                 </ul>
                             </nav>
                         </div>
@@ -540,7 +545,7 @@
                                 <ul>
                                     <li><a href="#">Delivery</a></li>
                                     <li><a href="#">Legal Notice</a></li>
-                                    <li><a href="#">About us</a></li>
+                                    <li><a href="#">{% trans 'ABOUT US' %}</a></li>
                                     <li><a href="#">Contact us</a></li>
                                 </ul>
                             </div>
@@ -832,3 +837,7 @@
 
 <!-- index30:23-->
 </html>
+
+
+
+
