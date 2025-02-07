@@ -18,3 +18,7 @@ product:
 	python manage.py create_review
 	python manage.py create_discount
 	python manage.py create_feature
+
+
+isort:
+	isort --atomic .

@@ -1,29 +1,36 @@
 from django.urls import path
-from shop.views.wishlist import add_wishlist, remove_from_wishlist
-from shop.views.search import search_products
-from shop.views.product import product_detail
-from shop.views.error import custom_404_view, custom_500_view
 
-from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
-                        CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
-                        SingleProductTabStyleTopTemplateView,
-                        SingleProductGroupTemplateView, SingleProductAffinityTemplateView,
-                        SingleProductNormalTemplateView,
-                        Shop3PageTemplateView, Shop4PageTemplateView, ShopRightSidebarPageTemplateView,
-                        ShopListPageTemplateView, ShopListLeftSidebarPageTemplateView,
-                        ShopListRightSidebarPageTemplateView,
-                        SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
-                        SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
-                        SingleProductTabStyleRightTemplateView, ShoppingCardTemplateView, CompareTemplateView,
-                        LogoutView, edit_profile,
-                        BlogPageTemplateView, Blog3PageView, Blog4PageView,
+from shop.views import (AboutUsTemplateView, Blog3PageView, Blog4PageView,
                         Blog5PageView, Blog6PageView, Blog7PageView,
-                        Blog8PageView, Blog9PageView, BlogListTemplateView,
-                        BlogVideoView, BlogAudiView, BlogGalaryView,
-                        OPTView, LoginView, signup_view, forgot_password_view, AboutUsTemplateView,
-                        ContactTemplateView)
-from shop.views.page_log_reg import ContactView, \
-    AboutView, FaqView, ErrorView
+                        Blog8PageView, Blog9PageView, BlogAudiView,
+                        BlogGalaryView, BlogListTemplateView,
+                        BlogPageTemplateView, BlogVideoView,
+                        CheckOutPageTemplateView, CompareTemplateView,
+                        ContactTemplateView, HomePageTemplateView, LoginView,
+                        LogoutView, OPTView, Shop3PageTemplateView,
+                        Shop4PageTemplateView,
+                        ShopListLeftSidebarPageTemplateView,
+                        ShopListPageTemplateView,
+                        ShopListRightSidebarPageTemplateView,
+                        ShopPageTemplateView, ShoppingCardTemplateView,
+                        ShopRightSidebarPageTemplateView,
+                        SingleProductAffinityTemplateView,
+                        SingleProductCarouselTemplateView,
+                        SingleProductGalleryLeftTemplateView,
+                        SingleProductGalleryRightTemplateView,
+                        SingleProductGroupTemplateView,
+                        SingleProductNormalTemplateView,
+                        SingleProductSaleTemplateView,
+                        SingleProductTabStyleLeftTemplateView,
+                        SingleProductTabStyleRightTemplateView,
+                        SingleProductTabStyleTopTemplateView,
+                        SingleProductTemplateView, WishListView, edit_profile,
+                        forgot_password_view, signup_view)
+from shop.views.error import custom_404_view, custom_500_view
+from shop.views.page_log_reg import AboutView, ContactView, ErrorView, FaqView
+from shop.views.product import product_detail
+from shop.views.search import search_products
+from shop.views.wishlist import add_wishlist, remove_from_wishlist
 
 app_name = 'shop'
 

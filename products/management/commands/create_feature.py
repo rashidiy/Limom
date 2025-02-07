@@ -1,8 +1,9 @@
 import random
+
 from django.core.management.base import BaseCommand
 from faker import Faker
-from products.models.product.products import Product
-from products.models.product.features import ProductDimension
+
+from products.models import Product, ProductDimension
 
 fake = Faker()
 
@@ -37,6 +38,5 @@ class Command(BaseCommand):
             height = round(random.uniform(20.0, 200.0), 2)
 
             ProductDimension.objects.create(product=product, width=width, height=height)
-
 
         self.stdout.write(self.style.SUCCESS(f"🎉 Successfully created {count} product dimensions!"))

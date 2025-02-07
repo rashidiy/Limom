@@ -1,20 +1,23 @@
 import random
-from faker import Faker
-from django.core.management.base import BaseCommand
-from products.models.product.products import Product
-from products.models.product.categories import Category
+
 from django.contrib.auth.models import User
+from django.core.management.base import BaseCommand
+from faker import Faker
+
+from products.models.product.categories import Category
+from products.models.product.products import Product
 
 fake = Faker()
+
 
 class Command(BaseCommand):
     help = "Generate fake products"
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "count", 
-            type=int, 
-            nargs="?", 
+            "count",
+            type=int,
+            nargs="?",
             default=50,
             help="Number of products to generate"
         )

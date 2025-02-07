@@ -1,8 +1,10 @@
 import os
 import random
+
 from django.core.management.base import BaseCommand
-from products.models.product.products import Product
+
 from products.models.product.images import ProductImage
+from products.models.product.products import Product
 from root.settings import BASE_DIR
 
 

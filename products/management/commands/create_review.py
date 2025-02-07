@@ -1,10 +1,13 @@
 import random
+
 from django.core.management.base import BaseCommand
 from faker import Faker
-from products.models.product.reviews import ProductReview
+
 from products.models.product.products import Product
+from products.models.product.reviews import ProductReview
 
 fake = Faker()
+
 
 class Command(BaseCommand):
     help = "Generate fake product reviews using Faker"

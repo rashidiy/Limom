@@ -1,9 +1,12 @@
 import random
+
 from django.core.management.base import BaseCommand
 from faker import Faker
+
 from products.models.product.categories import Category
 
 fake = Faker()
+
 
 class Command(BaseCommand):
     help = "Creates fake categories"
