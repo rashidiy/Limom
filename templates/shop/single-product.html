@@ -6,7 +6,7 @@
                     <div class="breadcrumb-content">
                         <ul>
                             <li><a href="{% url 'shop:home' %}">Home</a></li>
-                            <li class="active">Single Product</li>
+                            <li class="active">{{ product.title }}</li>
                         </ul>
                     </div>
                 </div>
@@ -20,45 +20,59 @@
                            <!-- Product Details Left -->
                             <div class="product-details-left">
                                 <div class="product-details-images slider-navigation-1">
-                                    <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="{% static 'images/product/large-size/1.jpg' %}" data-gall="myGallery">
-                                            <img src="{% static 'images/product/large-size/1.jpg' %}" alt="product image">
-                                        </a>
-                                    </div>
-                                    <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="{% static 'images/product/large-size/2.jpg' %}" data-gall="myGallery">
-                                            <img src="{% static 'images/product/large-size/2.jpg' %}" alt="product image">
-                                        </a>
-                                    </div>
-                                    <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="{% static 'images/product/large-size/3.jpg' %}" data-gall="myGallery">
-                                            <img src="{% static 'images/product/large-size/3.jpg' %}" alt="product image">
-                                        </a>
-                                    </div>
-                                    <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="{% static 'images/product/large-size/4.jpg' %}" data-gall="myGallery">
-                                            <img src="{% static 'images/product/large-size/4.jpg' %}" alt="product image">
-                                        </a>
-                                    </div>
-                                    <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="{% static 'images/product/large-size/5.jpg' %}" data-gall="myGallery">
-                                            <img src="{% static 'images/product/large-size/5.jpg' %}" alt="product image">
-                                        </a>
-                                    </div>
-                                    <div class="lg-image">
-                                        <a class="popup-img venobox vbox-item" href="{% static 'images/product/large-size/6.jpg' %}" data-gall="myGallery">
-                                            <img src="{% static 'images/product/large-size/6.jpg' %}" alt="product image">
-                                        </a>
+                                    {% if product.img %}
+                                        <div class="lg-image">
+                                            <a class="popup-img venobox vbox-item" href="{{ product.img.url }}" data-gall="myGallery">
+                                                <img src="{{ product.img.url }}" alt="{{ product.title }}">
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                    <div class="product-images">
+                                        <div class="lg-image">
+                                            <a class="popup-img venobox vbox-item" href="{{ product.img.url }}" data-gall="myGallery">
+                                                <img src="{{ product.img.url }}" alt="Product Image">
+                                            </a>
+                                        </div>
+                                        <div class="lg-image">
+                                            <a class="popup-img venobox vbox-item" href="{{ product.img_2.url }}" data-gall="myGallery">
+                                                <img src="{{ product.img_2.url }}" alt="Product Image 2">
+                                            </a>
+                                        </div>
+                                        <div class="lg-image">
+                                            <a class="popup-img venobox vbox-item" href="{{ product.img_3.url }}" data-gall="myGallery">
+                                                <img src="{{ product.img_3.url }}" alt="Product Image 3">
+                                            </a>
+                                        </div>
+                                        <div class="lg-image">
+                                            <a class="popup-img venobox vbox-item" href="{{ product.img_4.url }}" data-gall="myGallery">
+                                                <img src="{{ product.img_4.url }}" alt="Product Image 4">
+                                            </a>
+                                        </div>
+                                        <div class="lg-image">
+                                            <a class="popup-img venobox vbox-item" href="{{ product.img_5.url }}" data-gall="myGallery">
+                                                <img src="{{ product.img_5.url }}" alt="Product Image 5">
+                                            </a>
+                                        </div>
+                                        <div class="lg-image">
+                                            <a class="popup-img venobox vbox-item" href="{{ product.img_6.url }}" data-gall="myGallery">
+                                                <img src="{{ product.img_6.url }}" alt="Product Image 6">
+                                            </a>
+                                        </div>
+                                        <div class="lg-image">
+                                            <a class="popup-img venobox vbox-item" href="{{ product.img_7.url }}" data-gall="myGallery">
+                                                <img src="{{ product.img_7.url }}" alt="Product Image 7">
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="product-details-thumbs slider-thumbs-1">                                        
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/1.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/2.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/3.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/4.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/5.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/6.jpg' %}" alt="product image thumb"></div>
-                                </div>
+<!--                                <div class="product-details-thumbs slider-thumbs-1">                                        -->
+<!--                                    <div class="sm-image"><img src="{% static 'images/product/small-size/1.jpg' %}" alt="product image thumb"></div>-->
+<!--                                    <div class="sm-image"><img src="{% static 'images/product/small-size/2.jpg' %}" alt="product image thumb"></div>-->
+<!--                                    <div class="sm-image"><img src="{% static 'images/product/small-size/3.jpg' %}" alt="product image thumb"></div>-->
+<!--                                    <div class="sm-image"><img src="{% static 'images/product/small-size/4.jpg' %}" alt="product image thumb"></div>-->
+<!--                                    <div class="sm-image"><img src="{% static 'images/product/small-size/5.jpg' %}" alt="product image thumb"></div>-->
+<!--                                    <div class="sm-image"><img src="{% static 'images/product/small-size/6.jpg' %}" alt="product image thumb"></div>-->
+<!--                                </div>-->
                             </div>
                             <!--// Product Details Left -->
                         </div>
@@ -67,26 +81,26 @@
                             <div class="product-details-view-content pt-60">
                                 <div class="product-info">
                                     <h2>Today is a good day Framed poster</h2>
-                                    <span class="product-details-ref">Reference: demo_15</span>
+                                    {% if product.reference %}
+                                       <span class="product-details-ref">Reference:{{ product.reference }}</span>
+                                    {% endif %}
                                     <div class="rating-box pt-20">
+                                        {% load custom_filters %}
                                         <ul class="rating rating-with-review-item">
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
-                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                            {% for i in product.rating|round_value|range_filter %}
+                                                <li>
+                                                    <i class="fa fa-star"></i>
+                                                </li>
+                                            {% endfor %}
                                             <li class="review-item"><a href="#">Read Review</a></li>
                                             <li class="review-item"><a href="#">Write Review</a></li>
                                         </ul>
                                     </div>
                                     <div class="price-box pt-20">
-                                        <span class="new-price new-price-2">$57.98</span>
+                                        <span class="new-price new-price-2">${{ product.price }}</span>
                                     </div>
                                     <div class="product-desc">
-                                        <p>
-                                            <span>100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom. Lorem ipsum dolor sit amet, consectetur adipisicing elit. quibusdam corporis, earum facilis et nostrum dolorum accusamus similique eveniet quia pariatur.
-                                            </span>
-                                        </p>
+                                        <p><span>{{ product.description }}</span></p>
                                     </div>
                                     <div class="product-variants">
                                         <div class="produt-variants-size">

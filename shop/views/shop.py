@@ -1,6 +1,7 @@
 from django.db.models import Avg, Count, Q
 from django.shortcuts import render
-from django.views.generic import ListView, TemplateView
+from django.views.generic import DetailView
+from django.views.generic import TemplateView, ListView
 
 from products.models import Category, Product, ProductDimension
 
@@ -97,8 +98,10 @@ class SingleProductSaleTemplateView(TemplateView):
     template_name = 'shop/single-product-sale.html'
 
 
-class SingleProductNormalTemplateView(TemplateView):
-    template_name = 'shop/single-product.html'
+class SingleProductNormalDetailView(DetailView):
+    template_name = 'shop/single-product-tab-style-top.html'
+    model = Product
+    context_object_name = 'product'
 
 
 class SingleProductAffinityTemplateView(TemplateView):
