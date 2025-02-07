@@ -1,8 +1,12 @@
 from django.urls import path
-from shop.views.wishlist import add_wishlist, remove_from_wishlist
-from shop.views.search import search_products
+from shop.views import SearchProductsView
+
+from shop.views.error import custom_404_view
 from shop.views.product import product_detail
-from shop.views.error import custom_404_view, custom_500_view
+
+handler404 = custom_404_view
+
+
 
 from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
                         CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
@@ -20,9 +24,10 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
                         BlogVideoView, BlogAudiView, BlogGalaryView,
-                        OPTView, LoginView, signup_view, forgot_password_view, AboutUsTemplateView,
-                        ContactTemplateView)
-from shop.views.page_log_reg import ContactView, \
+                        AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
+                        FaqView, ErrorView, OPTView, LoginView,signup_view,forgot_password_view
+                        )
+from shop.views.page_log_reg import ContactView,\
     AboutView, FaqView, ErrorView
 
 app_name = 'shop'
@@ -82,7 +87,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
-    path('search/', search_products, name='search'),
+    path('search/', SearchProductsView.as_view(), name='search'),
     path('product/<int:pk>/', product_detail, name='product_detail'),
     path('forgot-password/', forgot_password_view, name='forgot_password'),
     path('otp/', OPTView, name='otp'),

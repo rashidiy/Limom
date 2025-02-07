@@ -1,6 +1,7 @@
 from django.db import models
-from django_resized import ResizedImageField
 from django.utils.translation import gettext_lazy as _
+from django_resized import ResizedImageField
+
 
 class ProductDiscount(models.Model):
     banner = ResizedImageField(_('Banner'))

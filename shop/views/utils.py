@@ -1,9 +1,12 @@
 import random
-from django.core.mail import send_mail
+
 from django.conf import settings
+from django.core.mail import send_mail
+
 
 def generate_verification_code():
     return str(random.randint(100000, 999999))
+
 
 def send_verification_email(email):
     code = generate_verification_code()

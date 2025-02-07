@@ -145,10 +145,9 @@
                         <!-- Begin Header Middle Searchbox Area -->
                         <form action="{% url 'shop:search' %}" method="GET" class="hm-searchbox">
                             <select name="q" class="nice-select select-search-category">
-                                <option value="">{% trans "All" %}</option>
-
+                                <option value="">All</option>
                                 {% for category in categories %}
-                                <option value="{{ category.name }}">{{ category.name }}</option>
+                                    <option value="{{ category.name }}">{{ category.name }}</option>
                                 {% endfor %}
                             </select>
                               <input type="text" name="q" placeholder="{% trans 'Enter your search key ...' %}">
@@ -288,13 +287,10 @@
                                         </ul>
                                     </li>
 
-                                   <li><a href="{% url 'shop:about_us' %}">{% trans "About Us" %}</a></li>
-                                   <li><a href="{% url 'shop:contact' %}">{% trans "Contact" %}</a></li>
-                                   <li><a href="{% url 'shop:shop' %}">{% trans "Smartwatch" %}</a></li>
-                                   <li><a href="{% url 'shop:shop' %}">{% trans "Accessories" %}</a></li>
-
-
-
+                                    <li><a href="{% url 'shop:about_us' %}">About Us</a></li>
+                                    <li><a href="{% url 'shop:contact' %}">Contact</a></li>
+                                    <li><a href="{% url 'shop:shop' %}">Smartwatch</a></li>
+                                    <li><a href="{% url 'shop:shop' %}">Accessories</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -441,8 +437,6 @@
     {% block single-product-tab-style-top %}
     {% endblock single-product-tab-style-top %}
 
-    {% block content10 %}
-    {% endblock content10 %}
     <div class="footer">
         <!-- Begin Footer Static Top Area -->
         <div class="footer-static-top">
