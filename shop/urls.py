@@ -14,30 +14,20 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
                         SingleProductTabStyleRightTemplateView, ShoppingCardTemplateView, CompareTemplateView,
                         LoginView, LogoutView, edit_profile,
-                        BlogPageTemplateView, Blog3PageView, Blog4PageView,
-                        Blog5PageView, Blog6PageView, Blog7PageView,
-                        Blog8PageView, Blog9PageView, BlogListTemplateView,
-                        BlogVideoView, BlogAudiView, BlogGalaryView, signup_view,forgot_password_view,OPTView
+                         signup_view,forgot_password_view,OPTView
                         )
 from shop.views.page_log_reg import ContactView,\
     AboutView, FaqView, ErrorView
+from .blog_post.views import BlogPost,BlogGalleryFormat,BlogVideoFormat,BlogAudioFormat
 
 app_name = 'shop'
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
-    path('blog1/', BlogListTemplateView.as_view(), name='blog1'),
-    path('blog2/', BlogPageTemplateView.as_view(), name='blog2'),
-    path('blog3/', Blog3PageView.as_view(), name='blog3'),
-    path('blog4/', Blog4PageView.as_view(), name='blog4'),
-    path('blog5/', Blog5PageView.as_view(), name='blog5'),
-    path('blog6/', Blog6PageView.as_view(), name='blog6'),
-    path('blog7/', Blog7PageView.as_view(), name='blog7'),
-    path('blog8/', Blog8PageView.as_view(), name='blog8'),
-    path('blog9/', Blog9PageView.as_view(), name='blog9'),
-    path('blog10/', BlogAudiView.as_view(), name='blog10'),
-    path('blog11/', BlogVideoView.as_view(), name='blog11'),
-    path('blog12/', BlogGalaryView.as_view(), name='blog12'),
+    path('blog/', BlogPost.as_view(), name='blog'),
+    path('blog_gallery/<int:id>', BlogGalleryFormat.as_view(), name='blog_gallery'),
+    path('blog_audio/<int:id>', BlogAudioFormat.as_view(), name='blog_audio'),
+    path('blog_video/<int:id>', BlogVideoFormat.as_view(), name='blog_video'),
     path('page1', LoginView.as_view(), name='page1'),
     path('page6', ContactView.as_view(), name='page6'),
     path('page7', AboutView.as_view(), name='page7'),

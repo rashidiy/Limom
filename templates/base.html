@@ -141,7 +141,7 @@
                     <!-- Begin Header Middle Right Area -->
                     <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                         <!-- Begin Header Middle Searchbox Area -->
-                        <form action="{% url 'shop:search' %}" method="GET" class="hm-searchbox">
+                        <form action="" method="GET" class="hm-searchbox">
                             <select name="q" class="nice-select select-search-category">
                                 <option value="">All</option>
                                 {% for category in categories %}
@@ -237,48 +237,9 @@
                                     <li class="megamenu-holder"><a href="{% url 'shop:shop' %}">Shop</a>
 
                                     </li>
-                                    <li class="dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog' %}</a>
-                                        <ul class="hb-dropdown">
-                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog GridView' %}</a>
-                                                <ul class="hb-dropdown hb-sub-dropdown">
-                                                    <li><a href="{% url 'shop:blog2' %}">Blog 2 Column</a></li>
-                                                    <li><a href="{% url 'shop:blog3' %}">Blog 3 Column</a></li>
-                                                    <li><a href="{% url 'shop:blog4' %}">Grid Left Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:blog5' %}">Grid Right Sidebar</a></li>
-                                                </ul>
-
-                                            </li>
-                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog6' %}">Blog
-                                                List View</a>
-                                                <ul class="hb-dropdown hb-sub-dropdown">
-                                                    <li><a href="{% url 'shop:blog1' %}">Blog List</a></li>
-                                                    <li><a href="{% url 'shop:blog6' %}">List Left Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:blog7' %}">List Right Sidebar</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog8' %}">Blog
-                                                Details</a>
-                                                <ul class="hb-dropdown hb-sub-dropdown">
-                                                    <li><a href="{% url 'shop:blog8' %}">Left Sidebar</a></li>
-                                                    <li><a href="{% url 'shop:blog9' %}">Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog12' %}">Blog
-                                                Format</a>
-                                                <ul class="hb-dropdown hb-sub-dropdown">
-                                                    <li><a href="{% url 'shop:blog10' %}">Blog Audio Format</a></li>
-                                                    <li><a href="{% url 'shop:blog11' %}">Blog Video Format</a></li>
-                                                    <li><a href="{% url 'shop:blog12' %}">Blog Gallery Format</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                    <li class="dropdown-holder"><a href="{% url 'shop:blog' %}">Blog</a>
                                     </li>
 
-                                    <li><a href="{% url 'shop:about_us' %}">About Us</a></li>
-                                    <li><a href="{% url 'shop:contact' %}">Contact</a></li>
-                                    <li><a href="{% url 'shop:shop' %}">Smartwatch</a></li>
-                                    <li><a href="{% url 'shop:shop' %}">Accessories</a></li>
                                 </ul>
                             </nav>
                         </div>

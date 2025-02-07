@@ -1,17 +1,6 @@
 # from .about_us import AboutUsTemplateView
 # from .accessories import AccessoriesTemplateView
-from .blog_list import (BlogPageTemplateView,
-                        Blog3PageView,
-                        Blog4PageView,
-                        Blog5PageView,
-                        BlogListTemplateView,
-                        Blog6PageView,
-                        Blog7PageView,
-                        Blog8PageView,
-                        Blog9PageView,
-                        BlogAudiView,
-                        BlogVideoView,
-                        BlogGalaryView)
+
 from .checkout import *
 from .checkout import CheckOutPageTemplateView
 from .compare import *
