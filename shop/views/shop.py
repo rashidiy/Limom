@@ -1,8 +1,7 @@
 from django.core.paginator import Paginator
 from django.db.models import Avg
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from products.models import Product, Category
-
 
 class ShopPageTemplateView(ListView):
     model = Product
@@ -63,8 +62,11 @@ class SingleProductTemplateView(TemplateView):
 class SingleProductSaleTemplateView(TemplateView):
     template_name = 'shop/single-product-sale.html'
 
-class SingleProductNormalTemplateView(TemplateView):
+
+class SingleProductNormalTemplateView(DetailView):
     template_name = 'shop/single-product.html'
+    model = Product
+    context_object_name = 'product'
 
 class SingleProductAffinityTemplateView(TemplateView):
     template_name = 'shop/single-product-affiliate.html'

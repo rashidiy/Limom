@@ -64,7 +64,7 @@ urlpatterns = [
     path('shop/single-product-normal/', SingleProductNormalTemplateView.as_view(), name='single_product_normal'),
     path('shop/single-product-affiliation/', SingleProductAffinityTemplateView.as_view(),
          name='single_product_affiliation'),
-    path('shop/single-product/detail/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
+    path('shop/single-product/detail/<int:pk>/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
     path('register/', RegisterView.as_view(), name='register'),
     path('login/', LoginView.as_view(), name='login'),

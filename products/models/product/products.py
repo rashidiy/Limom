@@ -14,6 +14,12 @@ class Product(models.Model):
     short_description = models.CharField(_('Short description'), max_length=2048)
     long_description = CKEditor5Field(_('Long description'), max_length=2048)  # todo: @thenodirjon CKeditorni qo'shish
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(args, kwargs)
+        self.reference = None
+        self.img = None
+        self.description = None
+
     def get_first_image(self):
         first_image = self.images.first()  # Birinchi rasmni olamiz
         if first_image:
