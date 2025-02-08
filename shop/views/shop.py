@@ -1,12 +1,9 @@
 from django.db.models import Avg, Count
+from django.db.models import Q
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
+
 from products.models import Product, Category, ProductDimension
-
-
-from django.db.models import Q
-
-
 
 
 class ShopPageTemplateView(ListView):
@@ -64,9 +61,12 @@ class ShopPageTemplateView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products_dimension_size'] = ProductDimension.objects.values('size').annotate(total=Count('size')).distinct()
-        context['products_dimension_color'] = ProductDimension.objects.values('color').annotate(total=Count('color')).distinct()
-        context['products_dimension_width'] = ( ProductDimension.objects.values('width', 'height').annotate(total=Count('id')).distinct())
+        context['products_dimension_size'] = ProductDimension.objects.values('size').annotate(
+            total=Count('size')).distinct()
+        context['products_dimension_color'] = ProductDimension.objects.values('color').annotate(
+            total=Count('color')).distinct()
+        context['products_dimension_width'] = (
+            ProductDimension.objects.values('width', 'height').annotate(total=Count('id')).distinct())
         context['categories'] = Category.objects.all()
         context['sort_options'] = [
             ('relevance', 'Relevance'),
@@ -85,56 +85,38 @@ class ShopPageTemplateView(ListView):
             return render(self.request, 'shop/includes/product_grid.html', context)
         return super().render_to_response(context, **response_kwargs)
 
-class SingleProductGroupTemplateView(TemplateView):
-    template_name = 'shop/single-product-group.html'
-
-class SingleProductTemplateView(TemplateView):
-    template_name = 'shop/single-product.html'
 
 class SingleProductSaleTemplateView(TemplateView):
     template_name = 'shop/single-product-sale.html'
 
-class SingleProductNormalTemplateView(TemplateView):
-    template_name = 'shop/single-product.html'
-
-class SingleProductAffinityTemplateView(TemplateView):
-    template_name = 'shop/single-product-affiliate.html'
 
 class Shop3PageTemplateView(TemplateView):
     template_name = 'shop/shop-3-column.html'
 
+
 class Shop4PageTemplateView(TemplateView):
     template_name = 'shop/shop-4-column.html'
+
 
 class ShopRightSidebarPageTemplateView(TemplateView):
     template_name = 'shop/shop-right-sidebar.html'
 
+
 class ShopListPageTemplateView(TemplateView):
     template_name = 'shop/shop-list.html'
+
 
 class ShopListLeftSidebarPageTemplateView(TemplateView):
     template_name = 'shop/shop-left-sidebar.html'
 
+
 class ShopListRightSidebarPageTemplateView(TemplateView):
     template_name = 'shop/shop-right-sidebar.html'
 
-class SingleProductGalleryLeftTemplateView(TemplateView):
-    template_name = 'shop/single-product-gallery-left.html'
-
-class SingleProductCarouselTemplateView(TemplateView):
-    template_name = 'shop/single-product-carousel.html'
-
-class SingleProductGalleryRightTemplateView(TemplateView):
-    template_name = 'shop/single-product-gallery-right.html'
 
 class SingleProductTabStyleTopTemplateView(TemplateView):
     template_name = 'shop/single-product-tab-style-top.html'
 
-class SingleProductTabStyleLeftTemplateView(TemplateView):
-    template_name = 'shop/single-product-tab-style-left.html'
-
-class SingleProductTabStyleRightTemplateView(TemplateView):
-    template_name = 'shop/single-product-tab-style-right.html'
 
 class ShoppingCardTemplateView(TemplateView):
     template_name = 'shop/shopping-cart.html'

@@ -1,9 +1,10 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
-from products.models import Product
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
+from products.models import Product, UserWishlist
+
 
 class WishListView(LoginRequiredMixin, ListView):
     template_name = 'wishlist/wishlist.html'
@@ -16,7 +17,6 @@ class WishListView(LoginRequiredMixin, ListView):
 
         user_wishlist, created = UserWishlist.objects.get_or_create(user=self.request.user)
         return user_wishlist.wishlist.all()  # Faqat wishlist'dagi mahsulotlarni olish
-
 
 
 @login_required(login_url="shop:login")
@@ -44,6 +44,7 @@ def add_wishlist(request):
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
+
 @login_required(login_url="shop:login")
 def remove_from_wishlist(request):
     if request.method == 'POST':
@@ -64,8 +65,6 @@ def remove_from_wishlist(request):
 
     return JsonResponse({"error": "Invalid request"}, status=400)
 
-
-from products.models.wishlist.wishlists import UserWishlist
 
 def wishlist_count(request):
     if request.user.is_authenticated:

@@ -65,7 +65,8 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="header-top-left">
                             <ul class="phone-wrap">
-                                <li><span>Telephone Enquiry:</span><a href="#">(+123) 123 321 345</a></li>
+                               <li><span>{% trans "Telephone Enquiry:" %}</span><a href="#">(+123) 123 321 345</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -76,12 +77,11 @@
                             <ul class="ht-menu">
                                 <!-- Begin Setting Area -->
                                 <li>
-                                    <div class="ht-setting-trigger"><span>Setting</span></div>
+                                    <div class="ht-setting-trigger"><span>{% trans "Setting" %}</span></div>
                                     <div class="setting ht-setting">
                                         <ul class="ht-setting-list">
                                             {% if user.is_authenticated %}
-                                                <li><a href="{% url 'shop:myprofile' %}">{% trans 'My Account' %}</a>
-                                                </li>
+                                                <li><a href="{% url 'shop:myprofile' %}">{% trans 'My Account' %}</a></li>
                                                 <li><a href="{% url 'shop:checkout' %}">Checkout</a></li>
                                                 <!-- Checkout havolasi -->
                                                 <!-- Agar kerak bo'lsa boshqa havolalarni ham qo'shish mumkin -->
@@ -93,7 +93,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <span class="currency-selector-wrapper">Currency :</span>
+                                    <span class="currency-selector-wrapper">{% trans "Currency :" %}</span>
                                     <div class="ht-currency-trigger"><span>USD $</span></div>
                                     <div class="currency ht-currency">
                                         <ul class="ht-setting-list">
@@ -105,7 +105,7 @@
                                 <!-- Currency Area End Here -->
                                 <!-- Begin Language Area -->
                                 <li>
-                                    <span class="language-selector-wrapper">Language :</span>
+                                    <span class="language-selector-wrapper">{% trans "Language :" %}</span>
                                     <div class="ht-language-trigger"><span>English</span></div>
                                     <div class="language ht-language">
                                         <ul class="ht-setting-list">
@@ -150,8 +150,8 @@
                                     <option value="{{ category.name }}">{{ category.name }}</option>
                                 {% endfor %}
                             </select>
-                            <input type="text" name="q" placeholder="Enter your search key ...">
-                            <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
+                              <input type="text" name="q" placeholder="{% trans 'Enter your search key ...' %}">
+        <button class="li-btn" type="submit"><i class="f"></i></button>
                         </form>
                         <!-- Header Middle Searchbox Area End Here -->
                         <!-- Begin Header Middle Right Area -->
@@ -181,13 +181,13 @@
                                     <div class="minicart">
                                         <ul class="minicart-product-list">
                                             <li>
-                                                <a href="{% url 'shop:single-product' %}"
+                                                <a href="{% url 'shop:product_detail' 1 %}"
                                                    class="minicart-product-image">
                                                     <img src="{% static 'images/product/small-size/5.jpg' %}"
                                                          alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">
-                                                    <h6><a href="{% url 'shop:single-product' %}">Aenean eu
+                                                    <h6><a href="{% url 'shop:product_detail' 1 %}">Aenean eu
                                                         tristique</a></h6>
                                                     <span>£40 x 1</span>
                                                 </div>
@@ -196,13 +196,13 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <a href="{% url 'shop:single-product' %}"
+                                                <a href="{% url 'shop:product_detail' 1 %}"
                                                    class="minicart-product-image">
                                                     <img src="{% static 'images/product/small-size/6.jpg' %}"
                                                          alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">
-                                                    <h6><a href="{% url 'shop:single-product' %}">Aenean eu
+                                                    <h6><a href="{% url 'shop:product_detail' 1 %}">Aenean eu
                                                         tristique</a></h6>
                                                     <span>£40 x 1</span>
                                                 </div>
@@ -244,13 +244,14 @@
                                 <ul>
                                     <li class="dropdown-holder"><a href="{% url 'shop:home' %}">{% trans 'Home' %}</a>
 
-                                    <li class="megamenu-holder"><a href="{% url 'shop:shop' %}">Shop</a>
+                                  <li class="megamenu-holder"><a href="{% url 'shop:shop' %}">{% trans "Shop" %}</a></li>
+
+
 
                                     </li>
                                     <li class="dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog' %}</a>
                                         <ul class="hb-dropdown">
-                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog4' %}">Blog Grid
-                                                View</a>
+                                            <li class="sub-dropdown-holder"><a href="{% url 'shop:blog4' %}">{% trans 'Blog GridView' %}</a>
                                                 <ul class="hb-dropdown hb-sub-dropdown">
                                                     <li><a href="{% url 'shop:blog2' %}">Blog 2 Column</a></li>
                                                     <li><a href="{% url 'shop:blog3' %}">Blog 3 Column</a></li>
