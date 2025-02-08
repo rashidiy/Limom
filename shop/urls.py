@@ -1,11 +1,10 @@
 from django.urls import path
 from shop.views import SearchProductsView
-from shop.views.wishlist import WishListView,add_wishlist,remove_from_wishlist
+from shop.views.wishlist import WishListView,RemoveFromWishlistView,AddToWishlistView
 from shop.views.error import custom_404_view,custom_500_view
 from shop.views.product import SingleProductNormalDetailView
 from shop.views.add_to_cart import cart_count, remove_from_cart, add_to_cart,CartListView
 
-handler404 = custom_404_view
 
 
 
@@ -63,8 +62,9 @@ urlpatterns = [
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('about-us', AboutUsTemplateView.as_view(), name='about_us'),
     path('about-us', ContactTemplateView.as_view(), name='contact'),
-    path('wishlist/add/', add_wishlist, name='add_wishlist'),
-    path('wishlist/remove/', remove_from_wishlist, name='remove_wishlist'),
+    path('wishlist/', WishListView.as_view(), name='wishlist'),
+    path('wishlist/add/', AddToWishlistView.as_view(), name='add_wishlist'),
+    path('wishlist/remove/', RemoveFromWishlistView.as_view(), name='remove_wishlist'),
     path('register/', SignupView.as_view(), name='register'),
     path('forgot-password/', ForgotPasswordView.as_view(), name='forgot_password'),
     path('login/', LoginView.as_view(), name='login'),

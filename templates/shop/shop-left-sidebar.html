@@ -47,16 +47,14 @@
                         <!-- product-select-box start -->
                         <div class="product-select-box">
                             <div class="product-short">
-                                <p>Sort By:</p>
-                                <select id="sort-select" class="nice-select filter-select" data-filter-type="sort">
-                                    {% for value, label in sort_options %}
-                                        <option value="{{ value }}"
-                                                {% if request.GET.sort == value %}selected{% endif %}>
-                                            {{ label }}
-                                        </option>
-                                    {% endfor %}
-                                </select>
-                            </div>
+    <p>Sort By:</p>
+    <select id="sort-select" class="filter-select" data-filter-type="sort">
+        {% for value, label in sort_options %}
+            <option value="{{ value }}" {% if request.GET.sort == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+    </select>
+</div>
+
                         </div>
                         <!-- product-select-box end -->
                     </div>
@@ -84,7 +82,7 @@
                                                         <div class="product_desc_info">
                                                             <div class="product-review">
                                                                 <h5 class="manufacturer">
-                                                                    <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                    <a href="{% url 'shop:product_detail' pk=product.id %}" data-product-id="{{ product.id }}">Graphic Corner</a>
                                                                 </h5>
                                                                 <div class="rating-box">
                                                                     <ul class="rating">
@@ -106,18 +104,6 @@
                                                                 <li class="add-cart active"><a href="#" class="add-to-cart"  data-product-id="{{ product.id }}">Add to cart</a></li>
                                                                 <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal"
                                                                        data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                        <li class="wishlist">
-                            <a href="#" class="add-wishlist" data-product-id="{{ product.id }}">
-                                {% if request.user.is_authenticated and product in request.user.userwishlist.wishlist.all %}
-                                    <i class="fa fa-heart in-wishlist"></i>
-                                {% else %}
-                                    <i class="fa fa-heart-o"></i>
-                                {% endif %}
-
-                            </a>
-                        </li>
-                        
-                        
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -148,7 +134,8 @@
                                                         <div class="product_desc_info">
                                                             <div class="product-review">
                                                                 <h5 class="manufacturer">
-                                                                    <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                    <a href="{% url 'shop:product_detail' pk=product.id %}" data-product-id="{{ product.id }}">Graphic Corner</a>
+
                                                                 </h5>
                                                                 <div class="rating-box">
                                                                     <ul class="rating">
@@ -171,18 +158,6 @@
                                                 <div class="col-lg-4">
                                                     <div class="shop-add-action mb-xs-30">
                                                         <ul class="add-actions-link">
-                                                        
-                        <li class="wishlist">
-                            <a href="#" class="add-wishlist" data-product-id="{{ product.id }}">
-                                {% if request.user.is_authenticated and product in request.user.userwishlist.wishlist.all %}
-                                    <i class="fa fa-heart in-wishlist"></i>
-                                {% else %}
-                                    <i class="fa fa-heart-o"></i>
-                                {% endif %}
-                                Add to wishlist
-                            </a>
-                        </li>
-                        
                                                             <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter"
                                                                    href="#"><i class="fa fa-eye"></i>Quick view</a></li>
                                                         </ul>
@@ -373,126 +348,207 @@
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
 
-            const productContainer = document.getElementById('product-container');
-            const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
-            const sortSelect = document.getElementById('sort-select');
-            const clearAllBtn = document.querySelector('.btn-clear-all');
-            let currentPage = 1;
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const productContainer = document.getElementById('product-container');
+    const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+    const sortSelect = document.getElementById('sort-select');
+    const clearAllBtn = document.querySelector('.btn-clear-all');
+    let currentPage = 1;
 
-            function updateProducts() {
-                const queryParams = new URLSearchParams();
+    function updateProducts() {
+        const queryParams = new URLSearchParams();
 
-                // **Barcha filtrlarni olish va URL parametrlarini yaratish**
-                filterCheckboxes.forEach(checkbox => {
-                    if (checkbox.checked) {
-                        queryParams.append(checkbox.dataset.filterType, checkbox.value);
-                    }
-                });
-
-                // **Sortni alohida qo'shish**
-                if (sortSelect) {
-                    queryParams.set('sort', sortSelect.value);
-                }
-
-                // **Page va URL yangilash (page refreshsiz)**
-                queryParams.set('page', currentPage);
-                window.history.pushState({}, '', `${window.location.pathname}?${queryParams.toString()}`);
-
-                // **AJAX orqali mahsulotlarni yuklash**
-                // fetch(`/shop/?${queryParams.toString()}`, {
-                //     headers: {'X-Requested-With': 'XMLHttpRequest'}
-                // })
-                //     .then(response => response.text())
-                //     .then(html => {
-                //         productContainer.innerHTML = html;
-                //         attachPaginationListeners();
-                //     })
-                //     .catch(error => console.error('Xatolik yuz berdi:', error));
+        filterCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                queryParams.append(checkbox.dataset.filterType, checkbox.value);
             }
-
-
-
-            // **Kategoriya, Size, Color, Dimension tanlanganda avvalgi tanlovlarni o‘chirish**
-            function setupExclusiveSelection(filterType) {
-                document.querySelectorAll(`input[data-filter-type="${filterType}"]`).forEach(checkbox => {
-                    checkbox.addEventListener('change', () => {
-                        document.querySelectorAll(`input[data-filter-type="${filterType}"]`).forEach(otherCheckbox => {
-                            if (otherCheckbox !== checkbox) {
-                                otherCheckbox.checked = false;
-                            }
-                        });
-                        updateProducts();
-                    });
-                });
-            }
-
-            setupExclusiveSelection("category");  // **Kategoriya uchun**
-            setupExclusiveSelection("size");      // **Size uchun**
-            setupExclusiveSelection("color");     // **Color uchun**
-            setupExclusiveSelection("dimension"); // **Dimension uchun**
-
-            // **Nice-Select bilan ishlash**
-            const niceSelectWrapper = document.querySelector('.nice-select');
-            if (niceSelectWrapper) {
-                niceSelectWrapper.addEventListener('click', function () {
-                    console.log("Sort ochildi!"); // **Tekshirish uchun**
-                });
-
-                document.addEventListener('click', function (event) {
-                    if (event.target.closest('.nice-select li')) {
-                        console.log("Sort o'zgardi:", event.target.innerText);
-                        sortSelect.value = event.target.dataset.value;
-                        sortSelect.dispatchEvent(new Event('change')); // **Haqiqiy change eventni trigger qilish**
-                    }
-                });
-            }
-
-            // **Sort tanlanganda AJAX so'rov yuborish (Darhol ishlaydi!)**
-            if (sortSelect) {
-                sortSelect.addEventListener('change', function () {
-                    console.log("Sort o'zgardi:", sortSelect.value);
-                    currentPage = 1;
-                    updateProducts();
-                });
-            }
-
-            // **"Clear All" tugmasi barcha filterlarni tozalaydi**
-            clearAllBtn.addEventListener('click', function () {
-                filterCheckboxes.forEach(checkbox => checkbox.checked = false);
-                if (sortSelect) {
-                    sortSelect.value = "relevance"; // **Sortni default holatga qaytarish**
-                }
-                updateProducts();
-            });
-
-            // **Sahifa yuklanganda filterlarni qayta tiklash**
-            function initializeFiltersFromURL() {
-                const urlParams = new URLSearchParams(window.location.search);
-
-                filterCheckboxes.forEach(checkbox => {
-                    const filterType = checkbox.dataset.filterType;
-                    if (urlParams.has(filterType)) {
-                        const values = urlParams.getAll(filterType);
-                        if (values.includes(checkbox.value)) {
-                            checkbox.checked = true;
-                        }
-                    }
-                });
-
-                if (urlParams.has('sort') && sortSelect) {
-                    sortSelect.value = urlParams.get('sort');
-                }
-            }
-
-            initializeFiltersFromURL();  // **Bu sahifa yuklanganda ishlaydi**
-            updateProducts();  // **Bu ham sahifa yuklanganda ishlaydi**
         });
 
+        if (sortSelect) {
+            queryParams.set('sort', sortSelect.value);
+        }
 
-    </script>
+        queryParams.set('page', currentPage);
+        window.history.pushState({}, '', `${window.location.pathname}?${queryParams.toString()}`);
+
+        fetch(`/shop/?${queryParams.toString()}`, {
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+        .then(response => response.text())
+        .then(html => {
+            productContainer.innerHTML = html;
+            setupEventListeners();
+        })
+        .catch(error => console.error('Xatolik yuz berdi:', error));
+    }
+
+    function setupExclusiveSelection(filterType) {
+        document.querySelectorAll(`input[data-filter-type="${filterType}"]`).forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                document.querySelectorAll(`input[data-filter-type="${filterType}"]`).forEach(otherCheckbox => {
+                    if (otherCheckbox !== checkbox) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+                updateProducts();
+            });
+        });
+    }
+
+    ["category", "size", "color", "dimension"].forEach(setupExclusiveSelection);
+
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function () {
+            currentPage = 1;
+            updateProducts();
+        });
+    }
+
+    if (clearAllBtn) {
+        clearAllBtn.addEventListener('click', function () {
+            filterCheckboxes.forEach(checkbox => checkbox.checked = false);
+            if (sortSelect) {
+                sortSelect.value = "relevance";
+            }
+            updateProducts();
+        });
+    }
+
+    function initializeFiltersFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        filterCheckboxes.forEach(checkbox => {
+            if (urlParams.has(checkbox.dataset.filterType)) {
+                const values = urlParams.getAll(checkbox.dataset.filterType);
+                if (values.includes(checkbox.value)) {
+                    checkbox.checked = true;
+                }
+            }
+        });
+
+        if (urlParams.has('sort') && sortSelect) {
+            sortSelect.value = urlParams.get('sort');
+        }
+    }
+
+    function setupEventListeners() {
+        document.querySelectorAll(".add-wishlist").forEach(button => {
+            button.removeEventListener("click", wishlistHandler);
+            button.addEventListener("click", wishlistHandler);
+        });
+
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.removeEventListener("click", addToCartHandler);
+            button.addEventListener("click", addToCartHandler);
+        });
+
+        document.querySelectorAll(".remove-from-cart").forEach(button => {
+            button.removeEventListener("click", removeFromCartHandler);
+            button.addEventListener("click", removeFromCartHandler);
+        });
+    }
+
+    function wishlistHandler(event) {
+        event.preventDefault();
+
+        let productId = this.getAttribute("data-product-id");
+        let icon = this.querySelector("i");
+        let url = "{% url 'shop:add_wishlist' %}";
+        let csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": csrftoken,
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `product_id=${productId}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.wishlist_count !== undefined) {
+                document.getElementById("wishlist-count").innerText = data.wishlist_count;
+            }
+
+            if (data.added) {
+                icon.classList.remove("fa-heart-o");
+                icon.classList.add("fa-heart");
+                icon.style.color = "black";
+            } else {
+                icon.classList.remove("fa-heart");
+                icon.classList.add("fa-heart-o");
+                icon.style.color = "";
+            }
+        })
+        .catch(error => console.error("AJAX Error:", error));
+    }
+
+    function addToCartHandler(event) {
+        event.preventDefault();
+
+        let productId = this.getAttribute("data-product-id");
+        let icon = this.querySelector("i");
+
+        fetch("{% url 'shop:add_to_cart' %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}",
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `product_id=${productId}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.cart_items !== undefined) {
+                document.getElementById("cart-count").innerText = data.cart_items;
+            }
+
+            if (data.added) {
+                icon.classList.remove("fa-shopping-cart");
+                icon.classList.add("fa-check");
+                icon.style.color = "black";
+            } else {
+                icon.classList.remove("fa-check");
+                icon.classList.add("fa-shopping-cart");
+                icon.style.color = "";
+            }
+        })
+        .catch(error => console.error("AJAX Error:", error));
+    }
+
+    function removeFromCartHandler(event) {
+        event.preventDefault();
+
+        let productId = this.getAttribute("data-product-id");
+
+        fetch("{% url 'shop:remove_from_cart' %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}",
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `product_id=${productId}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.cart_count !== undefined) {
+                document.getElementById("cart-count").innerText = data.cart_count;
+            }
+
+            this.closest("li").remove();
+        })
+        .catch(error => console.error("AJAX Error:", error));
+    }
+
+    initializeFiltersFromURL();
+    updateProducts();
+    setupEventListeners();
+});
+</script>
+
+
+
 
 
 {% endblock shop-left-sidebar %}
