@@ -3,6 +3,7 @@ from shop.views import SearchProductsView
 from shop.views.wishlist import WishListView,add_wishlist,remove_from_wishlist
 from shop.views.error import custom_404_view,custom_500_view
 from shop.views.product import product_detail
+from shop.views.add_to_cart import cart_count, remove_from_cart, add_to_cart,CartListView
 
 handler404 = custom_404_view
 
@@ -19,13 +20,13 @@ from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProduc
                         SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
                         SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
                         SingleProductTabStyleRightTemplateView, ShoppingCardTemplateView, CompareTemplateView,
-                        LogoutView, edit_profile,
+                        LogoutView,
                         BlogPageTemplateView, Blog3PageView, Blog4PageView,
                         Blog5PageView, Blog6PageView, Blog7PageView,
                         Blog8PageView, Blog9PageView, BlogListTemplateView,
                         BlogVideoView, BlogAudiView, BlogGalaryView,
                         AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
-                        FaqView, ErrorView, OPTView, LoginView,signup_view,forgot_password_view
+                        FaqView, ErrorView,SignupView,OTPView,EditProfileView,ForgotPasswordView,LoginView
                         )
 from shop.views.page_log_reg import ContactView,\
     AboutView, FaqView, ErrorView
@@ -81,16 +82,19 @@ urlpatterns = [
     path('about-us', ContactTemplateView.as_view(), name='contact'),
     path('wishlist/add/', add_wishlist, name='add_wishlist'),
     path('wishlist/remove/', remove_from_wishlist, name='remove_wishlist'),
-    path('register/', signup_view, name='register'),
-    path('forgot-password/', forgot_password_view, name='forgot_password'),
+    path('register/', SignupView.as_view(), name='register'),
+    path('forgot-password/', ForgotPasswordView.as_view(), name='forgot_password'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
-    path('myprofile/', edit_profile, name='myprofile'),
+    path('myprofile/', EditProfileView.as_view(), name='myprofile'),
     path('search/', SearchProductsView.as_view(), name='search'),
     path('product/<int:pk>/', product_detail, name='product_detail'),
-    path('forgot-password/', forgot_password_view, name='forgot_password'),
-    path('otp/', OPTView, name='otp'),
+    path('otp/', OTPView.as_view(), name='otp'),
+    path('cart/', CartListView.as_view(), name='cart_list'),
+    path('cart/add/', add_to_cart, name='add_to_cart'),
+    path('cart/remove/', remove_from_cart, name='remove_from_cart'),
+    path('cart/count/', cart_count, name='cart_count'),
 
 ]
 

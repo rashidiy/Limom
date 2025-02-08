@@ -29,8 +29,6 @@ def add_wishlist(request):
             return JsonResponse({'error': 'Product ID required'}, status=400)
 
         product = get_object_or_404(Product, id=product_id)
-
-        # UserWishlist modelidan wishlist olish yoki yaratish
         user_wishlist, created = UserWishlist.objects.get_or_create(user=user)
 
         if user_wishlist.wishlist.filter(id=product.id).exists():

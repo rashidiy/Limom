@@ -38,6 +38,7 @@ from .shop import (Shop3PageTemplateView, Shop4PageTemplateView,
                    SingleProductTemplateView)
 from .smartwatch import SmartwatchTemplateView
 from .wishlist import WishListView
+from shop.views.add_to_cart import add_to_cart,cart_count,remove_from_cart
 
 # from .search import search_products
 from shop.views.search import SearchProductsView

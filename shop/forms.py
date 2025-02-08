@@ -22,7 +22,7 @@ class RegistrationForm(UserCreationForm):
 class UserChangeForm(forms.ModelForm):
     first_name = forms.CharField(required=False)
     last_name = forms.CharField(required=False)
-    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'readonly': 'readonly'}))
+    email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={'readonly': 'readonly'}))
     username = forms.CharField(required=False)
 
     def clean_username(self):
