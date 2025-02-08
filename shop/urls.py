@@ -2,22 +2,20 @@ from django.urls import path
 from shop.views import SearchProductsView
 from shop.views.wishlist import WishListView,add_wishlist,remove_from_wishlist
 from shop.views.error import custom_404_view,custom_500_view
-from shop.views.product import product_detail
+from shop.views.product import SingleProductNormalDetailView
 from shop.views.add_to_cart import cart_count, remove_from_cart, add_to_cart,CartListView
 
 handler404 = custom_404_view
 
-from shop.views import (AboutUsTemplateView,HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
-                        CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
-                        SingleProductTabStyleTopTemplateView,
-                        SingleProductGroupTemplateView, SingleProductAffinityTemplateView,
-                        SingleProductNormalTemplateView,
+
+
+from shop.views import (HomePageTemplateView, ShopPageTemplateView, WishListView,
+                        CheckOutPageTemplateView,
                         Shop3PageTemplateView, Shop4PageTemplateView, ShopRightSidebarPageTemplateView,
                         ShopListPageTemplateView, ShopListLeftSidebarPageTemplateView,
                         ShopListRightSidebarPageTemplateView,
-                        SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
-                        SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
-                        SingleProductTabStyleRightTemplateView, ShoppingCardTemplateView, CompareTemplateView,
+                        SingleProductSaleTemplateView,
+                        ShoppingCardTemplateView, CompareTemplateView,
                         LogoutView,
                         BlogPageTemplateView, Blog3PageView, Blog4PageView,
                         Blog5PageView, Blog6PageView, Blog7PageView,
@@ -74,7 +72,6 @@ urlpatterns = [
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', EditProfileView.as_view(), name='myprofile'),
     path('search/', SearchProductsView.as_view(), name='search'),
-    path('product/<int:pk>/', product_detail, name='product_detail'),
     path('otp/', OTPView.as_view(), name='otp'),
     path('cart/', CartListView.as_view(), name='cart_list'),
     path('cart/add/', add_to_cart, name='add_to_cart'),
