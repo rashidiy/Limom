@@ -1,6 +1,7 @@
 from django.db import models
-from django_resized import ResizedImageField
 from django.utils.translation import gettext_lazy as _
+from django_resized import ResizedImageField
+
 
 class ProductImage(models.Model):
     product = models.ForeignKey('products.Product', on_delete=models.CASCADE, related_name='images')

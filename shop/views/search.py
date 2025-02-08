@@ -1,24 +1,29 @@
 from django.db.models import Q
-from django.shortcuts import render
-from products.models import Product, categories
+from django.views.generic import ListView
 
-def search_products(request):
-    query = request.GET.get('q', '').strip()  # Foydalanuvchi qidirgan so'z
-    products = Product.objects.all()
-
-    if query:
-        products = products.filter(
-            Q(title__icontains=query) |  # Product sarlavhasi bo‘yicha qidirish
-            Q(short_description__icontains=query) |  # Qisqa tavsifi bo‘yicha qidirish
-            Q(long_description__icontains=query)|
-            Q(category__name__icontains=query) # Uzun tavsifi bo‘yicha qidirish
-        )
+from products.models import Product
 
 
-    print(f"Natijalar soni: {products.count()}")  # Terminalda natijalar sonini chiqaramiz
-    for product in products:
-        print(product.title)  # Har bir mahsulot nomini chiqaramiz
+class SearchProductsView(ListView):
+    model = Product
+    template_name = 'search-result.html'
+    context_object_name = 'products'
 
-    context = {'products': products}
-    return render(request, 'search_result.html', context)
+    def get_queryset(self):
+        query = self.request.GET.get('q', '').strip()
+        category = self.request.GET.get('category', 'all')
 
+        products = Product.objects.all()
+
+        if category != 'all':
+            products = products.filter(category__name__iexact=category)
+
+        if query:
+            products = products.filter(
+                Q(title__icontains=query) |
+                Q(short_description__icontains=query) |
+                Q(long_description__icontains=query) |
+                Q(category__name__icontains=query)
+            )
+
+        return products

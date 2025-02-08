@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>RESULTS</h2>
+
+        <!-- Search Form -->
+
+
+        <!-- Natijalar bo‘ladigan div -->
+        <div class="row mt-4" id="search-results">
+            {% if products %}
+                {% for product in products %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="position-relative">
+                                <img src="{{ product.get_first_image }}" class="card-img-top img-fluid"
+                                     alt="{{ product.name }}">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-2">{{ product.title }}</h5>
+                                <div class="d-flex justify-content-center align-items-center mb-3">
+                                    <span class="fw-bold text-danger fs-5">${{ product.price }}</span>
+                                </div>
+                                <a href="{% url 'shop:product_detail' product.id %}" class="btn btn-primary w-100">View
+                                    Details</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h2 class="text-muted text-center">No products found.</h2>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

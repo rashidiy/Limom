@@ -22,7 +22,7 @@
                                     <th class="compare-column-titles">Image</th>
                                     <td class="compare-column-productinfo">
                                         <div class="compare-pdoduct-image">
-                                            <a href="{% url 'shop:single-product' %}">
+                                            <a href="{% url 'shop:product_detail' 1 %}">
                                                 <img src="{% static 'images/product/large-size/1.jpg' %}" alt="Product Image">
                                             </a>
                                             <a href="cart.html" class="ho-button ho-button-sm">
@@ -32,7 +32,7 @@
                                     </td>
                                     <td class="compare-column-productinfo">
                                         <div class="compare-pdoduct-image">
-                                            <a href="{% url 'shop:single-product' %}">
+                                            <a href="{% url 'shop:product_detail' 1 %}">
                                                 <img src="{% static 'images/product/large-size/2.jpg' %}" alt="Product Image">
                                             </a>
                                             <a href="cart.html" class="ho-button ho-button-sm">
@@ -44,10 +44,10 @@
                                 <tr>
                                     <th>Product Name</th>
                                     <td>
-                                        <h5 class="compare-product-name"><a href="{% url 'shop:single-product' %}">HP Pavilion</a></h5>
+                                        <h5 class="compare-product-name"><a href="{% url 'shop:product_detail' 1 %}">HP Pavilion</a></h5>
                                     </td>
                                     <td>
-                                        <h5 class="compare-product-name"><a href="{% url 'shop:single-product' %}">HP Probook</a></h5>
+                                        <h5 class="compare-product-name"><a href="{% url 'shop:product_detail' 1 %}">HP Probook</a></h5>
                                     </td>
                                 </tr>
                                 <tr>
