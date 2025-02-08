@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block blog-left-sidebar %}
+    <!-- Begin Mobile Menu Area -->
+    <div class="mobile-menu-area d-lg-none d-xl-none col-12">
+        <div class="container">
+            <div class="row">
+                <div class="mobile-menu">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu Area End Here -->
+    </header>
+    <!-- Header Area End Here -->
+    <!-- Begin Li's Breadcrumb Area -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Blog Left Sidebar</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Li's Breadcrumb Area End Here -->
+    <!-- Begin Li's Main Blog Page Area -->
+    <div class="li-main-blog-page pt-60 pb-55">
+        <div class="container">
+            <div class="row">
+                <!-- Begin Li's Blog Sidebar Area -->
+                <div class="col-lg-3 order-lg-1 order-2">
+                    <div class="li-blog-sidebar-wrapper">
+                        <div class="li-blog-sidebar">
+                            <div class="li-sidebar-search-form">
+                                <form action="#">
+                                    <input type="text" class="li-search-field" placeholder="search here">
+                                    <button type="submit" class="li-search-btn"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="li-blog-sidebar pt-25">
+                            <h4 class="li-blog-sidebar-title">Categories</h4>
+                            {% for data in categories %}
+                                <ul class="li-blog-archive">
+                                    <li><a href="#">{{ data.name }} </a></li>
+                                </ul>
+                            {% endfor %}
+                        </div>
+                        <div class="li-blog-sidebar">
+                            <h4 class="li-blog-sidebar-title">Blog Archives</h4>
+                            <ul class="li-blog-archive">
+                                <li><a href="#">arxivlangon postlar chiqishi kerak (soni bilan)</a></li>
+                            </ul>
+                        </div>
+                        <div class="li-blog-sidebar">
+                            <h4 class="li-blog-sidebar-title">Recent Post</h4>
+                            {% for gallery in latest_posts %}
+                                <div class="li-recent-post pb-30">
+                                    <div class="li-recent-post-thumb">
+                                        <a href="blog-details.html">
+                                            <img class="img-full" src="{% static 'images/product/small-size/5.jpg' %}"
+                                                 alt="Li's Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="li-recent-post-des">
+                                        <span><a
+                                                href="{% url 'shop:gallery' gallery.id %}">{{ gallery.title }}</a></span>
+                                        <span class="li-post-date">25.11.2018</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <!--                                <div class="li-blog-sidebar">-->
+                        <!--                                    <h4 class="li-blog-sidebar-title">Tags</h4>-->
+                        <!--                                    <ul class="li-blog-tags">-->
+                        <!--                                        <li><a href="#">Gaming</a></li>-->
+                        <!--                                        <li><a href="#">Chromebook</a></li>-->
+                        <!--                                        <li><a href="#">Refurbished</a></li>-->
+                        <!--                                        <li><a href="#">Touchscreen</a></li>-->
+                        <!--                                        <li><a href="#">Ultrabooks</a></li>-->
+                        <!--                                        <li><a href="#">Sound Cards</a></li>-->
+                        <!--                                    </ul>-->
+                        <!--                                </div>-->
+                    </div>
+                </div>
+                <!-- Li's Blog Sidebar Area End Here -->
+                <!-- Begin Li's Main Content Area -->
+                <div class="col-lg-9 order-lg-2 order-1">
+                    <div class="row li-main-content">
+                        <div class="col-lg-6 col-md-6">
+                            {% for gallery in gallerys %}
+                                <div class="li-blog-single-item pb-25">
+                                    <div class="li-blog-gallery-slider slick-dot-style">
+                                        <div class="li-blog-banner">
+                                            <a href="blog-details-left-sidebar.html"><img class="img-full"
+                                                                                          src="{{ gallery.blog_image.url }}"
+                                                                                          alt=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="li-blog-content">
+                                        <div class="li-blog-details">
+                                            <h3 class="li-blog-heading pt-25"><a
+                                                    href="{% url 'shop:gallery' gallery.id %}">{{ gallery.title }}</a>
+                                            </h3>
+                                            <div class="li-blog-meta">
+                                                <a class="comment" ><i class="fa fa-comment-o"></i>
+                                                    ({{ gallery.get_comment_count }})</a>
+                                                <a class="post-time" ><i
+                                                        class="fa fa-calendar"></i> {{ gallery.create_at }}</a>
+                                            </div>
+                                            <p>{{ gallery.content }}</p>
+                                            <a class="read-more" href="{% url 'shop:gallery' gallery.id %}">Read More...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            {% for audio in audios %}
+                                <div class="li-blog-single-item pb-25">
+                                    <div class="li-blog-banner embed-responsive embed-responsive-16by9">
+                                        <audio controls style="width: 100%">
+                                            <source src="{{ audios.blog_audio.url }}" type="audio/mpeg">
+                                            Sizning brauzeringiz audio fayllarni qo‘llab-quvvatlamaydi.
+                                        </audio>
+                                    </div>
+                                    <div class="li-blog-content">
+                                        <div class="li-blog-details">
+                                            <h3 class="li-blog-heading pt-25"><a
+                                                    href="{% url 'shop:audio' audio.id %}">{{ audio.title }}</a></h3>
+                                            <div class="li-blog-meta">
+                                                <a class="comment" ><i class="fa fa-comment-o">
+                                                    ({{ audio.get_comment_count }})</i> </a>
+                                                <a class="post-time" ><i
+                                                        class="fa fa-calendar"></i> {{ audio.create_at }}</a>
+                                            </div>
+                                            <p>{{ audio.content }}</p>
+                                            <a class="read-more" href="{% url 'shop:audio' audio.id %}">Read More...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            {% for video in videos %}
+                                <div class="li-blog-single-item pb-25">
+                                    <div class="li-blog-banner">
+                                        <video width="88%" controls>
+                                            <source src="{{ videos.blog_video.url }}" type="video/mp4">
+                                            Sizning brauzeringiz video formatni qo‘llab-quvvatlamaydi.
+                                        </video>
+                                    </div>
+                                    <div class="li-blog-content">
+                                        <div class="li-blog-details">
+                                            <h3 class="li-blog-heading pt-25"><a
+                                                    href="{% url 'shop:video' video.id %}">{{ video.title }}</a></h3>
+                                            <div class="li-blog-meta">
+                                                <a class="comment" ><i class="fa fa-comment-o"></i>
+                                                    ({{ video.get_comment_count }})</a>
+                                                <a class="post-time" ><i
+                                                        class="fa fa-calendar"></i>{{ video.create_at }}</a>
+                                            </div>
+                                            <p>{{ video.content }}</p>
+                                            <a class="read-more" href="{% url 'shop:video' video.id %}">Read More...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <!-- Begin Li's Pagination Area -->
+                        <div class="col-lg-12">
+                            <div class="li-paginatoin-area text-center pt-25">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <ul class="li-pagination-box">
+                                            <li><a class="Previous" href="#">Previous</a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a class="Next" href="#">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Pagination End Here Area -->
+                    </div>
+                </div>
+                <!-- Li's Main Content Area End Here -->
+            </div>
+        </div>
+    </div>
+    <!-- Li's Main Blog Page Area End Here -->
+
+{% endblock blog-left-sidebar %}
