@@ -1,4 +1,11 @@
 from products.models import Category,UserWishlist
+from products.models.add_tocart.modelsaddcart import UserCart
+
+def cart_items(request):
+    if request.user.is_authenticated:
+        user_cart, _ = UserCart.objects.get_or_create(user=request.user)
+        return {'cart_items': user_cart.cart.all(), 'cart_total': sum([p.price for p in user_cart.cart.all()])}
+    return {'cart_items': [], 'cart_total': 0}
 
 
 def categories(request):

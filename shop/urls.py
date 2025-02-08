@@ -7,9 +7,7 @@ from shop.views.add_to_cart import cart_count, remove_from_cart, add_to_cart,Car
 
 handler404 = custom_404_view
 
-
-
-from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
+from shop.views import (AboutUsTemplateView,HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
                         CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
                         SingleProductTabStyleTopTemplateView,
                         SingleProductGroupTemplateView, SingleProductAffinityTemplateView,
@@ -61,21 +59,8 @@ urlpatterns = [
     path('compare/', CompareTemplateView.as_view(), name='compare'),
     path('shop/shop-list-left-sidebar/', ShopListLeftSidebarPageTemplateView.as_view(), name='shopListLeftSidebar'),
     path('shop/shop-list-right-sidebar/', ShopListRightSidebarPageTemplateView.as_view(), name='shopListRightSidebar'),
-    path('shop/single-product-gallery-left/', SingleProductGalleryLeftTemplateView.as_view(),
-         name='single-product-gallery-left'),
-    path('shop/single-product-gallery-right/', SingleProductGalleryRightTemplateView.as_view(),
-         name='single-product-gallery-right'),
-    path('shop/single-product-carousel/', SingleProductCarouselTemplateView.as_view(), name='single-product-carousel'),
     path('single/product_sale/', SingleProductSaleTemplateView.as_view(), name='single_product_sale'),
-    path('shop/single-product/', SingleProductTemplateView.as_view(), name='single-product'),
-    path('shop/single-product-left/', SingleProductTabStyleLeftTemplateView.as_view(), name='single-product_left'),
-    path('shop/single-product-top/', SingleProductTabStyleTopTemplateView.as_view(), name='single-product_top'),
-    path('shop/single-product-right/', SingleProductTabStyleRightTemplateView.as_view(), name='single-product_right'),
-    path('shop/single-product-group/', SingleProductGroupTemplateView.as_view(), name='single_product_group'),
-    path('shop/single-product-normal/', SingleProductNormalTemplateView.as_view(), name='single_product_normal'),
-    path('shop/single-product-affiliation/', SingleProductAffinityTemplateView.as_view(),
-         name='single_product_affiliation'),
-    path('shop/single-product/detail/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
+    path('shop/product/detail/<int:pk>/', SingleProductNormalDetailView.as_view(), name='product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('about-us', AboutUsTemplateView.as_view(), name='about_us'),

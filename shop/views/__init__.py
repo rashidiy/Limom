@@ -6,39 +6,30 @@ from .blog_list import (Blog3PageView, Blog4PageView, Blog5PageView,
                         Blog9PageView, BlogAudiView, BlogGalaryView,
                         BlogListTemplateView, BlogPageTemplateView,
                         BlogVideoView)
-from .checkout import *
 from .checkout import CheckOutPageTemplateView
-from .compare import *
 from .compare import CompareTemplateView
 from .contact import ContactTemplateView
-from .error import custom_404_view
-# from .contact import ContactTemplateView
-from .homepage import *
+from .error import custom_404_view, custom_500_view
+from .contact import ContactTemplateView
 from .homepage import HomePageTemplateView
+from .login_register import LoginView, LogoutView, OPTView, edit_profile, forgot_password_view, signup_view
 
-from .login_register import *
 from .page_log_reg import AboutView, ContactView, ErrorView, FaqView
-from .search import *
-from .shop import *
+from .product import SingleProductNormalDetailView
 from .shop import (Shop3PageTemplateView, Shop4PageTemplateView,
                    ShopListLeftSidebarPageTemplateView,
                    ShopListPageTemplateView,
                    ShopListRightSidebarPageTemplateView, ShopPageTemplateView,
                    ShoppingCardTemplateView, ShopRightSidebarPageTemplateView,
-                   SingleProductAffinityTemplateView,
-                   SingleProductCarouselTemplateView,
-                   SingleProductGalleryLeftTemplateView,
-                   SingleProductGalleryRightTemplateView,
-                   SingleProductGroupTemplateView,
-                   SingleProductNormalTemplateView,
+
                    SingleProductSaleTemplateView,
-                   SingleProductTabStyleLeftTemplateView,
-                   SingleProductTabStyleRightTemplateView,
-                   SingleProductTabStyleTopTemplateView,
-                   SingleProductTemplateView)
+                   SingleProductTabStyleTopTemplateView)
+
 from .smartwatch import SmartwatchTemplateView
 from .wishlist import WishListView
 from shop.views.add_to_cart import add_to_cart,cart_count,remove_from_cart
 
 # from .search import search_products
 from shop.views.search import SearchProductsView
+from .wishlist import WishListView, remove_from_wishlist, add_wishlist
+from .search import SearchProductsView
