@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django_ckeditor_5.widgets import CKEditor5Widget
-
+from django.utils.html import format_html
 from .models import (Category, Product, ProductDimension, ProductDiscount,
                      ProductImage, ProductReview)
 
@@ -16,7 +16,7 @@ class ProductAdminForm(forms.ModelForm):
 
 class ProductImagesTabular(admin.TabularInline):
     model = ProductImage
-    extra = 1
+    extra = 6
 
 
 @admin.register(Product)
@@ -35,6 +35,13 @@ class ProductAdmin(admin.ModelAdmin):
         ('Russian', {'fields': ("title_ru", "short_description_ru", "long_description_ru")}),
     )
 
+    def display_image(self, obj):
+        first_image = obj.get_first_image()
+        if first_image:
+            return format_html(f'<img src="{first_image}" width="50" height="50" />')
+        return "No Image"
+
+    display_image.short_description = "Image"
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
