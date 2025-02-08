@@ -17,7 +17,7 @@ class Product(models.Model):
     long_description = CKEditor5Field(_('Long description'), max_length=2048)  # todo: @thenodirjon CKeditorni qo'shish
 
     def get_absolute_url(self):
-        return reverse('shop:product_detail', kwargs={'pk': self.pk})
+        return reverse('shop:shop_single_product_detail', kwargs={'pk': self.pk})
 
     def get_first_image(self):
         first_image = self.images.first()
