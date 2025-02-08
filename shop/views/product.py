@@ -1,8 +1,9 @@
-from django.shortcuts import get_object_or_404, render
+from django.views.generic import DetailView
 
 from products.models import Product
 
 
-def product_detail(request, pk):
-    product = get_object_or_404(Product, id=pk)
-    return render(request, 'shop/single-product-tab-style-top.html', {'product': product})
+class SingleProductNormalDetailView(DetailView):
+    template_name = 'shop/single-product-tab-style-top.html'
+    model = Product
+    context_object_name = 'product'

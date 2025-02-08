@@ -1,36 +1,24 @@
 from django.urls import path
-from shop.views import SearchProductsView
 
-from shop.views.error import custom_404_view
-from shop.views.product import product_detail
-
-handler404 = custom_404_view
-
-
-
-from shop.views import (HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
-                        CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
-                        SingleProductTabStyleTopTemplateView,
-                        SingleProductGroupTemplateView, SingleProductAffinityTemplateView,
-                        SingleProductNormalTemplateView,
-                        Shop3PageTemplateView, Shop4PageTemplateView, ShopRightSidebarPageTemplateView,
-                        ShopListPageTemplateView, ShopListLeftSidebarPageTemplateView,
-                        ShopListRightSidebarPageTemplateView,
-                        SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
-                        SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
-                        SingleProductTabStyleRightTemplateView, ShoppingCardTemplateView, CompareTemplateView,
-                        LogoutView, edit_profile,
-                        BlogPageTemplateView, Blog3PageView, Blog4PageView,
+from shop.views import (AboutUsTemplateView, Blog3PageView, Blog4PageView,
                         Blog5PageView, Blog6PageView, Blog7PageView,
-                        Blog8PageView, Blog9PageView, BlogListTemplateView,
-                        BlogVideoView, BlogAudiView, BlogGalaryView,
-                        AboutUsTemplateView, ContactTemplateView, AccessoriesTemplateView, SmartwatchTemplateView,
-                        FaqView, ErrorView, OPTView, LoginView,signup_view,forgot_password_view
-                        )
-from shop.views.page_log_reg import ContactView,\
-    AboutView, FaqView, ErrorView
-
-app_name = 'shop'
+                        Blog8PageView, Blog9PageView, BlogAudiView,
+                        BlogGalaryView, BlogListTemplateView,
+                        BlogPageTemplateView, BlogVideoView,
+                        CheckOutPageTemplateView, CompareTemplateView,
+                        ContactTemplateView, HomePageTemplateView, LoginView,
+                        LogoutView, OPTView, Shop3PageTemplateView,
+                        Shop4PageTemplateView,
+                        ShopListLeftSidebarPageTemplateView,
+                        ShopListPageTemplateView,
+                        ShopListRightSidebarPageTemplateView,
+                        ShopPageTemplateView, ShoppingCardTemplateView,
+                        ShopRightSidebarPageTemplateView,
+                        SingleProductNormalDetailView,
+                        SingleProductSaleTemplateView,
+                        WishListView, custom_404_view, custom_500_view, edit_profile,
+                        forgot_password_view, signup_view, SearchProductsView, AboutView, ContactView, ErrorView,
+                        FaqView, add_wishlist, remove_from_wishlist)
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
@@ -60,21 +48,8 @@ urlpatterns = [
     path('compare/', CompareTemplateView.as_view(), name='compare'),
     path('shop/shop-list-left-sidebar/', ShopListLeftSidebarPageTemplateView.as_view(), name='shopListLeftSidebar'),
     path('shop/shop-list-right-sidebar/', ShopListRightSidebarPageTemplateView.as_view(), name='shopListRightSidebar'),
-    path('shop/single-product-gallery-left/', SingleProductGalleryLeftTemplateView.as_view(),
-         name='single-product-gallery-left'),
-    path('shop/single-product-gallery-right/', SingleProductGalleryRightTemplateView.as_view(),
-         name='single-product-gallery-right'),
-    path('shop/single-product-carousel/', SingleProductCarouselTemplateView.as_view(), name='single-product-carousel'),
     path('single/product_sale/', SingleProductSaleTemplateView.as_view(), name='single_product_sale'),
-    path('shop/single-product/', SingleProductTemplateView.as_view(), name='single-product'),
-    path('shop/single-product-left/', SingleProductTabStyleLeftTemplateView.as_view(), name='single-product_left'),
-    path('shop/single-product-top/', SingleProductTabStyleTopTemplateView.as_view(), name='single-product_top'),
-    path('shop/single-product-right/', SingleProductTabStyleRightTemplateView.as_view(), name='single-product_right'),
-    path('shop/single-product-group/', SingleProductGroupTemplateView.as_view(), name='single_product_group'),
-    path('shop/single-product-normal/', SingleProductNormalTemplateView.as_view(), name='single_product_normal'),
-    path('shop/single-product-affiliation/', SingleProductAffinityTemplateView.as_view(),
-         name='single_product_affiliation'),
-    path('shop/single-product/detail/', SingleProductNormalTemplateView.as_view(), name='shop_single_product_detail'),
+    path('shop/product/detail/<int:pk>/', SingleProductNormalDetailView.as_view(), name='product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('about-us', AboutUsTemplateView.as_view(), name='about_us'),
@@ -88,7 +63,6 @@ urlpatterns = [
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
     path('search/', SearchProductsView.as_view(), name='search'),
-    path('product/<int:pk>/', product_detail, name='product_detail'),
     path('forgot-password/', forgot_password_view, name='forgot_password'),
     path('otp/', OPTView, name='otp'),
 
