@@ -16,15 +16,9 @@ from shop.views import (AboutUsTemplateView, Blog3PageView, Blog4PageView,
                         ShopRightSidebarPageTemplateView,
                         SingleProductNormalDetailView,
                         SingleProductSaleTemplateView,
-                        WishListView, edit_profile,
-                        forgot_password_view, signup_view)
-from shop.views.error import custom_404_view, custom_500_view
-from shop.views.page_log_reg import AboutView, ContactView, ErrorView, FaqView
-from shop.views.product import product_detail
-from shop.views.search import search_products
-from shop.views.wishlist import add_wishlist, remove_from_wishlist
-
-app_name = 'shop'
+                        WishListView, custom_404_view, custom_500_view, edit_profile,
+                        forgot_password_view, signup_view, SearchProductsView, AboutView, ContactView, ErrorView,
+                        FaqView, add_wishlist, remove_from_wishlist)
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),
@@ -69,7 +63,6 @@ urlpatterns = [
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
     path('myprofile/', edit_profile, name='myprofile'),
     path('search/', SearchProductsView.as_view(), name='search'),
-    path('product/<int:pk>/', product_detail, name='product_detail'),
     path('forgot-password/', forgot_password_view, name='forgot_password'),
     path('otp/', OPTView, name='otp'),
 

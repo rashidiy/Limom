@@ -9,21 +9,22 @@ from .blog_list import (Blog3PageView, Blog4PageView, Blog5PageView,
 from .checkout import CheckOutPageTemplateView
 from .compare import CompareTemplateView
 from .contact import ContactTemplateView
-from .error import custom_404_view
+from .error import custom_404_view, custom_500_view
 from .contact import ContactTemplateView
 from .homepage import HomePageTemplateView
+from .login_register import LoginView, LogoutView, OPTView, edit_profile, forgot_password_view, signup_view
 
-from .login_register import *
 from .page_log_reg import AboutView, ContactView, ErrorView, FaqView
+from .product import SingleProductNormalDetailView
 from .shop import (Shop3PageTemplateView, Shop4PageTemplateView,
                    ShopListLeftSidebarPageTemplateView,
                    ShopListPageTemplateView,
                    ShopListRightSidebarPageTemplateView, ShopPageTemplateView,
                    ShoppingCardTemplateView, ShopRightSidebarPageTemplateView,
-                   SingleProductNormalDetailView,
+
                    SingleProductSaleTemplateView,
                    SingleProductTabStyleTopTemplateView)
 
 from .smartwatch import SmartwatchTemplateView
-
-from shop.views.search import SearchProductsView
+from .wishlist import WishListView, remove_from_wishlist, add_wishlist
+from .search import SearchProductsView
