@@ -1,24 +1,27 @@
 from django.urls import path
 
-from shop.views import (AboutUsTemplateView, Blog3PageView, Blog4PageView,
-                        Blog5PageView, Blog6PageView, Blog7PageView,
-                        Blog8PageView, Blog9PageView, BlogAudiView,
-                        BlogGalaryView, BlogListTemplateView,
-                        BlogPageTemplateView, BlogVideoView,
-                        CheckOutPageTemplateView, CompareTemplateView,
-                        ContactTemplateView, HomePageTemplateView, LoginView,
-                        LogoutView, OPTView, Shop3PageTemplateView,
-                        Shop4PageTemplateView,
-                        ShopListLeftSidebarPageTemplateView,
-                        ShopListPageTemplateView,
+from shop.views import (AboutUsTemplateView,HomePageTemplateView, ShopPageTemplateView, SingleProductTemplateView, WishListView,
+                        CheckOutPageTemplateView, SingleProductTabStyleLeftTemplateView,
+                        SingleProductTabStyleTopTemplateView,
+                        SingleProductGroupTemplateView, SingleProductAffinityTemplateView,
+                        SingleProductNormalTemplateView,
+                        Shop3PageTemplateView, Shop4PageTemplateView, ShopRightSidebarPageTemplateView,
+                        ShopListPageTemplateView, ShopListLeftSidebarPageTemplateView,
                         ShopListRightSidebarPageTemplateView,
-                        ShopPageTemplateView, ShoppingCardTemplateView,
-                        ShopRightSidebarPageTemplateView,
-                        SingleProductNormalDetailView,
-                        SingleProductSaleTemplateView,
-                        WishListView, custom_404_view, custom_500_view, edit_profile,
-                        forgot_password_view, signup_view, SearchProductsView, AboutView, ContactView, ErrorView,
-                        FaqView, add_wishlist, remove_from_wishlist)
+                        SingleProductGalleryLeftTemplateView, SingleProductCarouselTemplateView,
+                        SingleProductGalleryRightTemplateView, SingleProductSaleTemplateView,
+                        SingleProductTabStyleRightTemplateView, ShoppingCardTemplateView, CompareTemplateView,
+                        LogoutView, edit_profile,
+                        BlogPageTemplateView, Blog3PageView, Blog4PageView,
+                        Blog5PageView, Blog6PageView, Blog7PageView,
+                        Blog8PageView, Blog9PageView, BlogListTemplateView,
+                        BlogVideoView, BlogAudiView, BlogGalaryView,
+                        OPTView, LoginView, signup_view, forgot_password_view, AboutUsTemplateView,
+                        ContactTemplateView, HomePageTemplateView,)
+from shop.views.page_log_reg import ContactView, \
+    AboutView, FaqView, ErrorView
+
+app_name = 'shop'
 
 urlpatterns = [
     path('', HomePageTemplateView.as_view(), name='home'),

@@ -11,6 +11,7 @@ class Product(models.Model):
     quantity = models.IntegerField(_('Quantity  '), validators=[MinValueValidator(0)])
     category = models.ForeignKey('products.Category', on_delete=models.CASCADE, related_name='products')
     seller = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='products')
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     short_description = models.CharField(_('Short description'), max_length=2048)
     long_description = CKEditor5Field(_('Long description'), max_length=2048)  # todo: @thenodirjon CKeditorni qo'shish
