@@ -39,11 +39,29 @@
                                 </div>
                                 <div class="add-actions">
                                     <ul class="add-actions-link">
-                                        <li class="add-cart active"><a href="shopping-cart.html">Add to cart</a></li>
+<li class="add-cart active" >
+    <a href="#" class="add-to-cart" data-product-id="{{ product.id }}  " onclick="setTimeout(() => { window.location.reload(); }, 500);">
+        Add to cart
+    </a>
+</li>
                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal"
                                                data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                        <li><a class="links-details" href="{% url 'shop:wishlist' %}"><i
-                                                class="fa fa-heart-o"></i></a></li>
+
+                            <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+</form>
+
+<li class="wishlist">
+    <a href="#" class="add-wishlist" data-product-id="{{ product.id }}">
+        {% if request.user.is_authenticated and product in request.user.userwishlist.wishlist.all %}
+            <i class="fa fa-heart in-wishlist"></i>
+        {% else %}
+            <i class="fa fa-heart-o"></i>
+        {% endif %}
+    </a>
+</li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -97,9 +115,28 @@
                         <div class="col-lg-4">
                             <div class="shop-add-action mb-xs-30">
                                 <ul class="add-actions-link">
-                                    <li class="add-cart"><a href="#">Add to cart</a></li>
-                                    <li class="wishlist"><a href="{% url 'shop:wishlist' %}"><i
-                                            class="fa fa-heart-o"></i>Add to wishlist</a></li>
+                                  <li class="add-cart active" >
+    <a href="#" class="add-to-cart" data-product-id="{{ product.id }}  " onclick="setTimeout(() => { window.location.reload(); }, 500);">
+        Add to cart
+    </a>
+</li>
+
+                         <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+</form>
+
+<li class="wishlist">
+    <a href="#" class="add-wishlist" data-product-id="{{ product.id }}">
+        {% if request.user.is_authenticated and product in request.user.userwishlist.wishlist.all %}
+            <i class="fa fa-heart in-wishlist"></i>
+        {% else %}
+            <i class="fa fa-heart-o"></i>
+        {% endif %}
+        Add to wishlist
+    </a>
+</li>
+
                                     <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter"
                                            href="#"><i class="fa fa-eye"></i>Quick view</a></li>
                                 </ul>
@@ -147,3 +184,5 @@
         </div>
     </div>
 </div>
+
+
