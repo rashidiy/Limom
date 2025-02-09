@@ -1,7 +1,6 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models
-from django.contrib.auth.models import User
-from django.utils import timezone
-from .validator import validate_archive_time
+from .validator import  video_time
 
 
 class Category(models.Model):
@@ -17,10 +16,10 @@ class Category(models.Model):
 class BlogVideo(models.Model):
     title = models.CharField(max_length=50)
     content=models.TextField()
-    blog_video=models.FileField(upload_to='image/blog_post/blog_video')
+    blog_video=models.FileField(upload_to='image/blog_post/blog_video',validators=[video_time])
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    archived_at = models.DateTimeField(null=True, blank=True,validators=[validate_archive_time])
+    archived_at = models.DateTimeField(null=True, blank=True,)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -43,12 +42,6 @@ class BlogGallery(models.Model):
 
     def __str__(self):
         return self.title
-
-    def is_archived(self):
-        """Post 2 soniyadan keyin avtomatik arxivlangan bo‘lishi kerak"""
-        if self.archived_at:
-            return True  # Agar arxivlangan bo'lsa
-        return now() >= self.created_at + timedelta(seconds=2)
 
     def get_comment_count(self):
         """Galleryga nechta komment yozilganini qaytaradi"""

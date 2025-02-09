@@ -21,8 +21,8 @@
                     <div class="li-blog-sidebar-wrapper">
                         <div class="li-blog-sidebar">
                             <div class="li-sidebar-search-form">
-                                <form action="#">
-                                    <input type="text" class="li-search-field" placeholder="search here">
+                                <form method="get" action="{% url 'shop:blog' %}">
+                                    <input type="search" class="li-search-field" placeholder="search here"  name="search">
                                     <button type="submit" class="li-search-btn"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
@@ -52,7 +52,7 @@
                                 <div class="li-recent-post pb-30">
                                     <div class="li-recent-post-thumb">
                                         <a href="blog-details.html">
-                                            <img class="img-full" src="{% static 'images/product/small-size/5.jpg' %}"
+                                            <img class="img-full" src="{% static 'Screenshot 2025-02-08 205708.png' %}"
                                                  alt="Li's Product Image">
                                         </a>
                                     </div>
@@ -93,14 +93,12 @@
                                     <div class="li-blog-details">
                                         <h3 class="li-blog-heading pt-35"><a>{{ audios.title }}</a></h3>
                                         <div class="li-blog-meta">
-                                            {% for comment in blog_audio_formats.comment.all %}
-                                                <a class="author"><i
-                                                        class="fa fa-user"></i>{{ comment.user.get_full_name }}</a>
-                                                <a class="comment"><i class="fa fa-comment-o"></i>comments
-                                                    ({{ comment.blog_audio.count }})</a>
-                                                <a class="post-time"><i
-                                                        class="fa fa-calendar"></i> {{ audios.create_at }}</a>
-                                            {% endfor %}
+                                            <a class="author"><i
+                                                    class="fa fa-user"></i></a>
+                                            <a class="comment"><i class="fa fa-comment-o"></i>
+                                                ({{ audios.get_comment_count  }})</a>
+                                            <a class="post-time"><i
+                                                    class="fa fa-calendar"></i> {{ audios.create_at }}</a>
                                         </div>
                                         <p>{{ audios.content }}</p>
                                         <div class="li-blog-blockquote">

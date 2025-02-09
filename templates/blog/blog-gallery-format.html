@@ -21,10 +21,10 @@
                             <div class="li-blog-sidebar-wrapper">
                                 <div class="li-blog-sidebar">
                                     <div class="li-sidebar-search-form">
-                                        <form action="#">
-                                            <input type="text" class="li-search-field" placeholder="search here">
-                                            <button type="submit" class="li-search-btn"><i class="fa fa-search"></i></button>
-                                        </form>
+                                        <form method="get" action="{% url 'shop:blog' %}">
+                                        <input type="search" class="li-search-field" placeholder="search here"  name="search">
+                                        <button type="submit" class="li-search-btn"><i class="fa fa-search"></i></button>
+                                    </form>
                                     </div>
                                 </div>
                                 <div class="li-blog-sidebar pt-25">
@@ -52,7 +52,7 @@
                                         <div class="li-recent-post pb-30">
                                             <div class="li-recent-post-thumb">
                                                 <a href="blog-details.html">
-                                                    <img class="img-full" src="{{ gallery.blog_image.url }}" alt="Li's Product Image">
+                                                    <img class="img-full"  src="{{ gallery.blog_image.url }}" alt="Li's Product Image">
                                                 </a>
                                             </div>
                                             <div class="li-recent-post-des">
@@ -116,7 +116,6 @@
                                     <!-- Begin Li's Blog Comment Section -->
                                     <div class="li-comment-section">
                                         {% for data in comments %}
-                                            <h3> </h3>
                                             <ul>
                                                 <li>
                                                     <div class="author-avatar pt-15">

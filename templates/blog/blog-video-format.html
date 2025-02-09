@@ -21,8 +21,8 @@
                     <div class="li-blog-sidebar-wrapper">
                         <div class="li-blog-sidebar">
                             <div class="li-sidebar-search-form">
-                                <form action="#">
-                                    <input type="text" class="li-search-field" placeholder="search here">
+                                <form method="get" action="{% url 'shop:blog' %}">
+                                    <input type="search" class="li-search-field" placeholder="search here"  name="search">
                                     <button type="submit" class="li-search-btn"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
@@ -52,7 +52,7 @@
                                 <div class="li-recent-post pb-30">
                                     <div class="li-recent-post-thumb">
                                         <a href="blog-details.html">
-                                            <img class="img-full" src="" alt="Li's Product Image">
+                                            <img class="img-full" src="{% static 'download (20).jpg' %}" alt="Li's Product Image">
                                         </a>
                                     </div>
                                     <div class="li-recent-post-des">
@@ -139,6 +139,7 @@
                             <div class="li-blog-comment-wrapper">
                                 <!--                                        <h3>leave a reply</h3>-->
                                 <!--                                        <p>Your email address will not be published. Required fields are marked *</p>-->
+
                                 <form method="post" action="">
                                     {% csrf_token %}
                                     <div class="comment-post-box">
