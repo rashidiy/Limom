@@ -1,5 +1,4 @@
 import random
-
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
@@ -9,7 +8,7 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.views import View
-
+from django.contrib import messages
 from shop.forms import RegistrationForm, UserChangeForm
 
 
@@ -112,14 +111,7 @@ class OTPView(View):
         return render(request, 'login-register/otp.html', {'error': 'Invalid verification code'})
 
 
-import random
-from django.conf import settings
-from django.contrib import messages
-from django.contrib.auth import login
-from django.contrib.auth.models import User
-from django.core.mail import send_mail
-from django.shortcuts import redirect, render
-from django.views import View
+
 
 class ForgotPasswordView(View):
     def get(self, request):
