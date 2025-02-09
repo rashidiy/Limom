@@ -62,9 +62,13 @@ def remove_from_cart(request):
         if user_cart.cart.filter(id=product.id).exists():
             user_cart.cart.remove(product)
 
-        return JsonResponse({"cart_count": user_cart.cart.count()})
+        return JsonResponse({
+            "cart_count": user_cart.cart.count(),
+            "removed_product_id": product_id  # 🆕 JavaScriptga mahsulot ID'sini yuboramiz
+        })
 
     return JsonResponse({"error": "Invalid request"}, status=400)
+
 
 
 def cart_count(request):

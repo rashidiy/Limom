@@ -151,7 +151,7 @@
                                 {% endfor %}
                             </select>
                               <input type="text" name="q" placeholder="{% trans 'Enter your search key ...' %}">
-        <button class="li-btn" type="submit"><i class="f"></i></button>
+        <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
                         </form>
                         <!-- Header Middle Searchbox Area End Here -->
                         <!-- Begin Header Middle Right Area -->
@@ -864,7 +864,48 @@
         });
     });
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".remove-from-cart").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();  // ❌ Sahifani qayta yuklanishidan saqlaydi
+
+            let productId = this.getAttribute("data-product-id");
+            let row = this.closest(".cart-item");  // ✅ Mahsulot qatorini olish
+
+            fetch("{% url 'shop:remove_from_cart' %}", {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}",
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: `product_id=${productId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Server response:", data);  // ✅ Serverdan javobni tekshirish
+
+                if (data.cart_count !== undefined) {
+                    document.getElementById("cart-count").innerText = data.cart_count;  // 🛒 Savatcha sonini yangilash
+                }
+
+                if (row) {
+                    row.remove();  // ✅ O‘sha qatorni sahifadan o‘chirish
+                    console.log(`Removed product ID: ${productId}`);
+                } else {
+                    console.error("Product row not found for ID:", productId);
+                }
+            })
+            .catch(error => console.error("AJAX Error:", error));
+        });
+    });
+});
+
+</script>
+
 </body>
+
 
 <!-- index30:23-->
 </html>
