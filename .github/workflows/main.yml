@@ -17,10 +17,10 @@ jobs:
         run: |
           sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << EOF
             cd ${{ secrets.PROJECT_PATH }}
-            git pull origin main
+            git restore .
+            git pull origin master
             source ${{ secrets.VENV_PATH }}/bin/activate
             pip install -r requirements.txt
             make mig
             systemctl restart ${{ secrets.SERVICE_NAME }} || pm2 restart all || echo "No service manager found"
-            
           EOF
