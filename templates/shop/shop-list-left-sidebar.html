@@ -76,7 +76,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -122,7 +122,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -168,7 +168,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -214,7 +214,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -260,7 +260,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -281,10 +281,10 @@
                                                                 <ul class="add-actions-link">
                                                                     <li class="add-cart active"><a href="shopping-cart.html">Add to cart</a></li>
                                                                     <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                                    <li class="wishlist">
-    <a href="#" class="add-wishlist" data-product-id="{{ product.id }}">
-        <i class="fa fa-heart-o"></i>
-    </a>
+<li class="wishlist">
+    <button type="button" class="wishlist-button" data-product-id="{{ product.id }}">
+        <i class="fa {% if product in request.user.userwishlist.wishlist.all %}fa-heart in-wishlist{% else %}fa-heart-o{% endif %}"></i>
+    </button>
 </li>
 
                                                                 </ul>
@@ -306,7 +306,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -352,7 +352,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -398,7 +398,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -444,7 +444,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -490,7 +490,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -536,7 +536,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -582,7 +582,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -635,7 +635,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -684,7 +684,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -733,7 +733,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -782,7 +782,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -831,7 +831,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -880,7 +880,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -929,7 +929,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -978,7 +978,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -1027,7 +1027,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -1076,7 +1076,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -1125,7 +1125,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">
@@ -1174,7 +1174,7 @@
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="{% url 'shop:single_product_normal' %}">Graphic Corner</a>
+                                                                        <a href="{%url 'shop:product_detail' 1 %}">Graphic Corner</a>
                                                                     </h5>
                                                                     <div class="rating-box">
                                                                         <ul class="rating">

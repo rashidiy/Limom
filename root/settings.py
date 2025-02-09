@@ -107,7 +107,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'products.context_processors.categories',
                 'products.context_processors.wishlist_count',  # To'g'ri modul yo'li
-
+                'products.context_processors.cart_items',  # To'g'ri modul yo'li
             ],
         },
     },
