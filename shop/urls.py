@@ -1,5 +1,5 @@
 from django.urls import path
-from shop.views import SearchProductsView
+from shop.views import SearchProductsView, OrderSuccessTemplateView
 from shop.views.wishlist import WishListView,RemoveFromWishlistView,AddToWishlistView
 from shop.views.error import custom_404_view,custom_500_view
 from shop.views.product import SingleProductNormalDetailView
@@ -60,6 +60,7 @@ urlpatterns = [
     path('shop/product/detail/<int:pk>/', SingleProductNormalDetailView.as_view(), name='shop_single_product_detail'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
     path('checkout/', CheckOutPageTemplateView.as_view(), name='checkout'),
+    path('order_success/', OrderSuccessTemplateView.as_view(), name='order_success'),
     path('about-us', AboutUsTemplateView.as_view(), name='about_us'),
     path('about-us', ContactTemplateView.as_view(), name='contact'),
     path('wishlist/', WishListView.as_view(), name='wishlist'),
