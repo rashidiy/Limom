@@ -9,7 +9,6 @@ from products.models import Product, Category, ProductDimension
 class ShopPageTemplateView(ListView):
     model = Product
     context_object_name = 'products'
-    paginate_by = 12
     template_name = 'shop/shop-left-sidebar.html'
 
     # filter
