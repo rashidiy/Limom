@@ -21,8 +21,6 @@ class SearchProductsView(ListView):
         if query:
             products = products.filter(
                 Q(title__icontains=query) |
-                Q(short_description__icontains=query) |
-                Q(long_description__icontains=query) |
                 Q(category__name__icontains=query)
             )
 
