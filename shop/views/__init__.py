@@ -6,7 +6,7 @@ from .blog_list import (Blog3PageView, Blog4PageView, Blog5PageView,
                         Blog9PageView, BlogAudiView, BlogGalaryView,
                         BlogListTemplateView, BlogPageTemplateView,
                         BlogVideoView)
-from .checkout import CheckOutPageTemplateView
+from .checkout import CheckOutPageTemplateView, OrderSuccessTemplateView
 from .compare import CompareTemplateView
 from .contact import ContactTemplateView
 from .error import custom_404_view, custom_500_view
