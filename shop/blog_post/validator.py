@@ -1,7 +1,6 @@
 import os
 import tempfile
 from django.core.exceptions import ValidationError
-from moviepy import VideoFileClip
 
 
 def video_time(value):
@@ -10,11 +9,12 @@ def video_time(value):
             temp_file.write(chunk)
         temp_file_path = temp_file.name
     try:
-        clip = VideoFileClip(temp_file_path)
-        if clip.duration > 20:  # Agar video 20 soniyadan uzun bo'lsa
-            raise ValidationError("Video uzunligi 20 soniyadan oshmasligi kerak!")
+        size = os.path.getsize(temp_file_path)
+        print(size)
+        # if clip.duration > 20:  # Agar video 20 soniyadan uzun bo'lsa
+        #     raise ValidationError("Video uzunligi 20 soniyadan oshmasligi kerak!")
     except Exception:
         raise ValidationError("Video faylini tekshirib bo‘lmadi!")
     finally:
-        clip.close()  # Resursni tozalash
         os.remove(temp_file_path)  # Faylni o‘chirish
+    return value
